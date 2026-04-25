@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,35 +10,45 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 38 40% 96%;
+    --foreground: 25 26% 12%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 38 45% 98%;
+    --card-foreground: 25 26% 12%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 28 61% 34%;
+    --primary-foreground: 38 45% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 42 42% 88%;
+    --secondary-foreground: 25 26% 12%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 37 28% 88%;
+    --muted-foreground: 27 14% 39%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 43 71% 56%;
+    --accent-foreground: 25 26% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 34 24% 80%;
+    --input: 34 24% 80%;
+    --ring: 43 71% 56%;
 
-    --radius: 0.5rem;
+    --hero-foreground: 38 45% 98%;
+    --brand-deep: 281 38% 22%;
+    --brand-wine: 330 40% 24%;
+    --gold: 43 71% 56%;
+    --surface-warm: 37 48% 92%;
+    --gradient-hero: linear-gradient(118deg, hsl(281 38% 18% / .86), hsl(330 40% 24% / .58), hsl(28 61% 34% / .38));
+    --gradient-gold: linear-gradient(135deg, hsl(43 81% 62%), hsl(29 58% 42%));
+    --shadow-luxe: 0 24px 70px -28px hsl(28 61% 24% / .45);
+    --shadow-soft: 0 18px 55px -35px hsl(25 26% 12% / .35);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +112,23 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: theme('fontFamily.body');
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: theme('fontFamily.display');
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .spotlight-mask {
+    background: radial-gradient(circle at var(--x, 55%) var(--y, 35%), hsl(var(--gold) / .26), transparent 24rem);
   }
 }
