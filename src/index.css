@@ -131,4 +131,12 @@ All colors MUST be HSL.
   .spotlight-mask {
     background: radial-gradient(circle at var(--x, 55%) var(--y, 35%), hsl(var(--gold) / .26), transparent 24rem);
   }
+
+  .history-grid {
+    background-image:
+      radial-gradient(circle at 20% 20%, hsl(var(--gold) / .22), transparent 28rem),
+      linear-gradient(90deg, hsl(var(--hero-foreground) / .05) 1px, transparent 1px),
+      linear-gradient(180deg, hsl(var(--hero-foreground) / .05) 1px, transparent 1px);
+    background-size: auto, 96px 96px, 96px 96px;
+  }
 }
