@@ -221,7 +221,7 @@ const About = () => {
       </section>
 
       <section className="relative overflow-clip bg-brand-deep py-20 text-hero-foreground">
-        <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(circle_at_20%_20%,hsl(var(--gold)/.22),transparent_28rem),linear-gradient(90deg,hsl(var(--hero-foreground)/.05)_1px,transparent_1px),linear-gradient(180deg,hsl(var(--hero-foreground)/.05)_1px,transparent_1px)] [background-size:auto,96px_96px,96px_96px]" />
+        <div className="history-grid absolute inset-0 opacity-40" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
