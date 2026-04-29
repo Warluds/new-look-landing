@@ -232,6 +232,16 @@ const About = () => {
             </div>
           </div>
 
+          <nav className="sticky top-0 z-20 -mx-6 mt-10 overflow-x-auto border-y border-hero-foreground/12 bg-brand-deep/92 px-6 py-4 backdrop-blur-xl lg:-mx-8 lg:px-8" aria-label="Навигация по годам истории ABIS Group">
+            <div className="flex min-w-max gap-2">
+              {history.map((item) => (
+                <a key={item.year} href={`#year-${item.year}`} className="rounded-full border border-hero-foreground/14 bg-hero-foreground/8 px-4 py-2 text-sm font-extrabold transition hover:border-brand-gold hover:bg-brand-gold hover:text-accent-foreground">
+                  {item.year}
+                </a>
+              ))}
+            </div>
+          </nav>
+
           <div className="mt-12 space-y-6">
             {history.map((item, index) => {
               const photos = getYearPhotos(item.year);
