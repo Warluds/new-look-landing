@@ -220,8 +220,9 @@ const About = () => {
         </div>
       </section>
 
-      <section className="bg-brand-deep py-20 text-hero-foreground">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="relative overflow-clip bg-brand-deep py-20 text-hero-foreground">
+        <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(circle_at_20%_20%,hsl(var(--gold)/.22),transparent_28rem),linear-gradient(90deg,hsl(var(--hero-foreground)/.05)_1px,transparent_1px),linear-gradient(180deg,hsl(var(--hero-foreground)/.05)_1px,transparent_1px)] [background-size:auto,96px_96px,96px_96px]" />
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
               <p className="text-sm font-extrabold uppercase tracking-[0.24em] text-brand-gold">подробная история</p>
@@ -258,17 +259,17 @@ const About = () => {
                   </div>
                   <div className="relative p-6 md:p-9">
                     <div className="absolute right-6 top-6 hidden h-16 w-16 rounded-full border border-brand-gold/30 bg-hero-foreground/8 transition-transform duration-500 group-hover:rotate-12 md:block" />
-                  <p className="font-display text-6xl font-extrabold text-brand-gold">{item.year}</p>
-                  <h3 className="mt-3 text-2xl font-extrabold md:text-3xl">{item.title}</h3>
-                  <p className="mt-5 leading-8 text-hero-foreground/78">{item.text}</p>
-                  <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                    {item.metrics.map((metric) => (
-                      <div key={metric} className="flex items-center gap-3 rounded-xl border border-hero-foreground/12 bg-hero-foreground/8 px-4 py-3">
-                        <CheckCircle2 className="h-5 w-5 flex-none text-brand-gold" />
-                        <span className="font-bold">{metric}</span>
-                      </div>
-                    ))}
-                  </div>
+                    <p className="font-display text-6xl font-extrabold text-brand-gold md:text-7xl">{item.year}</p>
+                    <h3 className="mt-3 text-2xl font-extrabold md:text-3xl">{item.title}</h3>
+                    <p className="mt-5 leading-8 text-hero-foreground/78">{item.text}</p>
+                    <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                      {item.metrics.map((metric) => (
+                        <div key={metric} className="flex items-center gap-3 rounded-xl border border-hero-foreground/12 bg-hero-foreground/8 px-4 py-3 transition-colors group-hover:border-brand-gold/25">
+                          <CheckCircle2 className="h-5 w-5 flex-none text-brand-gold" />
+                          <span className="font-bold">{metric}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </article>
               );
