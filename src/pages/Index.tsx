@@ -1,5 +1,8 @@
 import { ArrowRight, Award, Building2, CheckCircle2, Lightbulb, Paintbrush, Phone } from "lucide-react";
 import heroImage from "@/assets/abis-showroom-hero.jpg";
+import history2010 from "@/assets/about/abis-history-2010.png";
+import history2023 from "@/assets/about/abis-history-2023.jpg";
+import history2024 from "@/assets/about/abis-history-2024.jpg";
 
 const brands = ["PRO DECOR", "svet.kz", "Центр красок №1", "ULTRA PREMIUM", "ABIS Import", "impulse media"];
 const partners = ["Kazakhmys", "RAMS Kazakhstan", "Halyk Bank", "Meloman", "Dastarkhan", "Nomad"];
@@ -23,9 +26,60 @@ const directions = [
 ];
 
 const stats = [
-  ["2", "ключевых направления"],
-  ["6+", "брендов в группе"],
-  ["5.0", "оценка клиентов"],
+  ["15 лет", "присутствия на рынке"],
+  ["500+", "партнеров"],
+  ["2 365 м²", "торговая площадь"],
+];
+
+const history = [
+  {
+    year: "2010",
+    title: "Первый фирменный магазин EGLO",
+    text: "ABIS стартовала в Алматы с 35 м² в ТК «ARMADA», двух сотрудников и дилерства австрийского света EGLO.",
+    image: history2010,
+    metric: "128 м² торговой площади",
+  },
+  {
+    year: "2015",
+    title: "Свет и краски в одной экосистеме",
+    text: "Запущен шоу-рум EGLO и новое направление лакокрасочных материалов AkzoNobel: Dulux, Marshall, Pinotex и Hammerite.",
+    image: history2010,
+    metric: "825 м² торговой площади",
+  },
+  {
+    year: "2021",
+    title: "SVET.KZ и новый этап брендов",
+    text: "Компания запустила интернет-магазин SVET.KZ, провела ребрендинг салонов света и переименовала направление красок в «Центр Красок #1».",
+    image: history2023,
+    metric: "95 человек в команде",
+  },
+  {
+    year: "2023",
+    title: "Шоурумы премиальных покрытий",
+    text: "В Центре Красок #1 открылись шоурумы OIKOS, MAITRE DECO и ORAC DECOR, а команда прошла обучение «Высшая лига продаж».",
+    image: history2023,
+    metric: "2 000 м² торговой площади",
+  },
+  {
+    year: "2024",
+    title: "Астана, новые салоны и Лаборатория света",
+    text: "Открыт новый Центр Красок #1 в Астане, салоны DISCOUNT и CLASSIC, а также Лаборатория света для наглядной демонстрации решений.",
+    image: history2024,
+    metric: "192 человека в команде",
+  },
+  {
+    year: "2025",
+    title: "Рост через выставки и партнерства",
+    text: "ABIS представила тренды освещения на HomeDeco Kazakhstan, KDD и Слёте Homestagers, усилив сотрудничество с дизайнерами, HoReCa и девелоперами.",
+    image: history2024,
+    metric: "2 365 м² торговой площади",
+  },
+];
+
+const shopPhotos = [
+  { src: history2010, alt: "Первый магазин освещения EGLO в ТК ARMADA" },
+  { src: history2023, alt: "Шоурум декоративных покрытий Центр Красок номер один" },
+  { src: history2024, alt: "Новый салон Центр Красок номер один в Астане" },
 ];
 
 const Index = () => {
@@ -53,6 +107,7 @@ const Index = () => {
             </div>
           </a>
           <nav className="hidden items-center gap-5 rounded-full border border-hero-foreground/18 bg-hero-foreground/10 px-5 py-3 text-sm font-semibold backdrop-blur-md md:flex">
+            <a className="transition-colors hover:text-brand-gold" href="#about">О нас</a>
             <a className="transition-colors hover:text-brand-gold" href="#directions">Направления</a>
             <a className="transition-colors hover:text-brand-gold" href="#partners">Партнеры</a>
             <a className="transition-colors hover:text-brand-gold" href="#contacts">Контакты</a>
@@ -90,6 +145,40 @@ const Index = () => {
               <p className="mt-2 font-semibold text-muted-foreground">{label}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section id="about" className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+          <div className="lg:sticky lg:top-8">
+            <p className="text-sm font-extrabold uppercase tracking-[0.24em] text-primary">о нас</p>
+            <h2 className="mt-4 text-balance font-display text-4xl font-extrabold md:text-6xl">История ABIS Group по годам.</h2>
+            <p className="mt-6 leading-8 text-muted-foreground">
+              С 2010 года компания выросла из первого фирменного магазина света в Алматы в группу брендов с розничными салонами, импортом, учебным центром и интернет-коммерцией.
+            </p>
+            <div className="mt-8 grid grid-cols-3 gap-3">
+              {shopPhotos.map((photo) => (
+                <img key={photo.alt} src={photo.src} alt={photo.alt} className="h-28 w-full rounded-2xl object-cover shadow-soft" loading="lazy" />
+              ))}
+            </div>
+          </div>
+
+          <div className="relative space-y-5 before:absolute before:left-5 before:top-2 before:h-[calc(100%-1rem)] before:w-px before:bg-border md:before:left-8">
+            {history.map((item) => (
+              <article key={item.year} className="relative grid gap-5 pl-14 md:grid-cols-[0.8fr_1fr] md:pl-20">
+                <div className="absolute left-0 top-1 grid h-10 w-10 place-items-center rounded-full bg-gold-gradient font-extrabold text-accent-foreground shadow-soft md:h-16 md:w-16">
+                  {item.year.slice(2)}
+                </div>
+                <div className="rounded-2xl border border-border bg-card p-6 shadow-soft">
+                  <p className="font-display text-4xl font-extrabold text-primary">{item.year}</p>
+                  <h3 className="mt-3 text-2xl font-extrabold">{item.title}</h3>
+                  <p className="mt-4 leading-7 text-muted-foreground">{item.text}</p>
+                  <p className="mt-5 inline-flex rounded-full bg-secondary px-4 py-2 text-sm font-extrabold text-secondary-foreground">{item.metric}</p>
+                </div>
+                <img src={item.image} alt={`${item.title} — фото магазина ABIS Group`} className="min-h-64 w-full rounded-2xl object-cover shadow-luxe md:h-full" loading="lazy" />
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
