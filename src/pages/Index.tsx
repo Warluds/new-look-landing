@@ -1,8 +1,5 @@
 import { ArrowRight, Award, Building2, CheckCircle2, Lightbulb, Paintbrush, Phone } from "lucide-react";
 import heroImage from "@/assets/abis-showroom-hero.jpg";
-import history2010 from "@/assets/about/abis-history-2010.png";
-import history2023 from "@/assets/about/abis-history-2023.jpg";
-import history2024 from "@/assets/about/abis-history-2024.jpg";
 
 const brands = ["PRO DECOR", "svet.kz", "Центр красок №1", "ULTRA PREMIUM", "ABIS Import", "impulse media"];
 const partners = ["Kazakhmys", "RAMS Kazakhstan", "Halyk Bank", "Meloman", "Dastarkhan", "Nomad"];
@@ -29,57 +26,6 @@ const stats = [
   ["15 лет", "присутствия на рынке"],
   ["500+", "партнеров"],
   ["2 365 м²", "торговая площадь"],
-];
-
-const history = [
-  {
-    year: "2010",
-    title: "Первый фирменный магазин EGLO",
-    text: "ABIS стартовала в Алматы с 35 м² в ТК «ARMADA», двух сотрудников и дилерства австрийского света EGLO.",
-    image: history2010,
-    metric: "128 м² торговой площади",
-  },
-  {
-    year: "2015",
-    title: "Свет и краски в одной экосистеме",
-    text: "Запущен шоу-рум EGLO и новое направление лакокрасочных материалов AkzoNobel: Dulux, Marshall, Pinotex и Hammerite.",
-    image: history2010,
-    metric: "825 м² торговой площади",
-  },
-  {
-    year: "2021",
-    title: "SVET.KZ и новый этап брендов",
-    text: "Компания запустила интернет-магазин SVET.KZ, провела ребрендинг салонов света и переименовала направление красок в «Центр Красок #1».",
-    image: history2023,
-    metric: "95 человек в команде",
-  },
-  {
-    year: "2023",
-    title: "Шоурумы премиальных покрытий",
-    text: "В Центре Красок #1 открылись шоурумы OIKOS, MAITRE DECO и ORAC DECOR, а команда прошла обучение «Высшая лига продаж».",
-    image: history2023,
-    metric: "2 000 м² торговой площади",
-  },
-  {
-    year: "2024",
-    title: "Астана, новые салоны и Лаборатория света",
-    text: "Открыт новый Центр Красок #1 в Астане, салоны DISCOUNT и CLASSIC, а также Лаборатория света для наглядной демонстрации решений.",
-    image: history2024,
-    metric: "192 человека в команде",
-  },
-  {
-    year: "2025",
-    title: "Рост через выставки и партнерства",
-    text: "ABIS представила тренды освещения на HomeDeco Kazakhstan, KDD и Слёте Homestagers, усилив сотрудничество с дизайнерами, HoReCa и девелоперами.",
-    image: history2024,
-    metric: "2 365 м² торговой площади",
-  },
-];
-
-const shopPhotos = [
-  { src: history2010, alt: "Первый магазин освещения EGLO в ТК ARMADA" },
-  { src: history2023, alt: "Шоурум декоративных покрытий Центр Красок номер один" },
-  { src: history2024, alt: "Новый салон Центр Красок номер один в Астане" },
 ];
 
 const Index = () => {
