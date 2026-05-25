@@ -160,12 +160,6 @@ const Contacts = () => {
 };
 
 export default Contacts;
-            </button>
-          </div>
-        </form>
-      </div>
-    </PageShell>
-  );
-};
+
 
 export default Contacts;
