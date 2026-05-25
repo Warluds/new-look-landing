@@ -4,6 +4,19 @@ import { toast } from "sonner";
 import { z } from "zod";
 import heroImage from "@/assets/abis-showroom-hero.jpg";
 import karagandaStore from "@/assets/retail/karaganda-storefront.jpg";
+import logoApplecity from "@/assets/partners/applecity.png";
+import logoMeloman from "@/assets/partners/meloman.png";
+import logoHalyk from "@/assets/partners/halyk.png";
+import logoDastarkhan from "@/assets/partners/dastarkhan.png";
+import logoDetskiyMir from "@/assets/partners/detskiy-mir.png";
+import logoNazik from "@/assets/partners/nazik.png";
+import logoEuromebel from "@/assets/partners/euromebel.png";
+import logoKazakhmys from "@/assets/partners/kazakhmys.png";
+import logoSunkar from "@/assets/partners/sunkar.png";
+import logoKazakhYuvelir from "@/assets/partners/kazakh-yuvelir.png";
+import logoRams from "@/assets/partners/rams.png";
+import logoGorodMasterov from "@/assets/partners/gorod-masterov.png";
+import logoNomad from "@/assets/partners/nomad.png";
 
 const childBrands = [
   { name: "SVET.KZ", desc: "Салоны света", href: "https://svet.kz" },
@@ -14,35 +27,49 @@ const childBrands = [
   { name: "And Asia", desc: "Дизайнерские решения", href: "https://an-d.asia" },
 ];
 
+const SVET_2GIS = "https://2gis.kz/almaty/firm/70000001043802177";
+const KRASKI_2GIS = "https://2gis.kz/almaty/firm/70000001028399796/tab/reviews";
+
 const partners = [
-  "Apple City", "Meloman", "Halyk Bank", "Dastarkhan", "Детский мир", "Nazik",
-  "EuroMebel", "Kazakhmys", "Sunkar", "Казах Ювелир", "RAMS Kazakhstan", "Город мастеров", "Nomad",
+  { name: "Apple City", logo: logoApplecity },
+  { name: "Meloman", logo: logoMeloman },
+  { name: "Halyk Bank", logo: logoHalyk },
+  { name: "Dastarkhan", logo: logoDastarkhan },
+  { name: "Детский мир", logo: logoDetskiyMir },
+  { name: "Nazik", logo: logoNazik },
+  { name: "EuroMebel", logo: logoEuromebel },
+  { name: "Kazakhmys", logo: logoKazakhmys },
+  { name: "Sunkar", logo: logoSunkar },
+  { name: "Казах Ювелир", logo: logoKazakhYuvelir },
+  { name: "RAMS Kazakhstan", logo: logoRams },
+  { name: "Город мастеров", logo: logoGorodMasterov },
+  { name: "Nomad", logo: logoNomad },
 ];
 
 const reviews = [
   {
     name: "Тимур Остемиров",
-    text: "Отличный сервис, консультанты молодцы. Помогли с подбором цвета и доставили в срок — рекомендую.",
-    source: "svet.kz",
-    href: "https://2gis.kz/almaty/firm/70000001023456789",
+    text: "Отличный сервис, консультанты молодцы, знают как помочь и прекрасно справляются с этим. Респект!",
+    source: "SVET.KZ",
+    href: SVET_2GIS,
   },
   {
     name: "Дуйсен Оразалиев",
-    text: "Разнообразный выбор, высокий уровень сервиса. Всегда есть из чего выбрать и кому задать вопрос.",
+    text: "Разнообразный выбор, высокий уровень сервиса. Профессионалы своего дела, всё делают качественно и в срок. 5 звёзд.",
     source: "Центр Красок №1",
-    href: "https://2gis.kz/almaty/firm/70000001023456790",
+    href: KRASKI_2GIS,
   },
   {
     name: "Айдана Махмутова",
-    text: "Отличное обслуживание. Позвонили, всё объяснили, подобрали освещение для всей квартиры.",
-    source: "svet.kz",
-    href: "https://2gis.kz/almaty/firm/70000001023456789",
+    text: "Отличное обслуживание. Позвонили, всё объяснили и быстро доставили. Спасибо!",
+    source: "SVET.KZ",
+    href: SVET_2GIS,
   },
   {
     name: "Анна Казанцева",
-    text: "Услугами магазина осталась очень довольна. Краски качественные, цвет подобрали идеально.",
+    text: "Услугами магазина осталась очень довольна. Хороший выбор, нормальные цены, доброжелательные менеджеры.",
     source: "Центр Красок №1",
-    href: "https://2gis.kz/almaty/firm/70000001023456790",
+    href: KRASKI_2GIS,
   },
 ];
 
@@ -284,8 +311,8 @@ const Index = () => {
             <h2 className="mt-4 font-display text-4xl font-extrabold md:text-5xl">5★ на 2GIS — годами.</h2>
           </div>
           <div className="flex gap-3">
-            <a href="https://2gis.kz/almaty/search/svet.kz" target="_blank" rel="noopener noreferrer" className="rounded-full border border-border bg-card px-5 py-2.5 text-sm font-extrabold text-primary transition-colors hover:bg-secondary">SVET.KZ на 2GIS</a>
-            <a href="https://2gis.kz/almaty/search/Центр%20красок" target="_blank" rel="noopener noreferrer" className="rounded-full border border-border bg-card px-5 py-2.5 text-sm font-extrabold text-primary transition-colors hover:bg-secondary">Центр Красок №1 на 2GIS</a>
+            <a href={SVET_2GIS} target="_blank" rel="noopener noreferrer" className="rounded-full border border-border bg-card px-5 py-2.5 text-sm font-extrabold text-primary transition-colors hover:bg-secondary">SVET.KZ на 2GIS</a>
+            <a href={KRASKI_2GIS} target="_blank" rel="noopener noreferrer" className="rounded-full border border-border bg-card px-5 py-2.5 text-sm font-extrabold text-primary transition-colors hover:bg-secondary">Центр Красок №1 на 2GIS</a>
           </div>
         </div>
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -337,8 +364,8 @@ const Index = () => {
         </div>
         <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
           {partners.map((partner) => (
-            <div key={partner} className="grid min-h-24 place-items-center rounded-2xl border border-border bg-card p-5 text-center font-extrabold text-muted-foreground shadow-soft transition-colors hover:text-primary">
-              {partner}
+            <div key={partner.name} className="grid min-h-24 place-items-center rounded-2xl border border-border bg-card p-5 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-luxe" title={partner.name}>
+              <img src={partner.logo} alt={partner.name} loading="lazy" className="max-h-14 w-auto max-w-full object-contain opacity-80 transition-opacity hover:opacity-100" />
             </div>
           ))}
         </div>
