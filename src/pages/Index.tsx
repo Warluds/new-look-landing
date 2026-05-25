@@ -364,8 +364,8 @@ const Index = () => {
         </div>
         <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
           {partners.map((partner) => (
-            <div key={partner} className="grid min-h-24 place-items-center rounded-2xl border border-border bg-card p-5 text-center font-extrabold text-muted-foreground shadow-soft transition-colors hover:text-primary">
-              {partner}
+            <div key={partner.name} className="grid min-h-24 place-items-center rounded-2xl border border-border bg-card p-5 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-luxe" title={partner.name}>
+              <img src={partner.logo} alt={partner.name} loading="lazy" className="max-h-14 w-auto max-w-full object-contain opacity-80 transition-opacity hover:opacity-100" />
             </div>
           ))}
         </div>
