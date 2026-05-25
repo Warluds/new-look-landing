@@ -171,11 +171,11 @@ const About = () => {
         <div className="absolute inset-0 bg-hero-overlay" />
         <div className="spotlight-mask pointer-events-none absolute inset-0" />
 
-        <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
+        <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-6 lg:px-8">
           <Link to="/" className="group inline-flex items-center gap-3 font-extrabold transition-colors hover:text-brand-gold">
-            <ArrowLeft className="h-5 w-5 transition-transform group-hover:-translate-x-1" /> На главную
+            <ArrowLeft className="h-5 w-5 transition-transform group-hover:-translate-x-1" /> ABIS Group
           </Link>
-          <div className="font-display text-2xl font-extrabold">ABIS Group</div>
+          <LanguageSwitcher variant="light" />
         </header>
 
         <div className="relative z-10 mx-auto grid max-w-7xl content-end px-6 pb-16 pt-24 lg:px-8">
