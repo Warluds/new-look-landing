@@ -1,8 +1,33 @@
-import { ArrowRight, Award, Building2, CheckCircle2, Lightbulb, Paintbrush, Phone } from "lucide-react";
+import { ArrowRight, Award, Building2, CheckCircle2, Lightbulb, MapPin, Paintbrush, Phone } from "lucide-react";
 import heroImage from "@/assets/abis-showroom-hero.jpg";
+import karagandaStore from "@/assets/retail/karaganda-storefront.jpg";
 
 const brands = ["PRO DECOR", "svet.kz", "Центр красок №1", "ULTRA PREMIUM", "ABIS Import", "impulse media"];
 const partners = ["Kazakhmys", "RAMS Kazakhstan", "Halyk Bank", "Meloman", "Dastarkhan", "Nomad"];
+
+const retailLocations = [
+  {
+    city: "Караганда",
+    name: "Центр Красок №1",
+    address: "Фирменный салон сети — всё для любителей и профессионалов",
+    image: karagandaStore,
+    tag: "EST. 2015",
+  },
+  {
+    city: "Алматы",
+    name: "Флагман ABIS Group",
+    address: "ТК ARMADA, ул. Кабдолова 1/8, 1 блок, 1G линия",
+    image: heroImage,
+    tag: "Флагман",
+  },
+  {
+    city: "Астана",
+    name: "SVET.KZ · Центр Красок №1",
+    address: "Розничная сеть света и красок премиум-сегмента",
+    image: heroImage,
+    tag: "Сеть",
+  },
+];
 
 const directions = [
   {
