@@ -1,6 +1,7 @@
 import { ArrowLeft, Building2, CalendarDays, CheckCircle2, GraduationCap, Images, Palette, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/abis-showroom-hero.jpg";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 const sourcePhotos = import.meta.glob("../assets/about/source/*", { eager: true, import: "default" }) as Record<string, string>;
 
