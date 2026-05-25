@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import careerHero from "@/assets/career/career-hero-2.jpg";
 import careerTeam from "@/assets/career/career-team.jpg";
 import careerQr from "@/assets/career/career-qr.png";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 const hhUrl = "https://almaty.hh.kz/search/vacancy?L_is_autosearch=false&area=160&ored_clusters=true&employer_id=1667693";
 
@@ -37,11 +38,11 @@ const Career = () => {
         <div className="absolute inset-0 bg-hero-overlay" />
         <div className="spotlight-mask pointer-events-none absolute inset-0" />
 
-        <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
+        <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-6 lg:px-8">
           <Link to="/" className="group inline-flex items-center gap-3 font-extrabold transition-colors hover:text-brand-gold">
-            <ArrowLeft className="h-5 w-5 transition-transform group-hover:-translate-x-1" /> На главную
+            <ArrowLeft className="h-5 w-5 transition-transform group-hover:-translate-x-1" /> ABIS Group
           </Link>
-          <Link to="/about" className="font-bold transition-colors hover:text-brand-gold">О нас</Link>
+          <LanguageSwitcher variant="light" />
         </header>
 
         <div className="relative z-10 mx-auto grid max-w-7xl content-end px-6 pb-16 pt-24 lg:px-8">
