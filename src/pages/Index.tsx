@@ -139,6 +139,33 @@ const Index = () => {
         </div>
       </section>
 
+      <section id="retail" className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div className="max-w-2xl">
+            <p className="text-sm font-extrabold uppercase tracking-[0.24em] text-primary">розничная сеть</p>
+            <h2 className="mt-4 font-display text-4xl font-extrabold md:text-6xl">Наши салоны в городах Казахстана.</h2>
+            <p className="mt-5 text-lg leading-8 text-muted-foreground">SVET.KZ и Центр Красок №1 — единый стандарт сервиса от флагмана в Алматы до фирменных салонов в Караганде и Астане.</p>
+          </div>
+        </div>
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {retailLocations.map((loc) => (
+            <article key={loc.city} className="group overflow-hidden rounded-3xl border border-border bg-card shadow-soft transition-all hover:-translate-y-1 hover:shadow-luxe">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img src={loc.image} alt={`${loc.name} — ${loc.city}`} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                <span className="absolute left-4 top-4 rounded-full bg-brand-deep/80 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.18em] text-hero-foreground backdrop-blur-md">{loc.tag}</span>
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-2 text-sm font-extrabold uppercase tracking-[0.2em] text-primary">
+                  <MapPin className="h-4 w-4" /> {loc.city}
+                </div>
+                <h3 className="mt-3 font-display text-2xl font-extrabold">{loc.name}</h3>
+                <p className="mt-2 leading-7 text-muted-foreground">{loc.address}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="bg-brand-deep py-20 text-hero-foreground">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
