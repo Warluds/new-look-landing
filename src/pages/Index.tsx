@@ -311,8 +311,8 @@ const Index = () => {
             <h2 className="mt-4 font-display text-4xl font-extrabold md:text-5xl">5★ на 2GIS — годами.</h2>
           </div>
           <div className="flex gap-3">
-            <a href="https://2gis.kz/almaty/search/svet.kz" target="_blank" rel="noopener noreferrer" className="rounded-full border border-border bg-card px-5 py-2.5 text-sm font-extrabold text-primary transition-colors hover:bg-secondary">SVET.KZ на 2GIS</a>
-            <a href="https://2gis.kz/almaty/search/Центр%20красок" target="_blank" rel="noopener noreferrer" className="rounded-full border border-border bg-card px-5 py-2.5 text-sm font-extrabold text-primary transition-colors hover:bg-secondary">Центр Красок №1 на 2GIS</a>
+            <a href={SVET_2GIS} target="_blank" rel="noopener noreferrer" className="rounded-full border border-border bg-card px-5 py-2.5 text-sm font-extrabold text-primary transition-colors hover:bg-secondary">SVET.KZ на 2GIS</a>
+            <a href={KRASKI_2GIS} target="_blank" rel="noopener noreferrer" className="rounded-full border border-border bg-card px-5 py-2.5 text-sm font-extrabold text-primary transition-colors hover:bg-secondary">Центр Красок №1 на 2GIS</a>
           </div>
         </div>
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
