@@ -1,8 +1,33 @@
-import { ArrowRight, Award, Building2, CheckCircle2, Lightbulb, Paintbrush, Phone } from "lucide-react";
+import { ArrowRight, Award, Building2, CheckCircle2, Lightbulb, MapPin, Paintbrush, Phone } from "lucide-react";
 import heroImage from "@/assets/abis-showroom-hero.jpg";
+import karagandaStore from "@/assets/retail/karaganda-storefront.jpg";
 
 const brands = ["PRO DECOR", "svet.kz", "Центр красок №1", "ULTRA PREMIUM", "ABIS Import", "impulse media"];
 const partners = ["Kazakhmys", "RAMS Kazakhstan", "Halyk Bank", "Meloman", "Dastarkhan", "Nomad"];
+
+const retailLocations = [
+  {
+    city: "Караганда",
+    name: "Центр Красок №1",
+    address: "Фирменный салон сети — всё для любителей и профессионалов",
+    image: karagandaStore,
+    tag: "EST. 2015",
+  },
+  {
+    city: "Алматы",
+    name: "Флагман ABIS Group",
+    address: "ТК ARMADA, ул. Кабдолова 1/8, 1 блок, 1G линия",
+    image: heroImage,
+    tag: "Флагман",
+  },
+  {
+    city: "Астана",
+    name: "SVET.KZ · Центр Красок №1",
+    address: "Розничная сеть света и красок премиум-сегмента",
+    image: heroImage,
+    tag: "Сеть",
+  },
+];
 
 const directions = [
   {
@@ -54,6 +79,7 @@ const Index = () => {
           </a>
           <nav className="hidden items-center gap-5 rounded-full border border-hero-foreground/18 bg-hero-foreground/10 px-5 py-3 text-sm font-semibold backdrop-blur-md md:flex">
             <a className="transition-colors hover:text-brand-gold" href="/about">О нас</a>
+            <a className="transition-colors hover:text-brand-gold" href="#retail">Розница</a>
             <a className="transition-colors hover:text-brand-gold" href="/career">Карьера</a>
             <a className="transition-colors hover:text-brand-gold" href="#directions">Направления</a>
             <a className="transition-colors hover:text-brand-gold" href="#partners">Партнеры</a>
@@ -108,6 +134,33 @@ const Index = () => {
               </div>
               <h3 className="text-2xl font-extrabold">{item.title}</h3>
               <p className="mt-4 leading-7 text-muted-foreground">{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="retail" className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div className="max-w-2xl">
+            <p className="text-sm font-extrabold uppercase tracking-[0.24em] text-primary">розничная сеть</p>
+            <h2 className="mt-4 font-display text-4xl font-extrabold md:text-6xl">Наши салоны в городах Казахстана.</h2>
+            <p className="mt-5 text-lg leading-8 text-muted-foreground">SVET.KZ и Центр Красок №1 — единый стандарт сервиса от флагмана в Алматы до фирменных салонов в Караганде и Астане.</p>
+          </div>
+        </div>
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {retailLocations.map((loc) => (
+            <article key={loc.city} className="group overflow-hidden rounded-3xl border border-border bg-card shadow-soft transition-all hover:-translate-y-1 hover:shadow-luxe">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img src={loc.image} alt={`${loc.name} — ${loc.city}`} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                <span className="absolute left-4 top-4 rounded-full bg-brand-deep/80 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.18em] text-hero-foreground backdrop-blur-md">{loc.tag}</span>
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-2 text-sm font-extrabold uppercase tracking-[0.2em] text-primary">
+                  <MapPin className="h-4 w-4" /> {loc.city}
+                </div>
+                <h3 className="mt-3 font-display text-2xl font-extrabold">{loc.name}</h3>
+                <p className="mt-2 leading-7 text-muted-foreground">{loc.address}</p>
+              </div>
             </article>
           ))}
         </div>
