@@ -127,13 +127,15 @@ const Index = () => {
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-hero-foreground/72">Group</p>
             </div>
           </a>
-          <nav className="hidden items-center gap-5 rounded-full border border-hero-foreground/18 bg-hero-foreground/10 px-5 py-3 text-sm font-semibold backdrop-blur-md md:flex">
+          <nav className="hidden items-center gap-4 rounded-full border border-hero-foreground/18 bg-hero-foreground/10 px-5 py-3 text-xs font-semibold backdrop-blur-md lg:flex">
             <a className="transition-colors hover:text-brand-gold" href="/about">О нас</a>
-            <a className="transition-colors hover:text-brand-gold" href="#retail">Розница</a>
-            <a className="transition-colors hover:text-brand-gold" href="#brands">Бренды</a>
+            <a className="transition-colors hover:text-brand-gold" href="/import">Импорт</a>
+            <a className="transition-colors hover:text-brand-gold" href="/marketing">Маркетинг</a>
+            <a className="transition-colors hover:text-brand-gold" href="/cooperation">Сотрудничество</a>
+            <a className="transition-colors hover:text-brand-gold" href="/education">Обучение</a>
+            <a className="transition-colors hover:text-brand-gold" href="/news">Новости</a>
             <a className="transition-colors hover:text-brand-gold" href="/career">Карьера</a>
-            <a className="transition-colors hover:text-brand-gold" href="#partners">Партнеры</a>
-            <a className="transition-colors hover:text-brand-gold" href="#contacts">Контакты</a>
+            <a className="transition-colors hover:text-brand-gold" href="/contacts">Контакты</a>
           </nav>
           <div className="flex items-center gap-1 rounded-full border border-hero-foreground/25 bg-hero-foreground/10 p-1 text-xs font-extrabold backdrop-blur-md">
             {languages.map((l) => (
@@ -412,11 +414,13 @@ const Index = () => {
             </div>
             <nav className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm font-semibold text-hero-foreground/80">
               <a href="/about" className="hover:text-brand-gold">О компании</a>
-              <a href="#brands" className="hover:text-brand-gold">Бренды</a>
-              <a href="#retail" className="hover:text-brand-gold">Розница</a>
+              <a href="/import" className="hover:text-brand-gold">Импорт</a>
+              <a href="/marketing" className="hover:text-brand-gold">Маркетинг</a>
+              <a href="/cooperation" className="hover:text-brand-gold">Сотрудничество</a>
+              <a href="/education" className="hover:text-brand-gold">Обучение</a>
+              <a href="/news" className="hover:text-brand-gold">Новости</a>
               <a href="/career" className="hover:text-brand-gold">Карьера</a>
-              <a href="#partners" className="hover:text-brand-gold">Партнеры</a>
-              <a href="#contacts" className="hover:text-brand-gold">Контакты</a>
+              <a href="/contacts" className="hover:text-brand-gold">Контакты</a>
             </nav>
             <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 rounded-2xl border border-hero-foreground/15 bg-hero-foreground/8 p-4 backdrop-blur-md transition-colors hover:border-brand-gold">
               <img src={QR_URL} alt="QR-код Instagram ABIS Group" width={96} height={96} className="h-24 w-24 rounded-md bg-white p-1" loading="lazy" />
