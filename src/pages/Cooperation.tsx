@@ -1,5 +1,22 @@
 import { useState } from "react";
-import { Handshake, Layers, Store, Truck } from "lucide-react";
+import {
+  Award,
+  Building2,
+  GraduationCap,
+  Handshake,
+  Hotel,
+  Layers,
+  Palette,
+  PackageCheck,
+  Percent,
+  RefreshCw,
+  ShieldCheck,
+  Sparkles,
+  Store,
+  Truck,
+  Users,
+  Warehouse,
+} from "lucide-react";
 import { toast } from "sonner";
 import { z } from "zod";
 import { PageShell } from "@/components/PageShell";
@@ -9,6 +26,26 @@ const formats = [
   { icon: Truck, title: "Оптовые поставки", text: "Прямые контракты, специальные цены и резервирование под объекты." },
   { icon: Layers, title: "Проектное сотрудничество", text: "Комплектация ЖК, отелей, ТРЦ, ресторанов и офисных пространств." },
   { icon: Handshake, title: "B2B-партнерство", text: "Дизайнерам и архитекторам — комиссия, обучение, выезд на объекты." },
+];
+
+const advantages = [
+  { icon: PackageCheck, title: "Комплектация под ключ", text: "Объекты «под ключ» и «под заказ» — берём на себя весь процесс." },
+  { icon: Percent, title: "Цены от производителя", text: "Прямые контракты позволяют держать выгодные условия для партнёров." },
+  { icon: ShieldCheck, title: "Сопровождение проекта", text: "Контроль на всех этапах — экономия времени и соблюдение сроков." },
+  { icon: Palette, title: "110 000+ оттенков", text: "Полная палитра колеровки — любой цвет и фактура под задачу." },
+  { icon: Sparkles, title: "3D-модели и каталоги", text: "Доступ к базе 3D-моделей и актуальным электронным каталогам." },
+  { icon: RefreshCw, title: "35% обновления в год", text: "Ассортимент обновляется ежегодно — всегда новинки и тренды." },
+  { icon: Award, title: "10 лет гарантии", text: "На всю продукцию действует 10-летняя гарантия качества." },
+  { icon: Warehouse, title: "Склад в Алматы", text: "Собственные склады, отгрузка по всему Казахстану от 1 дня." },
+];
+
+const segments = [
+  { icon: Store, label: "Салоны и бутики" },
+  { icon: Hotel, label: "ТРЦ и HoReCa" },
+  { icon: GraduationCap, label: "Учреждения и школы" },
+  { icon: Building2, label: "Бизнес-центры" },
+  { icon: Users, label: "Дизайнеры и архитекторы" },
+  { icon: Truck, label: "Государственные службы" },
 ];
 
 const schema = z.object({
