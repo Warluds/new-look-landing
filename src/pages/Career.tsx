@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import careerHero from "@/assets/career/career-hero-2.jpg";
 import careerTeam from "@/assets/career/career-team.jpg";
 import careerQr from "@/assets/career/career-qr.png";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 const hhUrl = "https://almaty.hh.kz/search/vacancy?L_is_autosearch=false&area=160&ored_clusters=true&employer_id=1667693";
 
