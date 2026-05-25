@@ -79,6 +79,7 @@ const Index = () => {
           </a>
           <nav className="hidden items-center gap-5 rounded-full border border-hero-foreground/18 bg-hero-foreground/10 px-5 py-3 text-sm font-semibold backdrop-blur-md md:flex">
             <a className="transition-colors hover:text-brand-gold" href="/about">О нас</a>
+            <a className="transition-colors hover:text-brand-gold" href="#retail">Розница</a>
             <a className="transition-colors hover:text-brand-gold" href="/career">Карьера</a>
             <a className="transition-colors hover:text-brand-gold" href="#directions">Направления</a>
             <a className="transition-colors hover:text-brand-gold" href="#partners">Партнеры</a>
