@@ -317,6 +317,7 @@ const QR_URL = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=
 const Index = () => {
   const { t } = useLang();
   const [submitting, setSubmitting] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const contactSchema = z.object({
     name: z.string().trim().min(2, t(tr.errName)).max(100),
