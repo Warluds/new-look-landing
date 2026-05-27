@@ -581,7 +581,7 @@ const Index = () => {
                 <Trophy className="h-9 w-9 text-brand-gold" />
                 <p className="mt-5 text-sm font-extrabold uppercase tracking-[0.2em] text-primary">{a.year}</p>
                 <h3 className="mt-2 font-display text-xl font-extrabold leading-tight">{t(a.title)}</h3>
-                <p className="mt-2 leading-6 text-muted-foreground">{t(a.desc)}</p>
+                {t(a.desc) && <p className="mt-2 leading-6 text-muted-foreground">{t(a.desc)}</p>}
               </article>
             ))}
           </div>
