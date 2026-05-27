@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, Award, Building2, CheckCircle2, Facebook, Instagram, Lightbulb, Mail, MapPin, Paintbrush, Phone, Send, Star, Trophy, Youtube } from "lucide-react";
+import { ArrowRight, Award, Building2, CheckCircle2, Facebook, Instagram, Lightbulb, Mail, MapPin, Menu, Paintbrush, Phone, Send, Star, Trophy, X, Youtube } from "lucide-react";
 import { toast } from "sonner";
 import { z } from "zod";
 import heroImage from "@/assets/abis-showroom-hero.jpg";
@@ -317,6 +317,7 @@ const QR_URL = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=
 const Index = () => {
   const { t } = useLang();
   const [submitting, setSubmitting] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const contactSchema = z.object({
     name: z.string().trim().min(2, t(tr.errName)).max(100),
@@ -375,8 +376,50 @@ const Index = () => {
             <a className="transition-colors hover:text-brand-gold" href="/career">{t(tr.navCareer)}</a>
             <a className="transition-colors hover:text-brand-gold" href="/contacts">{t(tr.navContacts)}</a>
           </nav>
-          <LanguageSwitcher variant="light" />
+          <div className="flex items-center gap-3">
+            <LanguageSwitcher variant="light" />
+            <button
+              type="button"
+              onClick={() => setMenuOpen(true)}
+              aria-label="Open menu"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-hero-foreground/30 bg-hero-foreground/10 text-hero-foreground backdrop-blur-md lg:hidden"
+            >
+              <Menu className="h-5 w-5" />
+            </button>
+          </div>
         </header>
+
+        {menuOpen && (
+          <div className="fixed inset-0 z-[60] bg-brand-deep text-hero-foreground lg:hidden">
+            <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
+              <div className="flex items-center gap-3">
+                <div className="grid h-11 w-11 place-items-center rounded-full border border-hero-foreground/35 bg-hero-foreground/10 font-display text-xl font-bold">A</div>
+                <div className="leading-none">
+                  <p className="font-display text-2xl font-bold">ABIS</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-hero-foreground/72">Group</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-hero-foreground/30 bg-hero-foreground/10"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <nav className="mx-auto flex max-w-7xl flex-col gap-5 px-6 py-8 text-lg font-semibold uppercase tracking-wider">
+              <a onClick={() => setMenuOpen(false)} className="hover:text-brand-gold" href="/about">{t(tr.navAbout)}</a>
+              <a onClick={() => setMenuOpen(false)} className="hover:text-brand-gold" href="/import">{t(tr.navImport)}</a>
+              <a onClick={() => setMenuOpen(false)} className="hover:text-brand-gold" href="/marketing">{t(tr.navMarketing)}</a>
+              <a onClick={() => setMenuOpen(false)} className="hover:text-brand-gold" href="/cooperation">{t(tr.navCooperation)}</a>
+              <a onClick={() => setMenuOpen(false)} className="hover:text-brand-gold" href="/education">{t(tr.navEducation)}</a>
+              <a onClick={() => setMenuOpen(false)} className="hover:text-brand-gold" href="/news">{t(tr.navNews)}</a>
+              <a onClick={() => setMenuOpen(false)} className="hover:text-brand-gold" href="/career">{t(tr.navCareer)}</a>
+              <a onClick={() => setMenuOpen(false)} className="hover:text-brand-gold" href="/contacts">{t(tr.navContacts)}</a>
+            </nav>
+          </div>
+        )}
 
         <div id="top" className="relative z-10 mx-auto grid min-h-[72vh] max-w-7xl content-center px-6 pb-16 pt-10 lg:px-8">
           <div className="max-w-4xl animate-fade-up">
