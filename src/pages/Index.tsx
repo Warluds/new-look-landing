@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { z } from "zod";
 import heroImage from "@/assets/abis-showroom-hero.jpg";
 import karagandaStore from "@/assets/retail/karaganda-storefront.jpg";
+import almatyPaintSalon from "@/assets/almaty-paint-salon.jpg";
 import logoApplecity from "@/assets/partners/applecity.png";
 import logoMeloman from "@/assets/partners/meloman.png";
 import logoHalyk from "@/assets/partners/halyk.png";
@@ -132,14 +133,14 @@ const retailLocations: Array<{ city: Tr; name: string; address: Tr; image: strin
   },
   {
     city: ["Алматы", "Алматы", "Almaty"],
-    name: "ABIS Group Flagship",
+    name: "Салоны красок Алматы",
     address: [
       "ТК ARMADA, ул. Кабдолова 1/8, 1 блок, 1G линия",
       "ARMADA СО, Қабдолов к-сі 1/8, 1 блок, 1G желісі",
       "ARMADA Mall, 1/8 Kabdolova str., block 1, line 1G",
     ],
-    image: heroImage,
-    tag: ["Флагман", "Флагман", "Flagship"],
+    image: almatyPaintSalon,
+    tag: ["EST. 2015", "EST. 2015", "EST. 2015"],
   },
   {
     city: ["Астана", "Астана", "Astana"],
