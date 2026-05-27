@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import { ArrowLeft } from "lucide-react";
+import { ReactNode, useState } from "react";
+import { ArrowLeft, Menu, X } from "lucide-react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Tr, useLang } from "@/i18n/LanguageContext";
 
