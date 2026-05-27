@@ -96,27 +96,23 @@ const reviews: Array<{ name: string; text: Tr; source: string; href: string }> =
 const awards: Array<{ year: string; title: Tr; desc: Tr }> = [
   {
     year: "2014",
-    title: ["Национальный золотой орден", "Ұлттық алтын орден", "National Gold Order"],
-    desc: ["Сертификат «Лидер отрасли»", "«Сала көшбасшысы» сертификаты", "“Industry leader” certificate"],
+    title: ["Национальный золотой орден и сертификат «Лидер отрасли»", "Ұлттық алтын орден және «Сала көшбасшысы» сертификаты", "National Gold Order and “Industry Leader” certificate"],
+    desc: ["", "", ""],
   },
   {
-    year: "2014–2015",
+    year: "2014, 2015",
     title: ["Золото Национального бизнес-рейтинга РК", "ҚР Ұлттық бизнес рейтингінің алтыны", "Gold of the National Business Rating of Kazakhstan"],
-    desc: ["Два года подряд", "Қатарынан екі жыл", "Two years in a row"],
+    desc: ["", "", ""],
   },
   {
     year: "2014–2024",
-    title: ["Лидер отрасли", "Сала көшбасшысы", "Industry leader"],
-    desc: [
-      "Номинант премии в сфере осветительного оборудования",
-      "Жарықтандыру жабдықтары саласындағы сыйлықтың номинанты",
-      "Award nominee in the lighting equipment sector",
-    ],
+    title: ["Номинант премии «Лидер отрасли» в сфере осветительного оборудования", "Жарықтандыру жабдықтары саласындағы «Сала көшбасшысы» сыйлығының номинанты", "Nominee for the “Industry Leader” award in lighting equipment"],
+    desc: ["", "", ""],
   },
   {
     year: "—",
-    title: ["Samruk Trade", "Samruk Trade", "Samruk Trade"],
-    desc: ["Диплом признания качества", "Сапаны мойындау дипломы", "Quality recognition diploma"],
+    title: ["Диплом «Samruk Trade»", "«Samruk Trade» дипломы", "Samruk Trade diploma"],
+    desc: ["", "", ""],
   },
 ];
 
@@ -259,9 +255,9 @@ const tr = {
   on2gis: ["на 2GIS", "2GIS-те", "on 2GIS"] as Tr,
   awardsEyebrow: ["награды и признание", "марапаттар мен мойындау", "awards & recognition"] as Tr,
   awardsTitle: [
-    "Лидер отрасли — десятилетие подряд.",
-    "Сала көшбасшысы — қатарынан он жыл.",
-    "Industry leader for a decade.",
+    "НАШИ НАГРАДЫ НАЦИОНАЛЬНОГО УРОВНЯ",
+    "ҰЛТТЫҚ ДЕҢГЕЙДЕГІ МАРАПАТТАРЫМЫЗ",
+    "OUR NATIONAL LEVEL AWARDS",
   ] as Tr,
   partnersEyebrow: ["с нами уже работают", "бізбен қазірдің өзінде жұмыс істейді", "already working with us"] as Tr,
   partnersTitle: [
@@ -585,7 +581,7 @@ const Index = () => {
                 <Trophy className="h-9 w-9 text-brand-gold" />
                 <p className="mt-5 text-sm font-extrabold uppercase tracking-[0.2em] text-primary">{a.year}</p>
                 <h3 className="mt-2 font-display text-xl font-extrabold leading-tight">{t(a.title)}</h3>
-                <p className="mt-2 leading-6 text-muted-foreground">{t(a.desc)}</p>
+                {t(a.desc) && <p className="mt-2 leading-6 text-muted-foreground">{t(a.desc)}</p>}
               </article>
             ))}
           </div>
