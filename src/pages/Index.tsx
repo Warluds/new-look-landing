@@ -5,6 +5,7 @@ import { z } from "zod";
 import heroImage from "@/assets/abis-showroom-hero.jpg";
 import karagandaStore from "@/assets/retail/karaganda-storefront.jpg";
 import almatyPaintSalon from "@/assets/almaty-paint-salon.jpg";
+import astanaProject from "@/assets/astana-project.jpg";
 import logoApplecity from "@/assets/partners/applecity.png";
 import logoMeloman from "@/assets/partners/meloman.png";
 import logoHalyk from "@/assets/partners/halyk.png";
@@ -150,7 +151,7 @@ const retailLocations: Array<{ city: Tr; name: string; address: Tr; image: strin
       "Премиум сегменттегі жарық пен бояулардың бөлшек желісі",
       "Premium retail network for lighting and paints",
     ],
-    image: heroImage,
+    image: astanaProject,
     tag: ["Сеть", "Желі", "Network"],
   },
 ];
