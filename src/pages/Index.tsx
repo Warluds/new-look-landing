@@ -96,27 +96,23 @@ const reviews: Array<{ name: string; text: Tr; source: string; href: string }> =
 const awards: Array<{ year: string; title: Tr; desc: Tr }> = [
   {
     year: "2014",
-    title: ["Национальный золотой орден", "Ұлттық алтын орден", "National Gold Order"],
-    desc: ["Сертификат «Лидер отрасли»", "«Сала көшбасшысы» сертификаты", "“Industry leader” certificate"],
+    title: ["Национальный золотой орден и сертификат «Лидер отрасли»", "Ұлттық алтын орден және «Сала көшбасшысы» сертификаты", "National Gold Order and “Industry Leader” certificate"],
+    desc: ["", "", ""],
   },
   {
-    year: "2014–2015",
+    year: "2014, 2015",
     title: ["Золото Национального бизнес-рейтинга РК", "ҚР Ұлттық бизнес рейтингінің алтыны", "Gold of the National Business Rating of Kazakhstan"],
-    desc: ["Два года подряд", "Қатарынан екі жыл", "Two years in a row"],
+    desc: ["", "", ""],
   },
   {
     year: "2014–2024",
-    title: ["Лидер отрасли", "Сала көшбасшысы", "Industry leader"],
-    desc: [
-      "Номинант премии в сфере осветительного оборудования",
-      "Жарықтандыру жабдықтары саласындағы сыйлықтың номинанты",
-      "Award nominee in the lighting equipment sector",
-    ],
+    title: ["Номинант премии «Лидер отрасли» в сфере осветительного оборудования", "Жарықтандыру жабдықтары саласындағы «Сала көшбасшысы» сыйлығының номинанты", "Nominee for the “Industry Leader” award in lighting equipment"],
+    desc: ["", "", ""],
   },
   {
     year: "—",
-    title: ["Samruk Trade", "Samruk Trade", "Samruk Trade"],
-    desc: ["Диплом признания качества", "Сапаны мойындау дипломы", "Quality recognition diploma"],
+    title: ["Диплом «Samruk Trade»", "«Samruk Trade» дипломы", "Samruk Trade diploma"],
+    desc: ["", "", ""],
   },
 ];
 
