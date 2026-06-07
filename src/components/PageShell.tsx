@@ -67,8 +67,8 @@ export const PageShell = ({ eyebrow, title, lead, children }: PageShellProps) =>
       {menuOpen && (
         <div className="fixed inset-0 z-50 bg-background md:hidden">
           <div className="flex h-16 items-center justify-between px-6">
-            <a href="/" className="flex items-center gap-2 font-display text-xl font-extrabold text-primary">
-              <ArrowLeft className="h-4 w-4" /> {t(BACK)}
+            <a href="/" className="flex items-center">
+              <img src={logoWhite.url} alt="ABIS Group" className="h-10 w-auto" />
             </a>
             <button
               className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-card text-foreground shadow-sm"
