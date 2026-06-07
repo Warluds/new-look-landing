@@ -638,7 +638,7 @@ const Index = () => {
         <div className="mx-auto max-w-7xl border-t border-hero-foreground/12 px-6 pt-12 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_auto]">
             <div>
-              <p className="font-display text-3xl font-extrabold">ABIS Group</p>
+              <img src={logoWhite.url} alt="ABIS Group" className="h-14 w-auto" />
               <p className="mt-3 max-w-md text-hero-foreground/72">{t(tr.footerTagline)}</p>
               <div className="mt-6 flex items-center gap-3">
                 <a href="https://facebook.com/ABIS.Group.kz" target="_blank" rel="noopener noreferrer" aria-label="Facebook ABIS Group" className="grid h-10 w-10 place-items-center rounded-full border border-hero-foreground/20 transition-colors hover:bg-brand-gold hover:text-accent-foreground"><Facebook className="h-4 w-4" /></a>
