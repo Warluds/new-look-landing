@@ -22,6 +22,7 @@ import logoGorodMasterov from "@/assets/partners/gorod-masterov.png";
 import logoNomad from "@/assets/partners/nomad.png";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Tr, useLang } from "@/i18n/LanguageContext";
+import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 const childBrands: Array<{ name: string; desc: Tr; href: string }> = [
   { name: "SVET.KZ", desc: ["Салоны света", "Жарық салондары", "Lighting showrooms"], href: "https://svet.kz" },
@@ -513,21 +514,34 @@ const Index = () => {
             <p className="mt-5 text-lg leading-8 text-muted-foreground">{t(tr.retailLead)}</p>
           </div>
         </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {retailLocations.map((loc) => (
-            <article key={loc.name} className="group overflow-hidden rounded-3xl border border-border bg-card shadow-soft transition-all hover:-translate-y-1 hover:shadow-luxe">
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img src={loc.image} alt={`${loc.name} — ${t(loc.city)}`} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-                <span className="absolute left-4 top-4 rounded-full bg-brand-deep/80 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.18em] text-hero-foreground backdrop-blur-md">{t(loc.tag)}</span>
-              </div>
-              <div className="p-6">
-                <div className="flex items-center gap-2 text-sm font-extrabold uppercase tracking-[0.2em] text-primary">
-                  <MapPin className="h-4 w-4" /> {t(loc.city)}
+            <Dialog key={loc.name}>
+              <DialogTrigger asChild>
+                <button type="button" className="group overflow-hidden rounded-2xl border border-border bg-card text-left shadow-soft transition-all hover:-translate-y-1 hover:shadow-luxe">
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img src={loc.image} alt={`${loc.name} — ${t(loc.city)}`} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                    <span className="absolute left-3 top-3 rounded-full bg-brand-deep/80 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-[0.18em] text-hero-foreground backdrop-blur-md">{t(loc.tag)}</span>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-[0.18em] text-primary">
+                      <MapPin className="h-3.5 w-3.5" /> {t(loc.city)}
+                    </div>
+                    <h3 className="mt-2 font-display text-lg font-extrabold leading-tight">{loc.name}</h3>
+                  </div>
+                </button>
+              </DialogTrigger>
+              <DialogContent className="max-w-3xl overflow-hidden p-0">
+                <img src={loc.image} alt={`${loc.name} — ${t(loc.city)}`} className="h-auto max-h-[60vh] w-full object-cover" />
+                <div className="p-6">
+                  <div className="flex items-center gap-2 text-sm font-extrabold uppercase tracking-[0.2em] text-primary">
+                    <MapPin className="h-4 w-4" /> {t(loc.city)} · {t(loc.tag)}
+                  </div>
+                  <DialogTitle className="mt-3 font-display text-2xl font-extrabold">{loc.name}</DialogTitle>
+                  <DialogDescription className="mt-2 leading-7 text-muted-foreground">{t(loc.address)}</DialogDescription>
                 </div>
-                <h3 className="mt-3 font-display text-2xl font-extrabold">{loc.name}</h3>
-                <p className="mt-2 leading-7 text-muted-foreground">{t(loc.address)}</p>
-              </div>
-            </article>
+              </DialogContent>
+            </Dialog>
           ))}
         </div>
       </section>
