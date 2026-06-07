@@ -369,12 +369,8 @@ const Index = () => {
         {menuOpen && (
           <div className="fixed inset-0 z-[60] bg-brand-deep text-hero-foreground lg:hidden">
             <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
-              <div className="flex items-center gap-3">
-                <div className="grid h-11 w-11 place-items-center rounded-full border border-hero-foreground/35 bg-hero-foreground/10 font-display text-xl font-bold">A</div>
-                <div className="leading-none">
-                  <p className="font-display text-2xl font-bold">ABIS</p>
-                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-hero-foreground/72">Group</p>
-                </div>
+              <div className="flex items-center">
+                <img src={logoWhite.url} alt="ABIS Group" className="h-12 w-auto" />
               </div>
               <button
                 type="button"
