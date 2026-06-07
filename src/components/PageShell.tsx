@@ -1,7 +1,8 @@
 import { ReactNode, useState } from "react";
-import { ArrowLeft, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Tr, useLang } from "@/i18n/LanguageContext";
+import logoWhite from "@/assets/logo-white.svg.asset.json";
 
 const NAV: Array<{ href: string; label: Tr }> = [
   { href: "/", label: ["Главная", "Басты бет", "Home"] },
