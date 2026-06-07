@@ -21,6 +21,7 @@ import logoNomad from "@/assets/partners/nomad.png";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Tr, useLang } from "@/i18n/LanguageContext";
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import logoWhite from "@/assets/logo-white.svg.asset.json";
 
 const childBrands: Array<{ name: string; desc: Tr; href: string }> = [
   { name: "SVET.KZ", desc: ["Салоны света", "Жарық салондары", "Lighting showrooms"], href: "https://svet.kz" },
@@ -339,12 +340,8 @@ const Index = () => {
         <div className="spotlight-mask pointer-events-none absolute inset-0 opacity-90" />
 
         <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-6 lg:px-8">
-          <a href="#top" className="group flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-brand-gold">
-            <div className="grid h-11 w-11 place-items-center rounded-full border border-hero-foreground/35 bg-hero-foreground/10 font-display text-xl font-bold backdrop-blur-md transition-transform group-hover:scale-105">A</div>
-            <div className="leading-none">
-              <p className="font-display text-2xl font-bold">ABIS</p>
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-hero-foreground/72">Group</p>
-            </div>
+          <a href="#top" className="group flex items-center focus:outline-none focus:ring-2 focus:ring-brand-gold">
+            <img src={logoWhite.url} alt="ABIS Group" className="h-12 w-auto transition-transform group-hover:scale-105 md:h-14" />
           </a>
           <nav className="hidden items-center gap-4 rounded-full border border-hero-foreground/18 bg-hero-foreground/10 px-5 py-3 text-xs font-semibold backdrop-blur-md lg:flex">
             <a className="transition-colors hover:text-brand-gold" href="/about">{t(tr.navAbout)}</a>
@@ -372,12 +369,8 @@ const Index = () => {
         {menuOpen && (
           <div className="fixed inset-0 z-[60] bg-brand-deep text-hero-foreground lg:hidden">
             <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
-              <div className="flex items-center gap-3">
-                <div className="grid h-11 w-11 place-items-center rounded-full border border-hero-foreground/35 bg-hero-foreground/10 font-display text-xl font-bold">A</div>
-                <div className="leading-none">
-                  <p className="font-display text-2xl font-bold">ABIS</p>
-                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-hero-foreground/72">Group</p>
-                </div>
+              <div className="flex items-center">
+                <img src={logoWhite.url} alt="ABIS Group" className="h-12 w-auto" />
               </div>
               <button
                 type="button"
@@ -645,7 +638,7 @@ const Index = () => {
         <div className="mx-auto max-w-7xl border-t border-hero-foreground/12 px-6 pt-12 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_auto]">
             <div>
-              <p className="font-display text-3xl font-extrabold">ABIS Group</p>
+              <img src={logoWhite.url} alt="ABIS Group" className="h-14 w-auto" />
               <p className="mt-3 max-w-md text-hero-foreground/72">{t(tr.footerTagline)}</p>
               <div className="mt-6 flex items-center gap-3">
                 <a href="https://facebook.com/ABIS.Group.kz" target="_blank" rel="noopener noreferrer" aria-label="Facebook ABIS Group" className="grid h-10 w-10 place-items-center rounded-full border border-hero-foreground/20 transition-colors hover:bg-brand-gold hover:text-accent-foreground"><Facebook className="h-4 w-4" /></a>
