@@ -340,12 +340,8 @@ const Index = () => {
         <div className="spotlight-mask pointer-events-none absolute inset-0 opacity-90" />
 
         <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-6 lg:px-8">
-          <a href="#top" className="group flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-brand-gold">
-            <div className="grid h-11 w-11 place-items-center rounded-full border border-hero-foreground/35 bg-hero-foreground/10 font-display text-xl font-bold backdrop-blur-md transition-transform group-hover:scale-105">A</div>
-            <div className="leading-none">
-              <p className="font-display text-2xl font-bold">ABIS</p>
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-hero-foreground/72">Group</p>
-            </div>
+          <a href="#top" className="group flex items-center focus:outline-none focus:ring-2 focus:ring-brand-gold">
+            <img src={logoWhite.url} alt="ABIS Group" className="h-12 w-auto transition-transform group-hover:scale-105 md:h-14" />
           </a>
           <nav className="hidden items-center gap-4 rounded-full border border-hero-foreground/18 bg-hero-foreground/10 px-5 py-3 text-xs font-semibold backdrop-blur-md lg:flex">
             <a className="transition-colors hover:text-brand-gold" href="/about">{t(tr.navAbout)}</a>
