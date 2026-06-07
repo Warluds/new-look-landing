@@ -1,7 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, Award, Building2, CheckCircle2, Facebook, Instagram, Lightbulb, Mail, MapPin, Menu, Paintbrush, Phone, Send, Star, Trophy, X, Youtube } from "lucide-react";
-import { toast } from "sonner";
-import { z } from "zod";
+import { ArrowRight, Award, Building2, CheckCircle2, Facebook, Instagram, Lightbulb, Mail, MapPin, Menu, Paintbrush, Phone, Star, Trophy, X, Youtube } from "lucide-react";
 import heroImage from "@/assets/abis-showroom-hero.jpg";
 import karagandaStore from "@/assets/retail/karaganda-storefront.jpg";
 import almatyPaintSalon from "@/assets/almaty-paint-salon.jpg";
@@ -325,34 +323,7 @@ const QR_URL = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=
 
 const Index = () => {
   const { t } = useLang();
-  const [submitting, setSubmitting] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const contactSchema = z.object({
-    name: z.string().trim().min(2, t(tr.errName)).max(100),
-    phone: z.string().trim().min(6, t(tr.errPhone)).max(40),
-    message: z.string().trim().min(5, t(tr.errMessage)).max(1000),
-  });
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const parsed = contactSchema.safeParse({
-      name: formData.get("name"),
-      phone: formData.get("phone"),
-      message: formData.get("message"),
-    });
-    if (!parsed.success) {
-      toast.error(parsed.error.issues[0]?.message ?? "");
-      return;
-    }
-    setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
-      (e.target as HTMLFormElement).reset();
-      toast.success(t(tr.successMsg));
-    }, 600);
-  };
 
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
@@ -635,61 +606,37 @@ const Index = () => {
 
       <section id="contacts" className="bg-brand-deep py-24 text-hero-foreground">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-2">
-            <div>
-              <p className="text-sm font-extrabold uppercase tracking-[0.24em] text-brand-gold">{t(tr.contactsEyebrow)}</p>
-              <h2 className="mt-4 font-display text-4xl font-extrabold md:text-5xl">{t(tr.contactsTitle)}</h2>
-              <p className="mt-5 max-w-xl leading-8 text-hero-foreground/76">{t(tr.contactsLead)}</p>
-              <div className="mt-8 space-y-4 text-base">
-                <a href="tel:+77272275018" className="flex items-center gap-3 font-bold transition-colors hover:text-brand-gold">
-                  <Phone className="h-5 w-5 text-brand-gold" /> +7 (727) 227-50-18
-                </a>
-                <a href="mailto:info@abis.kz" className="flex items-center gap-3 font-bold transition-colors hover:text-brand-gold">
-                  <Mail className="h-5 w-5 text-brand-gold" /> info@abis.kz
-                </a>
-                <p className="flex items-start gap-3 font-bold">
-                  <MapPin className="mt-0.5 h-5 w-5 flex-none text-brand-gold" />{" "}
-                  {t([
-                    "ТК ARMADA, ул. Кабдолова 1/8, 1 блок, 1G линия, Алматы",
-                    "ARMADA СО, Қабдолов к-сі 1/8, 1 блок, 1G желісі, Алматы",
-                    "ARMADA Mall, 1/8 Kabdolova str., block 1, line 1G, Almaty",
-                  ])}
-                </p>
-              </div>
-              <div className="mt-8 overflow-hidden rounded-2xl border border-hero-foreground/15">
-                <iframe
-                  title="ABIS Group — Almaty, ARMADA"
-                  src="https://www.google.com/maps?q=ARMADA+Almaty+Kabdolova+1/8&output=embed"
-                  width="100%"
-                  height="280"
-                  style={{ border: 0 }}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
+          <div className="max-w-2xl">
+            <p className="text-sm font-extrabold uppercase tracking-[0.24em] text-brand-gold">{t(tr.contactsEyebrow)}</p>
+            <h2 className="mt-4 font-display text-4xl font-extrabold md:text-5xl">{t(tr.contactsTitle)}</h2>
+            <p className="mt-5 max-w-xl leading-8 text-hero-foreground/76">{t(tr.contactsLead)}</p>
+            <div className="mt-8 space-y-4 text-base">
+              <a href="tel:+77272275018" className="flex items-center gap-3 font-bold transition-colors hover:text-brand-gold">
+                <Phone className="h-5 w-5 text-brand-gold" /> +7 (727) 227-50-18
+              </a>
+              <a href="mailto:info@abis.kz" className="flex items-center gap-3 font-bold transition-colors hover:text-brand-gold">
+                <Mail className="h-5 w-5 text-brand-gold" /> info@abis.kz
+              </a>
+              <p className="flex items-start gap-3 font-bold">
+                <MapPin className="mt-0.5 h-5 w-5 flex-none text-brand-gold" />{" "}
+                {t([
+                  "ТК ARMADA, ул. Кабдолова 1/8, 1 блок, 1G линия, Алматы",
+                  "ARMADA СО, Қабдолов к-сі 1/8, 1 блок, 1G желісі, Алматы",
+                  "ARMADA Mall, 1/8 Kabdolova str., block 1, line 1G, Almaty",
+                ])}
+              </p>
             </div>
-
-            <form onSubmit={handleSubmit} className="rounded-3xl border border-hero-foreground/15 bg-hero-foreground/8 p-8 backdrop-blur-md">
-              <h3 className="font-display text-2xl font-extrabold">{t(tr.formTitle)}</h3>
-              <p className="mt-2 text-sm text-hero-foreground/72">{t(tr.formLead)}</p>
-              <div className="mt-6 space-y-4">
-                <div>
-                  <label htmlFor="name" className="text-sm font-bold">{t(tr.formName)}</label>
-                  <input id="name" name="name" required maxLength={100} className="mt-2 w-full rounded-xl border border-hero-foreground/20 bg-brand-deep/40 px-4 py-3 font-semibold text-hero-foreground placeholder:text-hero-foreground/40 focus:border-brand-gold focus:outline-none" placeholder={t(tr.formNamePh)} />
-                </div>
-                <div>
-                  <label htmlFor="phone" className="text-sm font-bold">{t(tr.formPhone)}</label>
-                  <input id="phone" name="phone" required maxLength={40} className="mt-2 w-full rounded-xl border border-hero-foreground/20 bg-brand-deep/40 px-4 py-3 font-semibold text-hero-foreground placeholder:text-hero-foreground/40 focus:border-brand-gold focus:outline-none" placeholder="+7 ___ ___ __ __" />
-                </div>
-                <div>
-                  <label htmlFor="message" className="text-sm font-bold">{t(tr.formMessage)}</label>
-                  <textarea id="message" name="message" required maxLength={1000} rows={4} className="mt-2 w-full rounded-xl border border-hero-foreground/20 bg-brand-deep/40 px-4 py-3 font-semibold text-hero-foreground placeholder:text-hero-foreground/40 focus:border-brand-gold focus:outline-none" placeholder={t(tr.formMessagePh)} />
-                </div>
-                <button type="submit" disabled={submitting} className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-gold-gradient px-7 py-4 font-extrabold text-accent-foreground shadow-luxe transition-transform hover:-translate-y-1 disabled:opacity-60">
-                  <Send className="h-5 w-5" /> {submitting ? t(tr.sending) : t(tr.submit)}
-                </button>
-              </div>
-            </form>
+            <div className="mt-8 overflow-hidden rounded-2xl border border-hero-foreground/15">
+              <iframe
+                title="ABIS Group — Almaty, ARMADA"
+                src="https://www.google.com/maps?q=ARMADA+Almaty+Kabdolova+1/8&output=embed"
+                width="100%"
+                height="280"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </div>
         </div>
       </section>
