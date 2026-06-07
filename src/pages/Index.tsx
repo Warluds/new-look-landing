@@ -323,34 +323,7 @@ const QR_URL = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=
 
 const Index = () => {
   const { t } = useLang();
-  const [submitting, setSubmitting] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const contactSchema = z.object({
-    name: z.string().trim().min(2, t(tr.errName)).max(100),
-    phone: z.string().trim().min(6, t(tr.errPhone)).max(40),
-    message: z.string().trim().min(5, t(tr.errMessage)).max(1000),
-  });
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const parsed = contactSchema.safeParse({
-      name: formData.get("name"),
-      phone: formData.get("phone"),
-      message: formData.get("message"),
-    });
-    if (!parsed.success) {
-      toast.error(parsed.error.issues[0]?.message ?? "");
-      return;
-    }
-    setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
-      (e.target as HTMLFormElement).reset();
-      toast.success(t(tr.successMsg));
-    }, 600);
-  };
 
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
