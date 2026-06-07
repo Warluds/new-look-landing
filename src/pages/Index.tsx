@@ -21,6 +21,7 @@ import logoNomad from "@/assets/partners/nomad.png";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Tr, useLang } from "@/i18n/LanguageContext";
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import logoWhite from "@/assets/logo-white.svg.asset.json";
 
 const childBrands: Array<{ name: string; desc: Tr; href: string }> = [
   { name: "SVET.KZ", desc: ["Салоны света", "Жарық салондары", "Lighting showrooms"], href: "https://svet.kz" },
