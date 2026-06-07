@@ -25,7 +25,7 @@ import { Tr, useLang } from "@/i18n/LanguageContext";
 const childBrands: Array<{ name: string; desc: Tr; href: string }> = [
   { name: "SVET.KZ", desc: ["Салоны света", "Жарық салондары", "Lighting showrooms"], href: "https://svet.kz" },
   { name: "Центр Красок №1", desc: ["Розничная сеть ЛКМ", "Бояулар бөлшек желісі", "Paints retail network"], href: "https://centr-krasok.kz" },
-  { name: "DecorPlus", desc: ["Декоративные решения", "Декоративтік шешімдер", "Decorative solutions"], href: "https://decor-plus.kz" },
+  { name: "Decor +", desc: ["Декоративные решения", "Декоративтік шешімдер", "Decorative solutions"], href: "https://decor-plus.kz" },
   { name: "PRO DECOR", desc: ["Студия декора", "Декор студиясы", "Decor studio"], href: "https://pro-decor.kz" },
   { name: "Impulse Media", desc: ["SMM и реклама", "SMM және жарнама", "SMM & advertising"], href: "https://impulse-media.kz" },
   { name: "And Asia", desc: ["Дизайнерские решения", "Дизайнерлік шешімдер", "Designer solutions"], href: "https://an-d.asia" },
