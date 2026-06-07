@@ -6,6 +6,7 @@ import heroImage from "@/assets/abis-showroom-hero.jpg";
 import karagandaStore from "@/assets/retail/karaganda-storefront.jpg";
 import almatyPaintSalon from "@/assets/almaty-paint-salon.jpg";
 import astanaProject from "@/assets/astana-project.jpg";
+import svetAlmaty from "@/assets/svet-almaty.jpg.asset.json";
 import logoApplecity from "@/assets/partners/applecity.png";
 import logoMeloman from "@/assets/partners/meloman.png";
 import logoHalyk from "@/assets/partners/halyk.png";
@@ -25,10 +26,10 @@ import { Tr, useLang } from "@/i18n/LanguageContext";
 const childBrands: Array<{ name: string; desc: Tr; href: string }> = [
   { name: "SVET.KZ", desc: ["Салоны света", "Жарық салондары", "Lighting showrooms"], href: "https://svet.kz" },
   { name: "Центр Красок №1", desc: ["Розничная сеть ЛКМ", "Бояулар бөлшек желісі", "Paints retail network"], href: "https://centr-krasok.kz" },
-  { name: "Decor +", desc: ["Декоративные решения", "Декоративтік шешімдер", "Decorative solutions"], href: "https://decor-plus.kz" },
+  { name: "Decor +", desc: ["Дистрибьютор декоративных решений и освещения", "Декоративтік шешімдер мен жарықтандыру дистрибьюторы", "Distributor of decorative solutions and lighting"], href: "https://decor-plus.kz" },
   { name: "PRO DECOR", desc: ["Студия декора", "Декор студиясы", "Decor studio"], href: "https://pro-decor.kz" },
   { name: "Impulse Media", desc: ["SMM и реклама", "SMM және жарнама", "SMM & advertising"], href: "https://impulse-media.kz" },
-  { name: "And Asia", desc: ["Дизайнерские решения", "Дизайнерлік шешімдер", "Designer solutions"], href: "https://an-d.asia" },
+  { name: "AND Asia", desc: ["Дистрибьютор лакокрасочных материалов и малярно-штукатурных инструментов в Центральной Азии", "Орталық Азиядағы лак-бояу материалдары мен сылақ-сырлау құралдарының дистрибьюторы", "Distributor of paints, coatings and plastering tools in Central Asia"], href: "https://an-d.asia" },
 ];
 
 const SVET_2GIS = "https://2gis.kz/almaty/firm/70000001043802177";
@@ -149,6 +150,17 @@ const retailLocations: Array<{ city: Tr; name: string; address: Tr; image: strin
     ],
     image: astanaProject,
     tag: ["Сеть", "Желі", "Network"],
+  },
+  {
+    city: ["Алматы", "Алматы", "Almaty"],
+    name: "SVET.KZ",
+    address: [
+      "ТК ARMADA, ряд 3, блок 1, линия G — центр правильного света",
+      "ARMADA СО, 3-қатар, 1 блок, G желісі — дұрыс жарық орталығы",
+      "ARMADA Mall, row 3, block 1, line G — the right light centre",
+    ],
+    image: svetAlmaty.url,
+    tag: ["Lighting", "Жарық", "Lighting"],
   },
 ];
 
