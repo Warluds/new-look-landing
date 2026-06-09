@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Tr, useLang } from "@/i18n/LanguageContext";
 import logoWhite from "@/assets/logo-white.svg.asset.json";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 const NAV: Array<{ href: string; label: Tr }> = [
   { href: "/", label: ["Главная", "Басты бет", "Home"] },
@@ -118,6 +119,7 @@ export const PageShell = ({ eyebrow, title, lead, children }: PageShellProps) =>
           +7 727 227 50 18
         </a>
       </footer>
+      <ScrollToTop />
     </div>
   );
 };
