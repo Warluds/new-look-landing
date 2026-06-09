@@ -669,6 +669,7 @@ const Index = () => {
           <p className="mt-12 border-t border-hero-foreground/10 pt-6 text-center text-xs font-semibold uppercase tracking-[0.2em] text-hero-foreground/55">{t(tr.copyright)}</p>
         </div>
       </footer>
+      <ScrollToTop />
     </main>
   );
 };
