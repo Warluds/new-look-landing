@@ -119,6 +119,7 @@ export const PageShell = ({ eyebrow, title, lead, children }: PageShellProps) =>
           +7 727 227 50 18
         </a>
       </footer>
+      <ScrollToTop />
     </div>
   );
 };
