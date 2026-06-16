@@ -231,7 +231,7 @@ const tr = {
     "We deliver solutions visible in every interior.",
   ] as Tr,
   brandsEyebrow: ["дочерние бренды", "еншілес брендтер", "subsidiary brands"] as Tr,
-  brandsTitle: ["Единая экосистема ABIS Group.", "ABIS Group бірыңғай экожүйесі.", "A single ABIS Group ecosystem."] as Tr,
+  brandsTitle: ["Единая экосистема ABIS Group", "ABIS Group бірыңғай экожүйесі", "A single ABIS Group ecosystem"] as Tr,
   retailEyebrow: ["розничная сеть", "бөлшек желі", "retail network"] as Tr,
   retailTitle: [
     "Наши салоны в городах Казахстана.",
