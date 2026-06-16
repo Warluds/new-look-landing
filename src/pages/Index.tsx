@@ -555,6 +555,23 @@ const Index = () => {
         </div>
       </section>
 
+      <section className="py-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="max-w-2xl">
+            <p className="text-sm font-extrabold uppercase tracking-[0.24em] text-primary">{t(tr.partnersEyebrow)}</p>
+            <h2 className="mt-4 font-display text-4xl font-extrabold md:text-5xl">{t(tr.partnersTitle)}</h2>
+          </div>
+          <div className="mt-12 grid grid-cols-3 gap-6 md:grid-cols-4 lg:grid-cols-6">
+            {partners.map((p) => (
+              <div key={p.name} className="flex items-center justify-center rounded-2xl border border-border bg-card p-4 shadow-soft transition-all hover:-translate-y-1 hover:shadow-luxe">
+                <img src={p.logo} alt={p.name} className="max-h-12 w-auto object-contain opacity-80 grayscale transition-all hover:opacity-100 hover:grayscale-0" loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
 
       <section id="contacts" className="bg-brand-deep py-24 text-hero-foreground">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
