@@ -18,6 +18,7 @@ import logoKazakhYuvelir from "@/assets/partners/kazakh-yuvelir.png";
 import logoRams from "@/assets/partners/rams.png";
 import logoGorodMasterov from "@/assets/partners/gorod-masterov.png";
 import logoNomad from "@/assets/partners/nomad.png";
+import logoBiGroup from "@/assets/partners/bi-group.png";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Tr, useLang } from "@/i18n/LanguageContext";
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -51,6 +52,7 @@ const partners = [
   { name: "RAMS Kazakhstan", logo: logoRams },
   { name: "Город мастеров", logo: logoGorodMasterov },
   { name: "Nomad", logo: logoNomad },
+  { name: "BI Group", logo: logoBiGroup },
 ];
 
 const reviews: Array<{ name: string; text: Tr; source: string; href: string }> = [
