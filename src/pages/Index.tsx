@@ -34,14 +34,14 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 
 const logoBiGroup = logoBiGroupAsset.url;
 
-const childBrands: Array<{ name: string; desc: Tr; href: string; logo?: string }> = [
-  { name: "SVET.KZ", desc: ["Салоны освещения Svet.kz", "Svet.kz жарық салондары", "Svet.kz lighting showrooms"], href: "https://svet.kz", logo: brandSvetKz.url },
-  { name: "Центр Красок №1", desc: ["Розничная сеть ЛКМ", "Бояулар бөлшек желісі", "Paints retail network"], href: "https://centr-krasok.kz", logo: brandCentrKrasok.url },
-  { name: "Центр Красок №1 PRO", desc: ["Краски и инструменты для профессионалов", "Кәсіби мамандарға арналған бояулар мен құралдар", "Paints and tools for professionals"], href: "https://centr-krasok.kz", logo: brandCentrKrasokPro.url },
-  { name: "Decor +", desc: ["Дистрибьютор декоративных решений и освещения", "Декоративтік шешімдер мен жарықтандыру дистрибьюторы", "Distributor of decorative solutions and lighting"], href: "https://decor-plus.kz", logo: brandDecorPlus.url },
-  { name: "PRO DECOR", desc: ["Освещение и краски для профессионалов", "Кәсіби мамандарға арналған жарық пен бояу", "Lighting and paints for professionals"], href: "https://pro-decor.kz", logo: brandProDecor.url },
-  { name: "Impulse Media", desc: ["SMM и реклама", "SMM және жарнама", "SMM & advertising"], href: "https://impulse-media.kz" },
-  { name: "AND Asia", desc: ["Дистрибьютор лакокрасочных материалов и малярно-штукатурных инструментов в Центральной Азии", "Орталық Азиядағы лак-бояу материалдары мен сылақ-сырлау құралдарының дистрибьюторы", "Distributor of paints, coatings and plastering tools in Central Asia"], href: "https://an-d.asia", logo: brandAndAsia.url },
+const childBrands: Array<{ name: string; desc: Tr; href: string; logo?: string; logoBg?: "light" | "dark" }> = [
+  { name: "SVET.KZ", desc: ["Салоны освещения Svet.kz", "Svet.kz жарық салондары", "Svet.kz lighting showrooms"], href: "https://svet.kz", logo: brandSvetKz.url, logoBg: "light" },
+  { name: "Центр Красок №1", desc: ["Розничная сеть ЛКМ", "Бояулар бөлшек желісі", "Paints retail network"], href: "https://centr-krasok.kz", logo: brandCentrKrasok.url, logoBg: "light" },
+  { name: "Центр Красок №1 PRO", desc: ["Краски и инструменты для профессионалов", "Кәсіби мамандарға арналған бояулар мен құралдар", "Paints and tools for professionals"], href: "https://centr-krasok.kz", logo: brandCentrKrasokPro.url, logoBg: "light" },
+  { name: "Decor +", desc: ["Дистрибьютор декоративных решений и освещения", "Декоративтік шешімдер мен жарықтандыру дистрибьюторы", "Distributor of decorative solutions and lighting"], href: "https://decor-plus.kz", logo: brandDecorPlus.url, logoBg: "dark" },
+  { name: "PRO DECOR", desc: ["Освещение и краски для профессионалов", "Кәсіби мамандарға арналған жарық пен бояу", "Lighting and paints for professionals"], href: "https://pro-decor.kz", logo: brandProDecor.url, logoBg: "light" },
+  { name: "Impulse Media", desc: ["SMM и реклама", "SMM және жарнама", "SMM & advertising"], href: "https://impulse-media.kz", logo: brandImpulse.url, logoBg: "light" },
+  { name: "AND Asia", desc: ["Дистрибьютор лакокрасочных материалов и малярно-штукатурных инструментов в Центральной Азии", "Орталық Азиядағы лак-бояу материалдары мен сылақ-сырлау құралдарының дистрибьюторы", "Distributor of paints, coatings and plastering tools in Central Asia"], href: "https://an-d.asia", logo: brandAndAsia.url, logoBg: "light" },
 ];
 
 const SVET_2GIS = "https://2gis.kz/almaty/firm/70000001043802177";
