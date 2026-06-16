@@ -506,25 +506,6 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="bg-brand-deep py-20 text-hero-foreground">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <div>
-              <p className="text-sm font-extrabold uppercase tracking-[0.24em] text-brand-gold">{t(tr.cooperationEyebrow)}</p>
-              <h2 className="mt-4 font-display text-4xl font-extrabold md:text-5xl">{t(tr.cooperationTitle)}</h2>
-              <p className="mt-5 leading-8 text-hero-foreground/74">{t(tr.cooperationLead)}</p>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {partnerScenarios.map((item) => (
-                <div key={t(item)} className="flex items-center gap-3 rounded-2xl border border-hero-foreground/14 bg-hero-foreground/8 p-5 backdrop-blur-md">
-                  <CheckCircle2 className="h-5 w-5 flex-none text-brand-gold" />
-                  <span className="font-bold">{t(item)}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
