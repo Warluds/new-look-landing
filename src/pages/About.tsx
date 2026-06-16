@@ -52,8 +52,7 @@ const PhotoCollage = ({ year, title, photos }: { year: string; title: string; ph
 };
 
 const summaryStats = [
-  { value: "15 лет", label: "на рынке Казахстана и Центральной Азии" },
-  { value: "500+", label: "партнеров в оптовом направлении" },
+  { value: "16 лет", label: "на рынке Казахстана и Центральной Азии" },
   { value: ">2 300 м²", label: "торговых площадей в рознице" },
   { value: "192", label: "сотрудника в команде" },
 ];
@@ -190,7 +189,7 @@ const About = () => {
       </section>
 
       <section className="relative -mt-12 z-20 mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid overflow-hidden rounded-2xl border border-border bg-card shadow-luxe md:grid-cols-4">
+        <div className="grid overflow-hidden rounded-2xl border border-border bg-card shadow-luxe md:grid-cols-3">
           {summaryStats.map((item) => (
             <div key={item.label} className="border-border p-6 md:border-r md:last:border-r-0">
               <p className="font-display text-4xl font-extrabold text-primary">{item.value}</p>
