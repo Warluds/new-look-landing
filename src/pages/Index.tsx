@@ -263,9 +263,9 @@ const tr = {
   on2gis: ["на 2GIS", "2GIS-те", "on 2GIS"] as Tr,
   awardsEyebrow: ["награды и признание", "марапаттар мен мойындау", "awards & recognition"] as Tr,
   awardsTitle: [
-    "НАШИ НАГРАДЫ НАЦИОНАЛЬНОГО УРОВНЯ",
-    "ҰЛТТЫҚ ДЕҢГЕЙДЕГІ МАРАПАТТАРЫМЫЗ",
-    "OUR NATIONAL LEVEL AWARDS",
+    "НАШИ НАГРАДЫ\u00a0",
+    "БІЗДІҢ МАРАПАТТАРЫМЫЗ\u00a0",
+    "OUR AWARDS\u00a0",
   ] as Tr,
   partnersEyebrow: ["с нами уже работают", "бізбен қазірдің өзінде жұмыс істейді", "already working with us"] as Tr,
   partnersTitle: [
