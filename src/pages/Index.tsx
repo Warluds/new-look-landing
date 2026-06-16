@@ -213,9 +213,9 @@ const tr = {
   navCareer: ["Карьера", "Мансап", "Career"] as Tr,
   navContacts: ["Контакты", "Байланыс", "Contacts"] as Tr,
   heroEyebrow: [
-    "освещение · краски · импорт · маркетинг",
-    "жарық · бояу · импорт · маркетинг",
-    "lighting · paints · import · marketing",
+    "ДИСТРИБЬЮЦИЯ\u00a0\n·\n\u00a0РОЗНИЦА\u00a0\n·\n\u00a0КОНСАЛТИНГ\u00a0· КОМПЛЕКТАЦИЯ",
+    "ДИСТРИБЬЮЦИЯ\u00a0\n·\n\u00a0РОЗНИЦА\u00a0\n·\n\u00a0КОНСАЛТИНГ\u00a0· КОМПЛЕКТАЦИЯ",
+    "DISTRIBUTION\u00a0\n·\n\u00a0RETAIL\u00a0\n·\n\u00a0CONSULTING\u00a0· PROCUREMENT",
   ] as Tr,
   heroLead: [
     "Группа компаний для тех, кто создает красивые и технологичные пространства: профессиональный свет, краски, декоративные покрытия и партнерская инфраструктура.",
@@ -231,7 +231,7 @@ const tr = {
     "We deliver solutions visible in every interior.",
   ] as Tr,
   brandsEyebrow: ["дочерние бренды", "еншілес брендтер", "subsidiary brands"] as Tr,
-  brandsTitle: ["Единая экосистема ABIS Group.", "ABIS Group бірыңғай экожүйесі.", "A single ABIS Group ecosystem."] as Tr,
+  brandsTitle: ["Единая экосистема ABIS Group", "ABIS Group бірыңғай экожүйесі", "A single ABIS Group ecosystem"] as Tr,
   retailEyebrow: ["розничная сеть", "бөлшек желі", "retail network"] as Tr,
   retailTitle: [
     "Наши салоны в городах Казахстана.",
@@ -259,7 +259,7 @@ const tr = {
     "Pick a track — lighting or paints — and receive terms on assortment, logistics, marketing support and team training.",
   ] as Tr,
   reviewsEyebrow: ["отзывы клиентов", "клиенттердің пікірлері", "client reviews"] as Tr,
-  reviewsTitle: ["5★ на 2GIS — годами.", "2GIS-те жылдар бойы 5★.", "5★ on 2GIS — for years."] as Tr,
+  reviewsTitle: ["\n", "\n", "\n"] as Tr,
   on2gis: ["на 2GIS", "2GIS-те", "on 2GIS"] as Tr,
   awardsEyebrow: ["награды и признание", "марапаттар мен мойындау", "awards & recognition"] as Tr,
   awardsTitle: [
