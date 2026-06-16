@@ -18,12 +18,14 @@ import logoKazakhYuvelir from "@/assets/partners/kazakh-yuvelir.png";
 import logoRams from "@/assets/partners/rams.png";
 import logoGorodMasterov from "@/assets/partners/gorod-masterov.png";
 import logoNomad from "@/assets/partners/nomad.png";
-import logoBiGroup from "@/assets/partners/bi-group.png";
+import logoBiGroupAsset from "@/assets/partners/bi-group.png.asset.json";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Tr, useLang } from "@/i18n/LanguageContext";
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import logoWhite from "@/assets/logo-white.svg.asset.json";
 import { ScrollToTop } from "@/components/ScrollToTop";
+
+const logoBiGroup = logoBiGroupAsset.url;
 
 const childBrands: Array<{ name: string; desc: Tr; href: string }> = [
   { name: "SVET.KZ", desc: ["Салоны освещения Svet.kz", "Svet.kz жарық салондары", "Svet.kz lighting showrooms"], href: "https://svet.kz" },
