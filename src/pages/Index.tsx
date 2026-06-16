@@ -479,7 +479,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="retail" className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+      <section id="retail" className="mx-auto max-w-7xl px-6 pt-24 pb-12 lg:px-8">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-2xl">
             <p className="text-sm font-extrabold uppercase tracking-[0.24em] text-primary">{t(tr.retailEyebrow)}</p>
