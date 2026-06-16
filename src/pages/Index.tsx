@@ -4,7 +4,7 @@ import heroImage from "@/assets/abis-showroom-hero.jpg";
 import karagandaStore from "@/assets/retail/karaganda-storefront.jpg";
 import almatyPaintSalon from "@/assets/almaty-paint-salon.jpg";
 import astanaProject from "@/assets/astana-project.jpg";
-import svetAlmaty from "@/assets/svet-almaty.jpg.asset.json";
+import svetAlmaty from "@/assets/svet-almaty.jpg";
 import logoApplecity from "@/assets/partners/applecity.png";
 import logoMeloman from "@/assets/partners/meloman.png";
 import logoHalyk from "@/assets/partners/halyk.png";
@@ -18,30 +18,28 @@ import logoKazakhYuvelir from "@/assets/partners/kazakh-yuvelir.png";
 import logoRams from "@/assets/partners/rams.png";
 import logoGorodMasterov from "@/assets/partners/gorod-masterov.png";
 import logoNomad from "@/assets/partners/nomad.png";
-import logoBiGroupAsset from "@/assets/partners/bi-group.png.asset.json";
-import brandSvetKz from "@/assets/brands/svet-kz.png.asset.json";
-import brandCentrKrasok from "@/assets/brands/centr-krasok.png.asset.json";
-import brandCentrKrasokPro from "@/assets/brands/centr-krasok-pro.png.asset.json";
-import brandDecorPlus from "@/assets/brands/decor-plus.png.asset.json";
-import brandProDecor from "@/assets/brands/pro-decor.png.asset.json";
-import brandAndAsia from "@/assets/brands/and-asia.png.asset.json";
-import brandImpulse from "@/assets/brands/impulse-media.png.asset.json";
+import logoBiGroup from "@/assets/partners/bi-group.png";
+import brandSvetKz from "@/assets/brands/svet-kz.png";
+import brandCentrKrasok from "@/assets/brands/centr-krasok.png";
+import brandCentrKrasokPro from "@/assets/brands/centr-krasok-pro.png";
+import brandDecorPlus from "@/assets/brands/decor-plus.png";
+import brandProDecor from "@/assets/brands/pro-decor.png";
+import brandAndAsia from "@/assets/brands/and-asia.png";
+import brandImpulse from "@/assets/brands/impulse-media.png";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Tr, useLang } from "@/i18n/LanguageContext";
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import logoWhite from "@/assets/logo-white.svg.asset.json";
+import logoWhite from "@/assets/logo-white.svg";
 import { ScrollToTop } from "@/components/ScrollToTop";
 
-const logoBiGroup = logoBiGroupAsset.url;
-
 const childBrands: Array<{ name: string; desc: Tr; href: string; logo?: string }> = [
-  { name: "SVET.KZ", desc: ["Салоны освещения Svet.kz", "Svet.kz жарық салондары", "Svet.kz lighting showrooms"], href: "https://svet.kz", logo: brandSvetKz.url },
-  { name: "Центр Красок №1", desc: ["Розничная сеть ЛКМ", "Бояулар бөлшек желісі", "Paints retail network"], href: "https://centr-krasok.kz", logo: brandCentrKrasok.url },
-  { name: "Центр Красок №1 PRO", desc: ["Краски и инструменты для профессионалов", "Кәсіби мамандарға арналған бояулар мен құралдар", "Paints and tools for professionals"], href: "https://centr-krasok.kz", logo: brandCentrKrasokPro.url },
-  { name: "AND Asia", desc: ["Дистрибьютор лакокрасочных материалов и малярно-штукатурных инструментов в Центральной Азии", "Орталық Азиядағы лак-бояу материалдары мен сылақ-сырлау құралдарының дистрибьюторы", "Distributor of paints, coatings and plastering tools in Central Asia"], href: "https://an-d.asia", logo: brandAndAsia.url },
-  { name: "PRO DECOR", desc: ["Освещение и краски для профессионалов", "Кәсіби мамандарға арналған жарық пен бояу", "Lighting and paints for professionals"], href: "https://pro-decor.kz", logo: brandProDecor.url },
-  { name: "Impulse Media", desc: ["SMM и реклама", "SMM және жарнама", "SMM & advertising"], href: "https://impulse-media.kz", logo: brandImpulse.url },
-  { name: "Decor +", desc: ["Дистрибьютор декоративных решений и освещения", "Декоративтік шешімдер мен жарықтандыру дистрибьюторы", "Distributor of decorative solutions and lighting"], href: "https://decor-plus.kz", logo: brandDecorPlus.url },
+  { name: "SVET.KZ", desc: ["Салоны освещения Svet.kz", "Svet.kz жарық салондары", "Svet.kz lighting showrooms"], href: "https://svet.kz", logo: brandSvetKz },
+  { name: "Центр Красок №1", desc: ["Розничная сеть ЛКМ", "Бояулар бөлшек желісі", "Paints retail network"], href: "https://centr-krasok.kz", logo: brandCentrKrasok },
+  { name: "Центр Красок №1 PRO", desc: ["Краски и инструменты для профессионалов", "Кәсіби мамандарға арналған бояулар мен құралдар", "Paints and tools for professionals"], href: "https://centr-krasok.kz", logo: brandCentrKrasokPro },
+  { name: "AND Asia", desc: ["Дистрибьютор лакокрасочных материалов и малярно-штукатурных инструментов в Центральной Азии", "Орталық Азиядағы лак-бояу материалдары мен сылақ-сырлау құралдарының дистрибьюторы", "Distributor of paints, coatings and plastering tools in Central Asia"], href: "https://an-d.asia", logo: brandAndAsia },
+  { name: "PRO DECOR", desc: ["Освещение и краски для профессионалов", "Кәсіби мамандарға арналған жарық пен бояу", "Lighting and paints for professionals"], href: "https://pro-decor.kz", logo: brandProDecor },
+  { name: "Impulse Media", desc: ["SMM и реклама", "SMM және жарнама", "SMM & advertising"], href: "https://impulse-media.kz", logo: brandImpulse },
+  { name: "Decor +", desc: ["Дистрибьютор декоративных решений и освещения", "Декоративтік шешімдер мен жарықтандыру дистрибьюторы", "Distributor of decorative solutions and lighting"], href: "https://decor-plus.kz", logo: brandDecorPlus },
 ];
 
 const SVET_2GIS = "https://2gis.kz/almaty/firm/70000001043802177";
