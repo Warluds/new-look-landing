@@ -21,10 +21,11 @@ import logoNomad from "@/assets/partners/nomad.png";
 import logoBiGroupAsset from "@/assets/partners/bi-group.png.asset.json";
 import brandSvetKz from "@/assets/brands/svet-kz.png.asset.json";
 import brandCentrKrasok from "@/assets/brands/centr-krasok.png.asset.json";
-import brandCentrKrasokPro from "@/assets/brands/centr-krasok-pro.jpg.asset.json";
-import brandDecorPlus from "@/assets/brands/decor-plus.jpg.asset.json";
+import brandCentrKrasokPro from "@/assets/brands/centr-krasok-pro.png.asset.json";
+import brandDecorPlus from "@/assets/brands/decor-plus.png.asset.json";
 import brandProDecor from "@/assets/brands/pro-decor.png.asset.json";
 import brandAndAsia from "@/assets/brands/and-asia.png.asset.json";
+import brandImpulse from "@/assets/brands/impulse-media.png.asset.json";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Tr, useLang } from "@/i18n/LanguageContext";
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -33,14 +34,14 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 
 const logoBiGroup = logoBiGroupAsset.url;
 
-const childBrands: Array<{ name: string; desc: Tr; href: string; logo?: string }> = [
-  { name: "SVET.KZ", desc: ["Салоны освещения Svet.kz", "Svet.kz жарық салондары", "Svet.kz lighting showrooms"], href: "https://svet.kz", logo: brandSvetKz.url },
-  { name: "Центр Красок №1", desc: ["Розничная сеть ЛКМ", "Бояулар бөлшек желісі", "Paints retail network"], href: "https://centr-krasok.kz", logo: brandCentrKrasok.url },
-  { name: "Центр Красок №1 PRO", desc: ["Краски и инструменты для профессионалов", "Кәсіби мамандарға арналған бояулар мен құралдар", "Paints and tools for professionals"], href: "https://centr-krasok.kz", logo: brandCentrKrasokPro.url },
-  { name: "Decor +", desc: ["Дистрибьютор декоративных решений и освещения", "Декоративтік шешімдер мен жарықтандыру дистрибьюторы", "Distributor of decorative solutions and lighting"], href: "https://decor-plus.kz", logo: brandDecorPlus.url },
-  { name: "PRO DECOR", desc: ["Освещение и краски для профессионалов", "Кәсіби мамандарға арналған жарық пен бояу", "Lighting and paints for professionals"], href: "https://pro-decor.kz", logo: brandProDecor.url },
-  { name: "Impulse Media", desc: ["SMM и реклама", "SMM және жарнама", "SMM & advertising"], href: "https://impulse-media.kz" },
-  { name: "AND Asia", desc: ["Дистрибьютор лакокрасочных материалов и малярно-штукатурных инструментов в Центральной Азии", "Орталық Азиядағы лак-бояу материалдары мен сылақ-сырлау құралдарының дистрибьюторы", "Distributor of paints, coatings and plastering tools in Central Asia"], href: "https://an-d.asia", logo: brandAndAsia.url },
+const childBrands: Array<{ name: string; desc: Tr; href: string; logo?: string; logoBg?: "light" | "dark" }> = [
+  { name: "SVET.KZ", desc: ["Салоны освещения Svet.kz", "Svet.kz жарық салондары", "Svet.kz lighting showrooms"], href: "https://svet.kz", logo: brandSvetKz.url, logoBg: "light" },
+  { name: "Центр Красок №1", desc: ["Розничная сеть ЛКМ", "Бояулар бөлшек желісі", "Paints retail network"], href: "https://centr-krasok.kz", logo: brandCentrKrasok.url, logoBg: "light" },
+  { name: "Центр Красок №1 PRO", desc: ["Краски и инструменты для профессионалов", "Кәсіби мамандарға арналған бояулар мен құралдар", "Paints and tools for professionals"], href: "https://centr-krasok.kz", logo: brandCentrKrasokPro.url, logoBg: "light" },
+  { name: "Decor +", desc: ["Дистрибьютор декоративных решений и освещения", "Декоративтік шешімдер мен жарықтандыру дистрибьюторы", "Distributor of decorative solutions and lighting"], href: "https://decor-plus.kz", logo: brandDecorPlus.url, logoBg: "dark" },
+  { name: "PRO DECOR", desc: ["Освещение и краски для профессионалов", "Кәсіби мамандарға арналған жарық пен бояу", "Lighting and paints for professionals"], href: "https://pro-decor.kz", logo: brandProDecor.url, logoBg: "light" },
+  { name: "Impulse Media", desc: ["SMM и реклама", "SMM және жарнама", "SMM & advertising"], href: "https://impulse-media.kz", logo: brandImpulse.url, logoBg: "light" },
+  { name: "AND Asia", desc: ["Дистрибьютор лакокрасочных материалов и малярно-штукатурных инструментов в Центральной Азии", "Орталық Азиядағы лак-бояу материалдары мен сылақ-сырлау құралдарының дистрибьюторы", "Distributor of paints, coatings and plastering tools in Central Asia"], href: "https://an-d.asia", logo: brandAndAsia.url, logoBg: "light" },
 ];
 
 const SVET_2GIS = "https://2gis.kz/almaty/firm/70000001043802177";
@@ -461,19 +462,19 @@ const Index = () => {
                 href={b.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card p-7 shadow-soft transition-all hover:-translate-y-1 hover:border-primary hover:shadow-luxe"
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-all hover:-translate-y-1 hover:border-primary hover:shadow-luxe"
               >
                 {b.logo && (
-                  <div className="mb-5 flex h-20 items-center justify-center overflow-hidden rounded-xl bg-white p-3">
-                    <img src={b.logo} alt={b.name} className="max-h-full max-w-full object-contain" loading="lazy" />
+                  <div className={`flex h-36 items-center justify-center px-8 py-6 border-b border-border ${b.logoBg === "dark" ? "bg-[#0f1115]" : "bg-white"}`}>
+                    <img src={b.logo} alt={b.name} className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy" />
                   </div>
                 )}
-                <div className="flex items-start justify-between">
+                <div className="flex flex-1 items-start justify-between gap-4 p-7">
                   <div>
                     <p className="font-display text-2xl font-extrabold tracking-tight text-primary">{b.name}</p>
                     <p className="mt-2 font-semibold text-muted-foreground">{t(b.desc)}</p>
                   </div>
-                  <ArrowRight className="h-5 w-5 -rotate-45 text-muted-foreground transition-all group-hover:rotate-0 group-hover:text-primary" />
+                  <ArrowRight className="mt-1 h-5 w-5 shrink-0 -rotate-45 text-muted-foreground transition-all group-hover:rotate-0 group-hover:text-primary" />
                 </div>
               </a>
             ))}
