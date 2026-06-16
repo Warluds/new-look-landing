@@ -579,8 +579,6 @@ const Index = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="max-w-2xl">
             <p className="text-sm font-extrabold uppercase tracking-[0.24em] text-brand-gold">{t(tr.contactsEyebrow)}</p>
-            <h2 className="mt-4 font-display text-4xl font-extrabold md:text-5xl">{t(tr.contactsTitle)}</h2>
-            <p className="mt-5 max-w-xl leading-8 text-hero-foreground/76">{t(tr.contactsLead)}</p>
             <div className="mt-8 space-y-4 text-base">
               <a href="tel:+77272275018" className="flex items-center gap-3 font-bold transition-colors hover:text-brand-gold">
                 <Phone className="h-5 w-5 text-brand-gold" /> +7 (727) 227-50-18
