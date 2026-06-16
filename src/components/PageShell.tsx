@@ -2,7 +2,7 @@ import { ReactNode, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Tr, useLang } from "@/i18n/LanguageContext";
-import logoWhite from "@/assets/logo-white.svg.asset.json";
+import logoWhite from "@/assets/logo-white.svg";
 import { ScrollToTop } from "@/components/ScrollToTop";
 
 const NAV: Array<{ href: string; label: Tr }> = [
@@ -41,7 +41,7 @@ export const PageShell = ({ eyebrow, title, lead, children }: PageShellProps) =>
       <header className="border-b border-border/60 bg-card/60 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-5">
           <a href="/" className="flex items-center">
-            <img src={logoWhite.url} alt="ABIS Group" className="h-10 w-auto md:h-12" />
+            <img src={logoWhite} alt="ABIS Group" className="h-10 w-auto md:h-12" />
           </a>
 
           <nav className="hidden flex-wrap items-center gap-x-5 gap-y-2 text-xs font-bold uppercase tracking-wider text-muted-foreground md:flex md:text-sm">
@@ -69,7 +69,7 @@ export const PageShell = ({ eyebrow, title, lead, children }: PageShellProps) =>
         <div className="fixed inset-0 z-50 bg-background md:hidden">
           <div className="flex h-16 items-center justify-between px-6">
             <a href="/" className="flex items-center">
-              <img src={logoWhite.url} alt="ABIS Group" className="h-10 w-auto" />
+              <img src={logoWhite} alt="ABIS Group" className="h-10 w-auto" />
             </a>
             <button
               className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-card text-foreground shadow-sm"
