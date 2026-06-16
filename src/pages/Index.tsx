@@ -566,7 +566,7 @@ const Index = () => {
           <div className="mt-12 grid grid-cols-3 gap-6 md:grid-cols-4 lg:grid-cols-6">
             {partners.map((p) => (
               <div key={p.name} className="flex items-center justify-center rounded-2xl border border-border bg-card p-4 shadow-soft transition-all hover:-translate-y-1 hover:shadow-luxe">
-                <img src={p.logo} alt={p.name} className="max-h-12 w-auto object-contain opacity-80 grayscale transition-all hover:opacity-100 hover:grayscale-0" loading="lazy" />
+                <img src={p.logo} alt={p.name} className={`w-auto object-contain opacity-80 grayscale transition-all hover:opacity-100 hover:grayscale-0 ${p.name === 'BI Group' ? 'max-h-20' : 'max-h-16'}`} loading="lazy" />
               </div>
             ))}
           </div>
