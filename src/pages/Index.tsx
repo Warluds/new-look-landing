@@ -465,14 +465,13 @@ const Index = () => {
                 className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-all hover:-translate-y-1 hover:border-primary hover:shadow-luxe"
               >
                 {b.logo && (
-                  <div className={`flex h-36 items-center justify-center px-8 py-6 border-b border-border ${b.logoBg === "dark" ? "bg-[#0f1115]" : "bg-white"}`}>
+                  <div className="flex h-40 items-center justify-center px-8 py-6">
                     <img src={b.logo} alt={b.name} className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy" />
                   </div>
                 )}
-                <div className="flex flex-1 items-start justify-between gap-4 p-7">
+                <div className="flex flex-1 items-start justify-between gap-4 p-7 pt-0">
                   <div>
-                    <p className="font-display text-2xl font-extrabold tracking-tight text-primary">{b.name}</p>
-                    <p className="mt-2 font-semibold text-muted-foreground">{t(b.desc)}</p>
+                    <p className="font-semibold text-muted-foreground">{t(b.desc)}</p>
                   </div>
                   <ArrowRight className="mt-1 h-5 w-5 shrink-0 -rotate-45 text-muted-foreground transition-all group-hover:rotate-0 group-hover:text-primary" />
                 </div>
