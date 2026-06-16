@@ -218,9 +218,9 @@ const tr = {
     "DISTRIBUTION\u00a0\n·\n\u00a0RETAIL\u00a0\n·\n\u00a0CONSULTING\u00a0· PROCUREMENT",
   ] as Tr,
   heroLead: [
-    "Группа компаний для тех, кто создает красивые и технологичные пространства: профессиональный свет, краски, декоративные покрытия и партнерская инфраструктура.",
-    "Сұлу әрі технологиялық кеңістік жасайтындар үшін компаниялар тобы: кәсіби жарық, бояу, декоративтік жабындар және серіктестік инфрақұрылым.",
-    "A group of companies for those who craft beautiful, technological spaces: professional lighting, paints, decorative finishes and a partner infrastructure.",
+    "Группа компаний для тех, кто создает красивые и технологичные пространства: освещение, лакокрасочные материалы, лепнина, интерьерные решение, малярные инструменты и прочее",
+    "Сұлу әрі технологиялық кеңістік жасайтындар үшін компаниялар тобы: жарықтандыру, лак-бояу материалдары, сылақ, интерьер шешімдері, сырлау құралдары және т.б.",
+    "A group of companies for those who create beautiful and technological spaces: lighting, paints and coatings, moldings, interior solutions, painting tools and more",
   ] as Tr,
   becomePartner: ["Стать партнером", "Серіктес болу", "Become a partner"] as Tr,
   seeDirections: ["Смотреть направления", "Бағыттарды көру", "Explore directions"] as Tr,
