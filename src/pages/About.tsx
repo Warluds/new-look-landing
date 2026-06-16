@@ -52,8 +52,7 @@ const PhotoCollage = ({ year, title, photos }: { year: string; title: string; ph
 };
 
 const summaryStats = [
-  { value: "15 лет", label: "на рынке Казахстана и Центральной Азии" },
-  { value: "500+", label: "партнеров в оптовом направлении" },
+  { value: "16 лет", label: "на рынке Казахстана и Центральной Азии" },
   { value: ">2 300 м²", label: "торговых площадей в рознице" },
   { value: "192", label: "сотрудника в команде" },
 ];
@@ -190,7 +189,7 @@ const About = () => {
       </section>
 
       <section className="relative -mt-12 z-20 mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid overflow-hidden rounded-2xl border border-border bg-card shadow-luxe md:grid-cols-4">
+        <div className="grid overflow-hidden rounded-2xl border border-border bg-card shadow-luxe md:grid-cols-3">
           {summaryStats.map((item) => (
             <div key={item.label} className="border-border p-6 md:border-r md:last:border-r-0">
               <p className="font-display text-4xl font-extrabold text-primary">{item.value}</p>
@@ -206,7 +205,7 @@ const About = () => {
             <p className="text-sm font-extrabold uppercase tracking-[0.24em] text-primary">о компании</p>
             <h2 className="mt-4 text-balance font-display text-4xl font-extrabold md:text-6xl">От 35 м² в ARMADA до сети салонов и партнерской экосистемы.</h2>
             <p className="mt-6 leading-8 text-muted-foreground">
-              Миссия ABIS Group — помогать улучшать комфорт и эстетику в жизни людей. Компания работает на рынке Казахстана и Центральной Азии, объединяя профессиональное освещение, краски среднего и премиум-класса, декоративные покрытия, импорт, e-commerce и образовательные проекты.
+              ABIS Group — группа компаний с 16-летним опытом работы на рынке Казахстана и Центральной Азии. Мы развиваем направления освещения, красок, декоративных покрытий, дистрибуции и розничной торговли, создавая устойчивые партнерские отношения и долгосрочную ценность для клиентов.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">

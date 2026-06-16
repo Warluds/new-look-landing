@@ -25,10 +25,11 @@ import logoWhite from "@/assets/logo-white.svg.asset.json";
 import { ScrollToTop } from "@/components/ScrollToTop";
 
 const childBrands: Array<{ name: string; desc: Tr; href: string }> = [
-  { name: "SVET.KZ", desc: ["Салоны света", "Жарық салондары", "Lighting showrooms"], href: "https://svet.kz" },
+  { name: "SVET.KZ", desc: ["Салоны освещения Svet.kz", "Svet.kz жарық салондары", "Svet.kz lighting showrooms"], href: "https://svet.kz" },
   { name: "Центр Красок №1", desc: ["Розничная сеть ЛКМ", "Бояулар бөлшек желісі", "Paints retail network"], href: "https://centr-krasok.kz" },
+  { name: "Центр Красок №1 PRO", desc: ["Краски и инструменты для профессионалов", "Кәсіби мамандарға арналған бояулар мен құралдар", "Paints and tools for professionals"], href: "https://centr-krasok.kz" },
   { name: "Decor +", desc: ["Дистрибьютор декоративных решений и освещения", "Декоративтік шешімдер мен жарықтандыру дистрибьюторы", "Distributor of decorative solutions and lighting"], href: "https://decor-plus.kz" },
-  { name: "PRO DECOR", desc: ["Студия декора", "Декор студиясы", "Decor studio"], href: "https://pro-decor.kz" },
+  { name: "PRO DECOR", desc: ["Освещение и краски для профессионалов", "Кәсіби мамандарға арналған жарық пен бояу", "Lighting and paints for professionals"], href: "https://pro-decor.kz" },
   { name: "Impulse Media", desc: ["SMM и реклама", "SMM және жарнама", "SMM & advertising"], href: "https://impulse-media.kz" },
   { name: "AND Asia", desc: ["Дистрибьютор лакокрасочных материалов и малярно-штукатурных инструментов в Центральной Азии", "Орталық Азиядағы лак-бояу материалдары мен сылақ-сырлау құралдарының дистрибьюторы", "Distributor of paints, coatings and plastering tools in Central Asia"], href: "https://an-d.asia" },
 ];
@@ -111,11 +112,6 @@ const awards: Array<{ year: string; title: Tr; desc: Tr }> = [
     title: ["Номинант премии «Лидер отрасли» в сфере осветительного оборудования", "Жарықтандыру жабдықтары саласындағы «Сала көшбасшысы» сыйлығының номинанты", "Nominee for the “Industry Leader” award in lighting equipment"],
     desc: ["", "", ""],
   },
-  {
-    year: "—",
-    title: ["Диплом «Samruk Trade»", "«Samruk Trade» дипломы", "Samruk Trade diploma"],
-    desc: ["", "", ""],
-  },
 ];
 
 const retailLocations: Array<{ city: Tr; name: string; address: Tr; image: string; tag: Tr }> = [
@@ -196,8 +192,7 @@ const directions: Array<{ icon: typeof Lightbulb; title: Tr; text: Tr }> = [
 ];
 
 const stats: Array<{ value: Tr; label: Tr }> = [
-  { value: ["15 лет", "15 жыл", "15 years"], label: ["присутствия на рынке", "нарықтағы жұмыс", "on the market"] },
-  { value: ["500+", "500+", "500+"], label: ["партнеров", "серіктестер", "partners"] },
+  { value: ["16 лет", "16 жыл", "16 years"], label: ["присутствия на рынке", "нарықтағы жұмыс", "on the market"] },
   { value: ["2 365 м²", "2 365 м²", "2,365 m²"], label: ["торговая площадь", "сауда алаңы", "retail space"] },
 ];
 
@@ -308,9 +303,9 @@ const tr = {
     "Request sent — we'll contact you shortly.",
   ] as Tr,
   footerTagline: [
-    "Холдинг с 2010 года — освещение, краски, импорт, маркетинг и обучение.",
-    "2010 жылдан бері холдинг — жарық, бояу, импорт, маркетинг және оқыту.",
-    "A holding since 2010 — lighting, paints, import, marketing and education.",
+    "Группа компаний с 2010 года — освещение, краски, импорт, маркетинг и обучение.",
+    "2010 жылдан бері компаниялар тобы — жарық, бояу, импорт, маркетинг және оқыту.",
+    "A group of companies since 2010 — lighting, paints, import, marketing and education.",
   ] as Tr,
   qrHint: ["Наведите камеру", "Камераны бағыттаңыз", "Point your camera"] as Tr,
   copyright: [
@@ -415,7 +410,7 @@ const Index = () => {
       </section>
 
       <section className="relative -mt-14 z-20 mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid overflow-hidden rounded-2xl border border-border bg-card shadow-luxe md:grid-cols-3">
+        <div className="grid overflow-hidden rounded-2xl border border-border bg-card shadow-luxe md:grid-cols-2">
           {stats.map((s) => (
             <div key={t(s.label)} className="border-border p-7 md:border-r md:last:border-r-0">
               <p className="font-display text-5xl font-extrabold text-primary">{t(s.value)}</p>
@@ -566,7 +561,7 @@ const Index = () => {
             <p className="text-sm font-extrabold uppercase tracking-[0.24em] text-primary">{t(tr.awardsEyebrow)}</p>
             <h2 className="mt-4 font-display text-4xl font-extrabold md:text-5xl">{t(tr.awardsTitle)}</h2>
           </div>
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {awards.map((a) => (
               <article key={t(a.title)} className="rounded-2xl border border-border bg-card p-6 shadow-soft">
                 <Trophy className="h-9 w-9 text-brand-gold" />
@@ -579,24 +574,6 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="partners" className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <div>
-            <p className="text-sm font-extrabold uppercase tracking-[0.24em] text-primary">{t(tr.partnersEyebrow)}</p>
-            <h2 className="mt-4 font-display text-4xl font-extrabold md:text-5xl">{t(tr.partnersTitle)}</h2>
-          </div>
-          <div className="flex items-center gap-3 rounded-2xl bg-secondary px-5 py-4 font-bold text-secondary-foreground">
-            <Award className="h-5 w-5 text-primary" /> {t(tr.fiveStarService)}
-          </div>
-        </div>
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-          {partners.map((partner) => (
-            <div key={partner.name} className="grid min-h-24 place-items-center rounded-2xl border border-border bg-card p-5 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-luxe" title={partner.name}>
-              <img src={partner.logo} alt={partner.name} loading="lazy" className="max-h-14 w-auto max-w-full object-contain opacity-80 transition-opacity hover:opacity-100" />
-            </div>
-          ))}
-        </div>
-      </section>
 
       <section id="contacts" className="bg-brand-deep py-24 text-hero-foreground">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
