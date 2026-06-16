@@ -128,7 +128,7 @@ const retailLocations: Array<{ city: Tr; name: string; address: Tr; image: strin
   },
   {
     city: ["Алматы", "Алматы", "Almaty"],
-    name: "Салоны красок Алматы",
+    name: "Центр Красок №1",
     address: [
       "ТК ARMADA, ул. Кабдолова 1/8, 1 блок, 1G линия",
       "ARMADA СО, Қабдолов к-сі 1/8, 1 блок, 1G желісі",
@@ -226,16 +226,16 @@ const tr = {
   seeDirections: ["Смотреть направления", "Бағыттарды көру", "Explore directions"] as Tr,
   whatGroupDoes: ["что делает группа", "топ не істейді", "what the group does"] as Tr,
   directionsTitle: [
-    "Поставляем решения, которые видны в каждом интерьере.",
-    "Әр интерьерден көрінетін шешімдер ұсынамыз.",
+    "Поставляем решения, которые видны в каждом интерьере",
+    "Әр интерьерден көрінетін шешімдер ұсынамыз",
     "We deliver solutions visible in every interior.",
   ] as Tr,
   brandsEyebrow: ["дочерние бренды", "еншілес брендтер", "subsidiary brands"] as Tr,
   brandsTitle: ["Единая экосистема ABIS Group", "ABIS Group бірыңғай экожүйесі", "A single ABIS Group ecosystem"] as Tr,
   retailEyebrow: ["розничная сеть", "бөлшек желі", "retail network"] as Tr,
   retailTitle: [
-    "Наши салоны в городах Казахстана.",
-    "Қазақстан қалаларындағы салондарымыз.",
+    "Наши салоны в городах Казахстана",
+    "Қазақстан қалаларындағы салондарымыз",
     "Our showrooms across Kazakhstan.",
   ] as Tr,
   retailLead: [
@@ -269,8 +269,8 @@ const tr = {
   ] as Tr,
   partnersEyebrow: ["с нами уже работают", "бізбен қазірдің өзінде жұмыс істейді", "already working with us"] as Tr,
   partnersTitle: [
-    "Бренды, сети и проекты по всему Казахстану.",
-    "Қазақстан бойынша брендтер, желілер және жобалар.",
+    "Бренды, сети и проекты по всему Казахстану",
+    "Қазақстан бойынша брендтер, желілер және жобалар",
     "Brands, chains and projects across Kazakhstan.",
   ] as Tr,
   fiveStarService: ["5-звездочный сервис", "5 жұлдызды сервис", "5-star service"] as Tr,
