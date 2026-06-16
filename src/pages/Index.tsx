@@ -259,7 +259,7 @@ const tr = {
     "Pick a track — lighting or paints — and receive terms on assortment, logistics, marketing support and team training.",
   ] as Tr,
   reviewsEyebrow: ["отзывы клиентов", "клиенттердің пікірлері", "client reviews"] as Tr,
-  reviewsTitle: ["5★ на 2GIS — годами.", "2GIS-те жылдар бойы 5★.", "5★ on 2GIS — for years."] as Tr,
+  reviewsTitle: ["\n", "\n", "\n"] as Tr,
   on2gis: ["на 2GIS", "2GIS-те", "on 2GIS"] as Tr,
   awardsEyebrow: ["награды и признание", "марапаттар мен мойындау", "awards & recognition"] as Tr,
   awardsTitle: [
