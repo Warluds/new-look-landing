@@ -462,19 +462,19 @@ const Index = () => {
                 href={b.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card p-7 shadow-soft transition-all hover:-translate-y-1 hover:border-primary hover:shadow-luxe"
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-all hover:-translate-y-1 hover:border-primary hover:shadow-luxe"
               >
                 {b.logo && (
-                  <div className="mb-5 flex h-20 items-center justify-center overflow-hidden rounded-xl bg-white p-3">
-                    <img src={b.logo} alt={b.name} className="max-h-full max-w-full object-contain" loading="lazy" />
+                  <div className={`flex h-36 items-center justify-center px-8 py-6 border-b border-border ${b.logoBg === "dark" ? "bg-[#0f1115]" : "bg-white"}`}>
+                    <img src={b.logo} alt={b.name} className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy" />
                   </div>
                 )}
-                <div className="flex items-start justify-between">
+                <div className="flex flex-1 items-start justify-between gap-4 p-7">
                   <div>
                     <p className="font-display text-2xl font-extrabold tracking-tight text-primary">{b.name}</p>
                     <p className="mt-2 font-semibold text-muted-foreground">{t(b.desc)}</p>
                   </div>
-                  <ArrowRight className="h-5 w-5 -rotate-45 text-muted-foreground transition-all group-hover:rotate-0 group-hover:text-primary" />
+                  <ArrowRight className="mt-1 h-5 w-5 shrink-0 -rotate-45 text-muted-foreground transition-all group-hover:rotate-0 group-hover:text-primary" />
                 </div>
               </a>
             ))}
