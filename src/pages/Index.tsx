@@ -31,6 +31,7 @@ import { Tr, useLang } from "@/i18n/LanguageContext";
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import logoWhite from "@/assets/logo-white.svg";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { ProjectsGallery } from "@/components/ProjectsGallery";
 
 const childBrands: Array<{ name: string; desc: Tr; href: string; logo?: string }> = [
   { name: "SVET.KZ", desc: ["Салоны освещения Svet.kz", "Svet.kz жарық салондары", "Svet.kz lighting showrooms"], href: "https://svet.kz", logo: brandSvetKz },
@@ -520,7 +521,10 @@ const Index = () => {
       </section>
 
 
+      <ProjectsGallery />
+
       <section className="mx-auto max-w-7xl px-6 pt-12 pb-24 lg:px-8">
+
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-2xl">
             <p className="text-sm font-extrabold uppercase tracking-[0.24em] text-primary">{t(tr.reviewsEyebrow)}</p>
