@@ -31,6 +31,7 @@ import { Tr, useLang } from "@/i18n/LanguageContext";
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import logoWhite from "@/assets/logo-white.svg";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { ProjectsGallery } from "@/components/ProjectsGallery";
 
 const childBrands: Array<{ name: string; desc: Tr; href: string; logo?: string }> = [
   { name: "SVET.KZ", desc: ["Салоны освещения Svet.kz", "Svet.kz жарық салондары", "Svet.kz lighting showrooms"], href: "https://svet.kz", logo: brandSvetKz },
