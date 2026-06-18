@@ -3,8 +3,10 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight, Lightbulb, Paintbrush } from "lucide-react";
 import { Tr, useLang } from "@/i18n/LanguageContext";
 
-// Eager-load every project asset pointer
-const assetModules = import.meta.glob<{ url: string }>("@/assets/projects/*.jpg.asset.json", {
+type ProjectAsset = { url?: string };
+
+// Eager-load every project asset pointer through a relative path so Vite keeps it stable in builds.
+const assetModules = import.meta.glob<ProjectAsset>("../assets/projects/*.jpg.asset.json", {
   eager: true,
   import: "default",
 });
@@ -45,7 +47,7 @@ const grouped: Record<string, Project> = {};
 for (const [path, mod] of Object.entries(assetModules)) {
   const fileName = path.split("/").pop()!.replace(".jpg.asset.json", "");
   const m = fileName.match(/^(paints|light)-(.+)-(\d+)$/);
-  if (!m) continue;
+  if (!m || !mod.url) continue;
   const category = m[1] as Category;
   const slug = m[2];
   const idx = parseInt(m[3], 10);
@@ -59,6 +61,10 @@ for (const [path, mod] of Object.entries(assetModules)) {
     };
   }
   grouped[key].images[idx - 1] = mod.url;
+}
+
+for (const project of Object.values(grouped)) {
+  project.images = project.images.filter(Boolean);
 }
 
 // Fixed display order
