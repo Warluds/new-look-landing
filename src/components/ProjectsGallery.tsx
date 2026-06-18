@@ -3,10 +3,8 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight, Lightbulb, Paintbrush } from "lucide-react";
 import { Tr, useLang } from "@/i18n/LanguageContext";
 
-type ProjectAsset = { url?: string };
-
-// Eager-load every project asset pointer through a relative path so Vite keeps it stable in builds.
-const assetModules = import.meta.glob<ProjectAsset>("../assets/projects/*.jpg.asset.json", {
+// Import local optimized images through Vite so production builds rewrite paths correctly.
+const assetModules = import.meta.glob<string>("../assets/projects/*.webp", {
   eager: true,
   import: "default",
 });
@@ -34,6 +32,7 @@ const NAMES: Record<string, string> = {
   "invictus-go": "Invictus GO",
   "kinderland": "Kinderland",
   "kvartira-zhk-delfin": "ЖК Дельфин",
+  "kvartira-zhk-urpaq": "ЖК Urpaq",
   "milanium": "Milanium",
   "sadikusta": "SadikUsta",
   "zhk-komfort-siti-1": "ЖК Комфорт Сити I",
@@ -44,10 +43,10 @@ const NAMES: Record<string, string> = {
 
 // Group assets by base slug
 const grouped: Record<string, Project> = {};
-for (const [path, mod] of Object.entries(assetModules)) {
-  const fileName = path.split("/").pop()!.replace(".jpg.asset.json", "");
+for (const [path, src] of Object.entries(assetModules)) {
+  const fileName = path.split("/").pop()!.replace(".webp", "");
   const m = fileName.match(/^(paints|light)-(.+)-(\d+)$/);
-  if (!m || !mod.url) continue;
+  if (!m || !src) continue;
   const category = m[1] as Category;
   const slug = m[2];
   const idx = parseInt(m[3], 10);
@@ -60,7 +59,7 @@ for (const [path, mod] of Object.entries(assetModules)) {
       images: [],
     };
   }
-  grouped[key].images[idx - 1] = mod.url;
+  grouped[key].images[idx - 1] = src;
 }
 
 for (const project of Object.values(grouped)) {
@@ -84,7 +83,7 @@ const ORDER: string[] = [
   "light-la-tartine",
   "paints-kvartira-zhk-delfin",
   "light-kafe-5-88",
-  "paints-zhk-urpaq",
+  "paints-kvartira-zhk-urpaq",
   "light-karakumskie-bani",
   "paints-butik-odezhdy-lorena-antoniazzi",
   "light-fotostudiya",
