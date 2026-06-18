@@ -93,11 +93,11 @@ const projects: Project[] = ORDER.map((k) => grouped[k]).filter(Boolean);
 
 const labels = {
   eyebrow: ["реализованные проекты", "жүзеге асырылған жобалар", "completed projects"] as Tr,
-  title: ["Объекты, где работают наши решения", "Біздің шешімдеріміз жұмыс істейтін нысандар", "Spaces powered by our solutions"] as Tr,
+  title: ["Объекты, где реализованы наши решения", "Біздің шешімдеріміз жүзеге асырылған нысандар", "Projects where our solutions are implemented"] as Tr,
   lead: [
-    "ЖК, рестораны, шоурумы, клиники и общественные пространства — материалы и свет, которые служат годами.",
-    "ТК, мейрамханалар, шоурумдар, клиникалар және қоғамдық кеңістіктер — жылдар бойы қызмет ететін материалдар мен жарық.",
-    "Residential, restaurants, showrooms, clinics and public spaces — materials and lighting that last for years.",
+    "ЖК, частные дома, Horeca, коммерческие помещения и общественные объекты",
+    "ТК, жеке үйлер, Horeca, коммерциялық нысандар және қоғамдық нысандар",
+    "Residential complexes, private houses, Horeca, commercial premises and public facilities",
   ] as Tr,
   all: ["Все", "Барлығы", "All"] as Tr,
   paints: ["Краски", "Бояулар", "Paints"] as Tr,
