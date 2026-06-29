@@ -5,9 +5,9 @@ import { Tr, useLang } from "@/i18n/LanguageContext";
 const T = {
   eyebrow: ["Impulse Media", "Impulse Media", "Impulse Media"] as Tr,
   title: [
-    "Маркетинговое агентство внутри холдинга",
-    "Холдинг ішіндегі маркетинг агенттігі",
-    "An in-house marketing agency",
+    "Маркетинговое агентство",
+    "Маркетинг агенттігі",
+    "Marketing agency",
   ] as Tr,
   lead: [
     "Impulse Media — собственное агентство ABIS Group. Помогаем брендам света и интерьера расти в digital, делая контент, который продаёт.",
