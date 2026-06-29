@@ -3,7 +3,6 @@ import { PageShell } from "@/components/PageShell";
 import { Tr, useLang } from "@/i18n/LanguageContext";
 import training1 from "@/assets/training/training-1.webp";
 import training2 from "@/assets/training/training-2.webp";
-import training3 from "@/assets/training/training-3.webp";
 import trainingVideo from "@/assets/training/training.mp4";
 
 const T = {
@@ -164,7 +163,7 @@ const Education = () => {
               preload="metadata"
             />
           </div>
-          {[training1, training2, training3].map((src, i) => (
+          {[training1, training2].map((src, i) => (
             <div key={i} className="overflow-hidden rounded-3xl border border-border/60 shadow-soft">
               <img
                 src={src}
