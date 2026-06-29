@@ -1,6 +1,10 @@
-import { CalendarClock, GraduationCap, Lightbulb, Palette, Users, Wrench } from "lucide-react";
+import { CalendarClock, GraduationCap, Lightbulb, Palette, Presentation, Users, Wrench } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { Tr, useLang } from "@/i18n/LanguageContext";
+import training1 from "@/assets/training/training-1.webp";
+import training2 from "@/assets/training/training-2.webp";
+import training3 from "@/assets/training/training-3.webp";
+import trainingVideo from "@/assets/training/training.mp4";
 
 const T = {
   eyebrow: ["Обучение", "Оқыту", "Education"] as Tr,
