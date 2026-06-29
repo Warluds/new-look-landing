@@ -128,6 +128,55 @@ const Education = () => {
         </div>
       </section>
 
+      <section className="mt-20">
+        <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-sm font-extrabold uppercase tracking-[0.24em] text-brand-gold">
+              {t(["Наш тренинг-зал", "Біздің тренинг-зал", "Our training hall"] as Tr)}
+            </p>
+            <h2 className="mt-2 flex items-center gap-3 font-display text-3xl font-extrabold text-primary md:text-4xl">
+              <Presentation className="h-8 w-8 text-brand-gold" />
+              {t([
+                "Современная площадка для обучения и мероприятий",
+                "Оқыту мен іс-шараларға арналған заманауи алаң",
+                "A modern venue for training and events",
+              ] as Tr)}
+            </h2>
+            <p className="mt-3 max-w-2xl text-muted-foreground">
+              {t([
+                "Оборудованный зал с проектором, интерактивным экраном, микрофонами и подиумом спикера. Подходит для семинаров, мастер-классов и презентаций. Также сдаётся в аренду под мероприятия партнёров.",
+                "Проектормен, интерактивті экранмен, микрофондармен және спикер мінбесімен жабдықталған зал. Семинарларға, шеберлік сабақтарына және презентацияларға қолайлы. Серіктестердің іс-шараларына жалға да беріледі.",
+                "Equipped hall with a projector, interactive screen, microphones and a speaker podium. Suitable for seminars, master classes and presentations. Also available for rent for partner events.",
+              ] as Tr)}
+            </p>
+          </div>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-3">
+          <div className="md:col-span-2 md:row-span-2 overflow-hidden rounded-3xl border border-border/60 bg-brand-deep shadow-soft">
+            <video
+              src={trainingVideo}
+              className="h-full w-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
+          </div>
+          {[training1, training2, training3].map((src, i) => (
+            <div key={i} className="overflow-hidden rounded-3xl border border-border/60 shadow-soft">
+              <img
+                src={src}
+                alt={`Тренинг-зал ABIS, фото ${i + 1}`}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="mt-20 flex flex-col items-start gap-6 rounded-3xl bg-brand-deep p-10 text-hero-foreground md:flex-row md:items-center md:justify-between md:p-14">
         <div className="flex items-center gap-5">
           <GraduationCap className="h-12 w-12 text-brand-gold" />
