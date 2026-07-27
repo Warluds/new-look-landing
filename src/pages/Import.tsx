@@ -1,5 +1,6 @@
 import { Globe2, Package, Plane, ShieldCheck, Truck, Warehouse } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
+import { DealersMap } from "@/components/DealersMap";
 import { Tr, useLang } from "@/i18n/LanguageContext";
 
 const T = {
@@ -122,6 +123,8 @@ const Import = () => {
           ))}
         </div>
       </section>
+
+      <DealersMap />
 
       <section className="mt-20 grid gap-6 rounded-3xl bg-brand-deep p-10 text-hero-foreground md:grid-cols-3 md:p-14">
         {T.stats.map(([n, label]) => (
