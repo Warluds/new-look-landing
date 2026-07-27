@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "sdk_version": "0.24.0",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "abis-group-mcp",
+      "version": "0.1.0",
+      "title": "ABIS Group MCP"
+    },
+    "tools": [
+      {
+        "name": "get_company_info",
+        "title": "О компании ABIS Group",
+        "description": "Возвращает общую информацию о группе компаний ABIS Group: год основания, направления деятельности, регионы присутствия.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_brands",
+        "title": "Дочерние бренды ABIS Group",
+        "description": "Возвращает список брендов и направлений внутри экосистемы ABIS Group с описанием каждого.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_contacts",
+        "title": "Контакты ABIS Group",
+        "description": "Возвращает контактные данные ABIS Group: телефон, e-mail, головной офис и социальные сети.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_showrooms",
+        "title": "Салоны ABIS Group",
+        "description": "Возвращает список розничных салонов ABIS Group. Можно опционально отфильтровать по городу или бренду.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "city": {
+              "description": "Город (например, 'Алматы').",
+              "type": "string"
+            },
+            "brand": {
+              "description": "Бренд (например, 'SVET.KZ').",
+              "type": "string"
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_services",
+        "title": "Услуги ABIS Group",
+        "description": "Возвращает список услуг для партнёров и клиентов: обучение, маркетинг, комплектация объектов, аренда тренинг-зала.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
