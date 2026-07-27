@@ -113,7 +113,15 @@ export const DealersMap = () => {
               {c.dealers.map((d, i) => (
                 <li key={i} className="text-muted-foreground">
                   <span className="font-semibold text-foreground">{d.name}</span>
-                  <span className="text-xs"> — {d.address}</span>
+                  {" — "}
+                  <a
+                    href={`https://2gis.kz/search/${encodeURIComponent(`${c.city} ${d.address}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs underline decoration-dotted underline-offset-2 hover:text-primary"
+                  >
+                    {d.address}
+                  </a>
                 </li>
               ))}
             </ul>
