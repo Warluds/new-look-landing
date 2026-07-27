@@ -80,7 +80,14 @@ export const DealersMap = () => {
                     {c.dealers.map((d, i) => (
                       <li key={i} className="border-t border-border/60 pt-2 first:border-0 first:pt-0">
                         <div className="font-bold text-foreground">{d.name}</div>
-                        <div className="text-muted-foreground">{d.address}</div>
+                        <a
+                          href={`https://2gis.kz/search/${encodeURIComponent(`${c.city} ${d.address}`)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground underline decoration-dotted underline-offset-2 hover:text-primary"
+                        >
+                          {d.address}
+                        </a>
                         <div className="mt-1 flex gap-2 text-[10px] uppercase tracking-wider text-muted-foreground">
                           <span className="rounded bg-secondary px-1.5 py-0.5">{d.category}</span>
                           <span className="rounded bg-secondary px-1.5 py-0.5">{d.type}</span>
