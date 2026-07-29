@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowUpRight, CalendarDays } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { Tr, useLang } from "@/i18n/LanguageContext";
-import { loadNews, sortNews, type NewsItem } from "@/lib/newsStore";
+import { fetchNews, type NewsItem } from "@/lib/newsStore";
 
 const T = {
   eyebrow: ["Новости", "Жаңалықтар", "News"] as Tr,
@@ -21,7 +21,7 @@ const News = () => {
   const [items, setItems] = useState<NewsItem[]>([]);
 
   useEffect(() => {
-    setItems(sortNews(loadNews()));
+    fetchNews().then(setItems).catch(() => setItems([]));
   }, []);
 
   return (

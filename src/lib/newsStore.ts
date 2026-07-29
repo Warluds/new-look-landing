@@ -1,3 +1,5 @@
+import { supabase } from "@/integrations/supabase/client";
+
 export type NewsItem = {
   id: string;
   date_ru: string;
@@ -15,109 +17,28 @@ export type NewsItem = {
   sort_order: number;
 };
 
-const STORAGE_KEY = "abis_news_v1";
+export type NewsInput = Omit<NewsItem, "id">;
 
-/** Новости "по умолчанию" — живут прямо в коде, переносятся вместе с проектом. */
-export const defaultNews: NewsItem[] = [
-  {
-    id: "n1",
-    date_ru: "2025 · Май",
-    date_kk: "2025 · Мамыр",
-    date_en: "2025 · May",
-    tag_ru: "Розница",
-    tag_kk: "Бөлшек",
-    tag_en: "Retail",
-    title_ru: "Открытие обновлённого флагмана SVET.KZ в ТК ARMADA",
-    title_kk: "ARMADA СО-да SVET.KZ жаңартылған флагманының ашылуы",
-    title_en: "Opening of the updated SVET.KZ flagship at ARMADA Mall",
-    excerpt_ru: "Расширили шоурум, добавили зону декоративных штукатурок и обновили коллекцию архитектурного света.",
-    excerpt_kk: "Шоурумды кеңейттік, декоративтік сылақтар аймағын қостық және сәулеттік жарық коллекциясын жаңарттық.",
-    excerpt_en: "We expanded the showroom, added a decorative plaster zone and refreshed the architectural light collection.",
-    sort_order: 10,
-  },
-  {
-    id: "n2",
-    date_ru: "2025 · Март",
-    date_kk: "2025 · Наурыз",
-    date_en: "2025 · March",
-    tag_ru: "Партнерство",
-    tag_kk: "Серіктестік",
-    tag_en: "Partnership",
-    title_ru: "ABIS Import подписал контракт с европейским производителем светильников",
-    title_kk: "ABIS Import еуропалық жарықтандыру өндірушісімен келісімшартқа қол қойды",
-    title_en: "ABIS Import signs deal with a European lighting manufacturer",
-    excerpt_ru: "Эксклюзивные права на дистрибуцию в Казахстане. Первые поставки уже на складе в Алматы.",
-    excerpt_kk: "Қазақстанда дистрибуцияға эксклюзивті құқық. Алғашқы жеткізілімдер Алматыдағы қоймада.",
-    excerpt_en: "Exclusive distribution rights in Kazakhstan. First shipments already at the Almaty warehouse.",
-    sort_order: 20,
-  },
-  {
-    id: "n3",
-    date_ru: "2024 · Декабрь",
-    date_kk: "2024 · Желтоқсан",
-    date_en: "2024 · December",
-    tag_ru: "Награды",
-    tag_kk: "Марапаттар",
-    tag_en: "Awards",
-    title_ru: "Лидер отрасли — 10-й год подряд",
-    title_kk: "Сала көшбасшысы — қатарынан 10-шы жыл",
-    title_en: "Industry leader — 10th year in a row",
-    excerpt_ru: "ABIS Group снова получил статус «Лидер отрасли» в сфере осветительного оборудования.",
-    excerpt_kk: "ABIS Group жарықтандыру жабдықтары саласында «Сала көшбасшысы» мәртебесін қайта алды.",
-    excerpt_en: "ABIS Group has again received the “Industry leader” status in lighting equipment.",
-    sort_order: 30,
-  },
-  {
-    id: "n4",
-    date_ru: "2024 · Сентябрь",
-    date_kk: "2024 · Қыркүйек",
-    date_en: "2024 · September",
-    tag_ru: "Обучение",
-    tag_kk: "Оқыту",
-    tag_en: "Education",
-    title_ru: "Запуск Школы декоративных покрытий",
-    title_kk: "Декоративтік жабындар мектебінің ашылуы",
-    title_en: "Launch of the Decorative Finishes School",
-    excerpt_ru: "Бесплатные мастер-классы для дизайнеров и мастеров — по новой программе с практикой в студии.",
-    excerpt_kk: "Дизайнерлер мен шеберлерге арналған тегін шеберлік сабақтары — студиядағы тәжірибесі бар жаңа бағдарлама бойынша.",
-    excerpt_en: "Free master classes for designers and craftsmen — a new program with hands-on studio practice.",
-    sort_order: 40,
-  },
-  {
-    id: "n5",
-    date_ru: "2024 · Июнь",
-    date_kk: "2024 · Маусым",
-    date_en: "2024 · June",
-    tag_ru: "Караганда",
-    tag_kk: "Қарағанды",
-    tag_en: "Karaganda",
-    title_ru: "Открыт филиал Центра Красок №1 в Караганде",
-    title_kk: "Қарағандыда «Центр Красок №1» филиалы ашылды",
-    title_en: "Paint Center No.1 branch opened in Karaganda",
-    excerpt_ru: "Третий розничный город компании. Полный ассортимент колеровочных систем и ЛКМ.",
-    excerpt_kk: "Компанияның үшінші бөлшек қаласы. Колеровка жүйелері мен бояулардың толық ассортименті.",
-    excerpt_en: "The company's third retail city. A full range of tinting systems and paints.",
-    sort_order: 50,
-  },
-];
-
-export function loadNews(): NewsItem[] {
-  if (typeof window === "undefined") return defaultNews;
-  try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return defaultNews;
-    const parsed = JSON.parse(raw) as NewsItem[];
-    if (!Array.isArray(parsed)) return defaultNews;
-    return parsed;
-  } catch {
-    return defaultNews;
-  }
+export async function fetchNews(): Promise<NewsItem[]> {
+  const { data, error } = await supabase
+    .from("news")
+    .select("*")
+    .order("sort_order", { ascending: true });
+  if (error) throw error;
+  return (data ?? []) as NewsItem[];
 }
 
-export function saveNews(items: NewsItem[]) {
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+export async function createNews(input: NewsInput) {
+  const { error } = await supabase.from("news").insert(input);
+  if (error) throw error;
 }
 
-export function sortNews(items: NewsItem[]) {
-  return [...items].sort((a, b) => a.sort_order - b.sort_order);
+export async function updateNews(id: string, input: NewsInput) {
+  const { error } = await supabase.from("news").update(input).eq("id", id);
+  if (error) throw error;
+}
+
+export async function deleteNews(id: string) {
+  const { error } = await supabase.from("news").delete().eq("id", id);
+  if (error) throw error;
 }
