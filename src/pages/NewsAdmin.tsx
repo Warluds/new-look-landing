@@ -1,12 +1,19 @@
 import { useEffect, useState } from "react";
-import { Copy, Plus, RotateCcw, Trash2 } from "lucide-react";
+import { Pencil, Plus, RefreshCw, Save, Trash2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
-import { defaultNews, loadNews, saveNews, sortNews, type NewsItem } from "@/lib/newsStore";
+import {
+  createNews,
+  deleteNews,
+  fetchNews,
+  updateNews,
+  type NewsInput,
+  type NewsItem,
+} from "@/lib/newsStore";
 
-const emptyForm = {
+const emptyForm: NewsInput = {
   date_ru: "",
   date_kk: "",
   date_en: "",
@@ -24,29 +31,37 @@ const emptyForm = {
 
 const NewsAdmin = () => {
   const [items, setItems] = useState<NewsItem[]>([]);
-  const [form, setForm] = useState({ ...emptyForm });
+  const [form, setForm] = useState<NewsInput>({ ...emptyForm });
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
 
-  useEffect(() => {
-    setItems(sortNews(loadNews()));
-  }, []);
-
-  const commit = (next: NewsItem[]) => {
-    const sorted = sortNews(next);
-    saveNews(sorted);
-    setItems(sorted);
+  const reload = async () => {
+    try {
+      setItems(await fetchNews());
+    } catch {
+      toast({ title: "Не удалось загрузить новости", variant: "destructive" });
+    }
   };
 
-  const set = (k: keyof typeof emptyForm) => (v: string) =>
+  useEffect(() => {
+    reload();
+  }, []);
+
+  const set = (k: keyof NewsInput) => (v: string) =>
     setForm((f) => ({ ...f, [k]: k === "sort_order" ? Number(v) || 0 : v }));
 
-  const add = () => {
+  const cancel = () => {
+    setEditingId(null);
+    setForm({ ...emptyForm });
+  };
+
+  const submit = async () => {
     if (!form.title_ru.trim()) {
       toast({ title: "Введите заголовок (RU)", variant: "destructive" });
       return;
     }
-    const item: NewsItem = {
+    const payload: NewsInput = {
       ...form,
-      id: `n-${Date.now()}`,
       date_kk: form.date_kk || form.date_ru,
       date_en: form.date_en || form.date_ru,
       tag_kk: form.tag_kk || form.tag_ru,
@@ -56,29 +71,44 @@ const NewsAdmin = () => {
       excerpt_kk: form.excerpt_kk || form.excerpt_ru,
       excerpt_en: form.excerpt_en || form.excerpt_ru,
     };
-    commit([...items, item]);
-    setForm({ ...emptyForm });
-    toast({ title: "Новость добавлена" });
+    setBusy(true);
+    try {
+      if (editingId) {
+        await updateNews(editingId, payload);
+        toast({ title: "Новость обновлена — уже видна всем" });
+      } else {
+        await createNews(payload);
+        toast({ title: "Новость опубликована — уже видна всем" });
+      }
+      cancel();
+      await reload();
+    } catch {
+      toast({ title: "Ошибка сохранения", variant: "destructive" });
+    } finally {
+      setBusy(false);
+    }
   };
 
-  const remove = (id: string) => {
+  const startEdit = (n: NewsItem) => {
+    const { id, ...rest } = n;
+    setEditingId(id);
+    setForm(rest);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const remove = async (id: string) => {
     if (!confirm("Удалить новость?")) return;
-    commit(items.filter((n) => n.id !== id));
-    toast({ title: "Удалено" });
+    try {
+      await deleteNews(id);
+      if (editingId === id) cancel();
+      await reload();
+      toast({ title: "Удалено" });
+    } catch {
+      toast({ title: "Ошибка удаления", variant: "destructive" });
+    }
   };
 
-  const reset = () => {
-    if (!confirm("Вернуть новости из кода (все правки в браузере пропадут)?")) return;
-    commit(defaultNews);
-    toast({ title: "Сброшено" });
-  };
-
-  const copyJson = async () => {
-    await navigator.clipboard.writeText(JSON.stringify(items, null, 2));
-    toast({ title: "JSON скопирован", description: "Вставьте его в defaultNews в src/lib/newsStore.ts" });
-  };
-
-  const field = (label: string, key: keyof typeof emptyForm, area = false) => (
+  const field = (label: string, key: keyof NewsInput, area = false) => (
     <div className="space-y-1.5">
       <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{label}</label>
       {area ? (
@@ -95,14 +125,15 @@ const NewsAdmin = () => {
         <header>
           <h1 className="font-display text-3xl font-extrabold text-primary">Управление новостями</h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            Работает без базы данных: новости хранятся в этом браузере. Чтобы они появились у всех посетителей,
-            нажмите «Скопировать JSON» и вставьте его в массив <code>defaultNews</code> в файле{" "}
-            <code>src/lib/newsStore.ts</code>.
+            Добавьте, измените или удалите новость — изменения сразу появляются на сайте у всех посетителей.
+            Ничего копировать и пересобирать не нужно.
           </p>
         </header>
 
         <section className="rounded-3xl border border-border/60 bg-card p-8 shadow-soft">
-          <h2 className="mb-6 font-display text-xl font-bold">Новая новость</h2>
+          <h2 className="mb-6 font-display text-xl font-bold">
+            {editingId ? "Редактирование новости" : "Новая новость"}
+          </h2>
           <div className="grid gap-5 md:grid-cols-3">
             {field("Дата RU", "date_ru")}
             {field("Дата KK", "date_kk")}
@@ -118,22 +149,25 @@ const NewsAdmin = () => {
             {field("Текст EN", "excerpt_en", true)}
             {field("Порядок (меньше = выше)", "sort_order")}
           </div>
-          <Button className="mt-6" onClick={add}>
-            <Plus className="mr-2 h-4 w-4" /> Добавить
-          </Button>
+          <div className="mt-6 flex gap-2">
+            <Button onClick={submit} disabled={busy}>
+              {editingId ? <Save className="mr-2 h-4 w-4" /> : <Plus className="mr-2 h-4 w-4" />}
+              {editingId ? "Сохранить" : "Опубликовать"}
+            </Button>
+            {editingId && (
+              <Button variant="outline" onClick={cancel}>
+                <X className="mr-2 h-4 w-4" /> Отмена
+              </Button>
+            )}
+          </div>
         </section>
 
         <section className="space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <h2 className="font-display text-xl font-bold">Опубликованные ({items.length})</h2>
-            <div className="flex gap-2">
-              <Button variant="outline" onClick={copyJson}>
-                <Copy className="mr-2 h-4 w-4" /> Скопировать JSON
-              </Button>
-              <Button variant="outline" onClick={reset}>
-                <RotateCcw className="mr-2 h-4 w-4" /> Сбросить
-              </Button>
-            </div>
+            <Button variant="outline" onClick={reload}>
+              <RefreshCw className="mr-2 h-4 w-4" /> Обновить
+            </Button>
           </div>
           {items.map((n) => (
             <div
@@ -147,9 +181,14 @@ const NewsAdmin = () => {
                 <div className="mt-1 font-display text-lg font-bold text-primary">{n.title_ru}</div>
                 <p className="mt-1 text-sm text-muted-foreground">{n.excerpt_ru}</p>
               </div>
-              <Button variant="destructive" size="icon" onClick={() => remove(n.id)}>
-                <Trash2 className="h-4 w-4" />
-              </Button>
+              <div className="flex gap-2">
+                <Button variant="outline" size="icon" onClick={() => startEdit(n)}>
+                  <Pencil className="h-4 w-4" />
+                </Button>
+                <Button variant="destructive" size="icon" onClick={() => remove(n.id)}>
+                  <Trash2 className="h-4 w-4" />
+                </Button>
+              </div>
             </div>
           ))}
         </section>
