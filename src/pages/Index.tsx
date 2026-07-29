@@ -313,9 +313,9 @@ const tr = {
     "Request sent — we'll contact you shortly.",
   ] as Tr,
   footerTagline: [
-    "Группа компаний с 2010 года — освещение, краски, импорт, маркетинг и обучение.",
-    "2010 жылдан бері компаниялар тобы — жарық, бояу, импорт, маркетинг және оқыту.",
-    "A group of companies since 2010 — lighting, paints, import, marketing and education.",
+    "Группа компаний с 2010 года — освещение, краски, импорт, консалтинг и обучение.",
+    "2010 жылдан бері компаниялар тобы — жарық, бояу, импорт, консалтинг және оқыту.",
+    "A group of companies since 2010 — lighting, paints, import, consulting and education.",
   ] as Tr,
   qrHint: ["Наведите камеру", "Камераны бағыттаңыз", "Point your camera"] as Tr,
   copyright: [
