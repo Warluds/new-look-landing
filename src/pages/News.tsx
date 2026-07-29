@@ -2,43 +2,31 @@ import { useEffect, useState } from "react";
 import { ArrowUpRight, CalendarDays } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { Tr, useLang } from "@/i18n/LanguageContext";
-import { supabase } from "@/integrations/supabase/client";
-import type { Tables } from "@/integrations/supabase/types";
+import { loadNews, sortNews, type NewsItem } from "@/lib/newsStore";
 
 const T = {
   eyebrow: ["Новости", "Жаңалықтар", "News"] as Tr,
   title: ["Что происходит в ABIS Group", "ABIS Group-та не болып жатыр", "What's happening at ABIS Group"] as Tr,
   lead: [
-    "Открытия, партнёрства, обучение, награды — следите за жизнью холдинга и его брендов.",
-    "Ашылулар, серіктестіктер, оқыту, марапаттар — холдинг пен оның брендтерінің өмірін қадағалаңыз.",
-    "Openings, partnerships, training, awards — follow the life of the holding and its brands.",
+    "Открытия, партнёрства, обучение, награды — следите за жизнью компании и её брендов.",
+    "Ашылулар, серіктестіктер, оқыту, марапаттар — компания мен оның брендтерінің өмірін қадағалаңыз.",
+    "Openings, partnerships, training, awards — follow the life of the company and its brands.",
   ] as Tr,
   more: ["Подробнее", "Толығырақ", "Read more"] as Tr,
   empty: ["Пока новостей нет.", "Әзірге жаңалықтар жоқ.", "No news yet."] as Tr,
 };
 
-type NewsRow = Tables<"news">;
-
 const News = () => {
   const { t } = useLang();
-  const [items, setItems] = useState<NewsRow[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [items, setItems] = useState<NewsItem[]>([]);
 
   useEffect(() => {
-    supabase
-      .from("news")
-      .select("*")
-      .order("sort_order", { ascending: true })
-      .order("created_at", { ascending: false })
-      .then(({ data }) => {
-        setItems(data ?? []);
-        setLoading(false);
-      });
+    setItems(sortNews(loadNews()));
   }, []);
 
   return (
     <PageShell eyebrow={T.eyebrow} title={T.title} lead={T.lead}>
-      {!loading && items.length === 0 && <p className="text-muted-foreground">{t(T.empty)}</p>}
+      {items.length === 0 && <p className="text-muted-foreground">{t(T.empty)}</p>}
       <div className="grid gap-6 md:grid-cols-2">
         {items.map((n) => (
           <article
