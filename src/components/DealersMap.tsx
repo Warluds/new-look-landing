@@ -21,12 +21,12 @@ const T = {
     "Active dealers map",
   ] as Tr,
   lead: [
-    "Наши партнеры по всему Казахстану — от Уральска до Усть-Каменогорска.",
-    "Қазақстан бойынша серіктестеріміз — Оралдан Өскеменге дейін.",
-    "Our partners across Kazakhstan — from Uralsk to Ust-Kamenogorsk.",
+    "Наши партнеры по всему Казахстану",
+    "Қазақстан бойынша серіктестеріміз",
+    "Our partners across Kazakhstan",
   ] as Tr,
-  totalLabel: ["действующих дилеров", "қолданыстағы дилерлер", "active dealers"] as Tr,
-  citiesLabel: ["городов присутствия", "қалада қатысу", "cities of presence"] as Tr,
+  totalLabel: ["\n", "\n", "\n"] as Tr,
+  citiesLabel: ["\n", "\n", "\n"] as Tr,
 };
 
 export const DealersMap = () => {
@@ -45,11 +45,11 @@ export const DealersMap = () => {
         </div>
         <div className="flex gap-6 text-sm">
           <div>
-            <div className="font-display text-3xl font-extrabold text-brand-gold">{TOTAL_DEALERS}</div>
+            <div className="font-display text-3xl font-extrabold text-brand-gold">{"\n"}</div>
             <div className="text-xs uppercase tracking-wider text-muted-foreground">{t(T.totalLabel)}</div>
           </div>
           <div>
-            <div className="font-display text-3xl font-extrabold text-brand-gold">{DEALERS_BY_CITY.length}</div>
+            <div className="font-display text-3xl font-extrabold text-brand-gold">{"\n"}</div>
             <div className="text-xs uppercase tracking-wider text-muted-foreground">{t(T.citiesLabel)}</div>
           </div>
         </div>
