@@ -140,6 +140,32 @@ const NewsAdmin = () => {
               placeholder="Пароль администратора"
             />
           </div>
+          <Button
+            variant="outline"
+            className="mt-4"
+            onClick={async () => {
+              try {
+                const res = await fetch(`/api/news.php?t=${Date.now()}`, { cache: "no-store" });
+                const text = await res.text();
+                const isJson = text.trim().startsWith("[") || text.trim().startsWith("{");
+                toast({
+                  title: `Ответ сервера: HTTP ${res.status}`,
+                  description: isJson
+                    ? "PHP работает, файл новостей читается."
+                    : `PHP не выполняется. Начало ответа: ${text.trim().slice(0, 80) || "пусто"}`,
+                  variant: res.ok && isJson ? undefined : "destructive",
+                });
+              } catch (e) {
+                toast({
+                  title: "Файл api/news.php недоступен",
+                  description: e instanceof Error ? e.message : "",
+                  variant: "destructive",
+                });
+              }
+            }}
+          >
+            Проверить связь с сервером
+          </Button>
         </section>
 
         <section className="rounded-3xl border border-border/60 bg-card p-8 shadow-soft">
