@@ -23,12 +23,6 @@ export type NewsInput = Omit<NewsItem, "id">;
 const JSON_URL = "api/news.json";
 const API_URL = "api/news.php";
 
-function base(): string {
-  const path = window.location.pathname;
-  // всё до последнего "/" — корень, где лежит index.html
-  return path.slice(0, path.lastIndexOf("/") + 1).replace(/[^/]*$/, "");
-}
-
 function url(rel: string): string {
   return `/${rel}`.replace(/^\/+/, "/");
 }
