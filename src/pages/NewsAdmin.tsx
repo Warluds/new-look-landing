@@ -4,14 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
-import {
-  createNews,
-  deleteNews,
-  fetchNews,
-  updateNews,
-  type NewsInput,
-  type NewsItem,
-} from "@/lib/newsStore";
+import { fetchNews, newId, saveNews, type NewsInput, type NewsItem } from "@/lib/newsStore";
 
 const emptyForm: NewsInput = {
   date_ru: "",
@@ -33,6 +26,7 @@ const NewsAdmin = () => {
   const [items, setItems] = useState<NewsItem[]>([]);
   const [form, setForm] = useState<NewsInput>({ ...emptyForm });
   const [editingId, setEditingId] = useState<string | null>(null);
+  const [password, setPassword] = useState(() => sessionStorage.getItem("abis-news-pass") ?? "");
   const [busy, setBusy] = useState(false);
 
   const reload = async () => {
@@ -55,6 +49,26 @@ const NewsAdmin = () => {
     setForm({ ...emptyForm });
   };
 
+  const persist = async (next: NewsItem[], successTitle: string) => {
+    if (!password.trim()) {
+      toast({ title: "Введите пароль", variant: "destructive" });
+      return false;
+    }
+    setBusy(true);
+    try {
+      await saveNews(next, password);
+      sessionStorage.setItem("abis-news-pass", password);
+      setItems([...next].sort((a, b) => a.sort_order - b.sort_order));
+      toast({ title: successTitle });
+      return true;
+    } catch (e) {
+      toast({ title: e instanceof Error ? e.message : "Ошибка сохранения", variant: "destructive" });
+      return false;
+    } finally {
+      setBusy(false);
+    }
+  };
+
   const submit = async () => {
     if (!form.title_ru.trim()) {
       toast({ title: "Введите заголовок (RU)", variant: "destructive" });
@@ -71,22 +85,11 @@ const NewsAdmin = () => {
       excerpt_kk: form.excerpt_kk || form.excerpt_ru,
       excerpt_en: form.excerpt_en || form.excerpt_ru,
     };
-    setBusy(true);
-    try {
-      if (editingId) {
-        await updateNews(editingId, payload);
-        toast({ title: "Новость обновлена — уже видна всем" });
-      } else {
-        await createNews(payload);
-        toast({ title: "Новость опубликована — уже видна всем" });
-      }
-      cancel();
-      await reload();
-    } catch {
-      toast({ title: "Ошибка сохранения", variant: "destructive" });
-    } finally {
-      setBusy(false);
-    }
+    const next = editingId
+      ? items.map((n) => (n.id === editingId ? { ...payload, id: editingId } : n))
+      : [...items, { ...payload, id: newId() }];
+    const ok = await persist(next, editingId ? "Новость обновлена" : "Новость опубликована");
+    if (ok) cancel();
   };
 
   const startEdit = (n: NewsItem) => {
@@ -98,14 +101,11 @@ const NewsAdmin = () => {
 
   const remove = async (id: string) => {
     if (!confirm("Удалить новость?")) return;
-    try {
-      await deleteNews(id);
-      if (editingId === id) cancel();
-      await reload();
-      toast({ title: "Удалено" });
-    } catch {
-      toast({ title: "Ошибка удаления", variant: "destructive" });
-    }
+    const ok = await persist(
+      items.filter((n) => n.id !== id),
+      "Удалено",
+    );
+    if (ok && editingId === id) cancel();
   };
 
   const field = (label: string, key: keyof NewsInput, area = false) => (
@@ -125,10 +125,22 @@ const NewsAdmin = () => {
         <header>
           <h1 className="font-display text-3xl font-extrabold text-primary">Управление новостями</h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            Добавьте, измените или удалите новость — изменения сразу появляются на сайте у всех посетителей.
-            Ничего копировать и пересобирать не нужно.
+            Новости хранятся в файле <code>/api/news.json</code> на хостинге — без базы данных. Добавьте,
+            измените или удалите новость, введите пароль — и изменения сразу видны всем посетителям.
           </p>
         </header>
+
+        <section className="rounded-3xl border border-border/60 bg-card p-6 shadow-soft">
+          <div className="max-w-sm space-y-1.5">
+            <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Пароль</label>
+            <Input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Пароль администратора"
+            />
+          </div>
+        </section>
 
         <section className="rounded-3xl border border-border/60 bg-card p-8 shadow-soft">
           <h2 className="mb-6 font-display text-xl font-bold">
@@ -182,10 +194,10 @@ const NewsAdmin = () => {
                 <p className="mt-1 text-sm text-muted-foreground">{n.excerpt_ru}</p>
               </div>
               <div className="flex gap-2">
-                <Button variant="outline" size="icon" onClick={() => startEdit(n)}>
+                <Button variant="outline" size="icon" onClick={() => startEdit(n)} disabled={busy}>
                   <Pencil className="h-4 w-4" />
                 </Button>
-                <Button variant="destructive" size="icon" onClick={() => remove(n.id)}>
+                <Button variant="destructive" size="icon" onClick={() => remove(n.id)} disabled={busy}>
                   <Trash2 className="h-4 w-4" />
                 </Button>
               </div>
