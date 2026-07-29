@@ -223,9 +223,9 @@ const tr = {
   navCareer: ["Карьера", "Мансап", "Career"] as Tr,
   navContacts: ["Контакты", "Байланыс", "Contacts"] as Tr,
   heroEyebrow: [
-    "ДИСТРИБЬЮЦИЯ\u00a0\n·\n\u00a0РОЗНИЦА\u00a0\n·\n\u00a0КОНСАЛТИНГ\u00a0· КОМПЛЕКТАЦИЯ",
-    "ДИСТРИБЬЮЦИЯ\u00a0\n·\n\u00a0РОЗНИЦА\u00a0\n·\n\u00a0КОНСАЛТИНГ\u00a0· КОМПЛЕКТАЦИЯ",
-    "DISTRIBUTION\u00a0\n·\n\u00a0RETAIL\u00a0\n·\n\u00a0CONSULTING\u00a0· PROCUREMENT",
+    "ДИСТРИБЬЮЦИЯ\u00a0 · \u00a0РОЗНИЦА\u00a0 · \u00a0КОНСАЛТИНГ\u00a0· КОМПЛЕКТАЦИЯ",
+    "ДИСТРИБЬЮЦИЯ\u00a0 · \u00a0РОЗНИЦА\u00a0 · \u00a0КОНСАЛТИНГ\u00a0· КОМПЛЕКТАЦИЯ",
+    "DISTRIBUTION\u00a0 · \u00a0RETAIL\u00a0 · \u00a0CONSULTING\u00a0· PROCUREMENT",
   ] as Tr,
   heroLead: [
     "Группа компаний для тех, кто создает красивые и технологичные пространства: освещение, лакокрасочные материалы, лепнина, интерьерные решение, малярные инструменты и прочее",
@@ -313,9 +313,9 @@ const tr = {
     "Request sent — we'll contact you shortly.",
   ] as Tr,
   footerTagline: [
-    "Группа компаний с 2010 года — освещение, краски, импорт, маркетинг и обучение.",
-    "2010 жылдан бері компаниялар тобы — жарық, бояу, импорт, маркетинг және оқыту.",
-    "A group of companies since 2010 — lighting, paints, import, marketing and education.",
+    "Группа компаний с 2010 года — освещение, краски, импорт, консалтинг и обучение.",
+    "2010 жылдан бері компаниялар тобы — жарық, бояу, импорт, консалтинг және оқыту.",
+    "A group of companies since 2010 — lighting, paints, import, consulting and education.",
   ] as Tr,
   qrHint: ["Наведите камеру", "Камераны бағыттаңыз", "Point your camera"] as Tr,
   copyright: [
