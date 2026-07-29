@@ -102,7 +102,7 @@ export const PageShell = ({ eyebrow, title, lead, children }: PageShellProps) =>
               {resolve(t, eyebrow)}
             </p>
           )}
-          <h1 className="font-display text-5xl font-extrabold leading-[1.05] text-balance md:text-7xl">
+          <h1 className="font-display text-4xl font-extrabold leading-[1.05] text-balance md:text-6xl">
             {resolve(t, title)}
           </h1>
           {lead && (
