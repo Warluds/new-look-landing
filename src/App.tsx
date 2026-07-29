@@ -34,7 +34,6 @@ const App = () => (
             <Route path="/education" element={<Education />} />
             <Route path="/news" element={<News />} />
             <Route path="/abis-admin-9f3k" element={<NewsAdmin />} />
-
             <Route path="/career" element={<Career />} />
             <Route path="/contacts" element={<Contacts />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
