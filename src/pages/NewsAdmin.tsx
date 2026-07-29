@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
-import { Loader2, Plus, Trash2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
-import type { Tables } from "@/integrations/supabase/types";
+import { Copy, Plus, RotateCcw, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
-
-type NewsRow = Tables<"news">;
+import { defaultNews, loadNews, saveNews, sortNews, type NewsItem } from "@/lib/newsStore";
 
 const emptyForm = {
   date_ru: "",
@@ -26,36 +23,30 @@ const emptyForm = {
 };
 
 const NewsAdmin = () => {
-  const [items, setItems] = useState<NewsRow[]>([]);
+  const [items, setItems] = useState<NewsItem[]>([]);
   const [form, setForm] = useState({ ...emptyForm });
-  const [saving, setSaving] = useState(false);
-  const [loading, setLoading] = useState(true);
-
-  const load = async () => {
-    const { data } = await supabase
-      .from("news")
-      .select("*")
-      .order("sort_order", { ascending: true })
-      .order("created_at", { ascending: false });
-    setItems(data ?? []);
-    setLoading(false);
-  };
 
   useEffect(() => {
-    load();
+    setItems(sortNews(loadNews()));
   }, []);
+
+  const commit = (next: NewsItem[]) => {
+    const sorted = sortNews(next);
+    saveNews(sorted);
+    setItems(sorted);
+  };
 
   const set = (k: keyof typeof emptyForm) => (v: string) =>
     setForm((f) => ({ ...f, [k]: k === "sort_order" ? Number(v) || 0 : v }));
 
-  const add = async () => {
+  const add = () => {
     if (!form.title_ru.trim()) {
       toast({ title: "Введите заголовок (RU)", variant: "destructive" });
       return;
     }
-    setSaving(true);
-    const payload = {
+    const item: NewsItem = {
       ...form,
+      id: `n-${Date.now()}`,
       date_kk: form.date_kk || form.date_ru,
       date_en: form.date_en || form.date_ru,
       tag_kk: form.tag_kk || form.tag_ru,
@@ -65,26 +56,26 @@ const NewsAdmin = () => {
       excerpt_kk: form.excerpt_kk || form.excerpt_ru,
       excerpt_en: form.excerpt_en || form.excerpt_ru,
     };
-    const { error } = await supabase.from("news").insert(payload);
-    setSaving(false);
-    if (error) {
-      toast({ title: "Ошибка", description: error.message, variant: "destructive" });
-      return;
-    }
+    commit([...items, item]);
     setForm({ ...emptyForm });
     toast({ title: "Новость добавлена" });
-    load();
   };
 
-  const remove = async (id: string) => {
+  const remove = (id: string) => {
     if (!confirm("Удалить новость?")) return;
-    const { error } = await supabase.from("news").delete().eq("id", id);
-    if (error) {
-      toast({ title: "Ошибка", description: error.message, variant: "destructive" });
-      return;
-    }
+    commit(items.filter((n) => n.id !== id));
     toast({ title: "Удалено" });
-    load();
+  };
+
+  const reset = () => {
+    if (!confirm("Вернуть новости из кода (все правки в браузере пропадут)?")) return;
+    commit(defaultNews);
+    toast({ title: "Сброшено" });
+  };
+
+  const copyJson = async () => {
+    await navigator.clipboard.writeText(JSON.stringify(items, null, 2));
+    toast({ title: "JSON скопирован", description: "Вставьте его в defaultNews в src/lib/newsStore.ts" });
   };
 
   const field = (label: string, key: keyof typeof emptyForm, area = false) => (
@@ -104,7 +95,9 @@ const NewsAdmin = () => {
         <header>
           <h1 className="font-display text-3xl font-extrabold text-primary">Управление новостями</h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            Секретная страница. Поля на казахском и английском можно не заполнять — подставится русский текст.
+            Работает без базы данных: новости хранятся в этом браузере. Чтобы они появились у всех посетителей,
+            нажмите «Скопировать JSON» и вставьте его в массив <code>defaultNews</code> в файле{" "}
+            <code>src/lib/newsStore.ts</code>.
           </p>
         </header>
 
@@ -125,15 +118,23 @@ const NewsAdmin = () => {
             {field("Текст EN", "excerpt_en", true)}
             {field("Порядок (меньше = выше)", "sort_order")}
           </div>
-          <Button className="mt-6" onClick={add} disabled={saving}>
-            {saving ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Plus className="mr-2 h-4 w-4" />}
-            Добавить
+          <Button className="mt-6" onClick={add}>
+            <Plus className="mr-2 h-4 w-4" /> Добавить
           </Button>
         </section>
 
         <section className="space-y-4">
-          <h2 className="font-display text-xl font-bold">Опубликованные ({items.length})</h2>
-          {loading && <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />}
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <h2 className="font-display text-xl font-bold">Опубликованные ({items.length})</h2>
+            <div className="flex gap-2">
+              <Button variant="outline" onClick={copyJson}>
+                <Copy className="mr-2 h-4 w-4" /> Скопировать JSON
+              </Button>
+              <Button variant="outline" onClick={reset}>
+                <RotateCcw className="mr-2 h-4 w-4" /> Сбросить
+              </Button>
+            </div>
+          </div>
           {items.map((n) => (
             <div
               key={n.id}
