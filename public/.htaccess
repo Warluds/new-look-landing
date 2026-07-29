@@ -3,7 +3,7 @@
   RewriteBase /
 
   # Не трогаем API и реальные файлы/папки
-  RewriteCond %{REQUEST_URI} ^/api/ [OR]
+  RewriteCond %{REQUEST_URI} (^|/)api/ [OR]
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
