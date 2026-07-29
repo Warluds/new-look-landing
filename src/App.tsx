@@ -13,6 +13,7 @@ import Import from "./pages/Import.tsx";
 import Index from "./pages/Index.tsx";
 import Marketing from "./pages/Marketing.tsx";
 import News from "./pages/News.tsx";
+import NewsAdmin from "./pages/NewsAdmin.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
