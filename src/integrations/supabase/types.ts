@@ -14,7 +14,63 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      news: {
+        Row: {
+          created_at: string
+          date_en: string
+          date_kk: string
+          date_ru: string
+          excerpt_en: string
+          excerpt_kk: string
+          excerpt_ru: string
+          id: string
+          sort_order: number
+          tag_en: string
+          tag_kk: string
+          tag_ru: string
+          title_en: string
+          title_kk: string
+          title_ru: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          date_en?: string
+          date_kk?: string
+          date_ru?: string
+          excerpt_en?: string
+          excerpt_kk?: string
+          excerpt_ru?: string
+          id?: string
+          sort_order?: number
+          tag_en?: string
+          tag_kk?: string
+          tag_ru?: string
+          title_en?: string
+          title_kk?: string
+          title_ru?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          date_en?: string
+          date_kk?: string
+          date_ru?: string
+          excerpt_en?: string
+          excerpt_kk?: string
+          excerpt_ru?: string
+          id?: string
+          sort_order?: number
+          tag_en?: string
+          tag_kk?: string
+          tag_ru?: string
+          title_en?: string
+          title_kk?: string
+          title_ru?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

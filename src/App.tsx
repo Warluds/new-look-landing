@@ -13,6 +13,7 @@ import Import from "./pages/Import.tsx";
 import Index from "./pages/Index.tsx";
 import Marketing from "./pages/Marketing.tsx";
 import News from "./pages/News.tsx";
+import NewsAdmin from "./pages/NewsAdmin.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/cooperation" element={<Cooperation />} />
             <Route path="/education" element={<Education />} />
             <Route path="/news" element={<News />} />
+            <Route path="/abis-admin-9f3k" element={<NewsAdmin />} />
             <Route path="/career" element={<Career />} />
             <Route path="/contacts" element={<Contacts />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
