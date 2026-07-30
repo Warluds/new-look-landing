@@ -264,8 +264,8 @@ const Cooperation = () => {
       </section>
 
       <section className="mt-20 grid gap-6 rounded-3xl bg-brand-deep p-10 text-hero-foreground md:grid-cols-4 md:p-14">
-        {bigStats.map(([n, label]) => (
-          <div key={t(label)}>
+        {bigStats.map(([n, label], idx) => (
+          <div key={idx} className={t(n) === "\n" ? "hidden md:block" : ""}>
             <div className="font-display text-4xl font-extrabold text-brand-gold md:text-5xl">{t(n)}</div>
             <div className="mt-2 text-sm uppercase tracking-wider text-hero-foreground/70">{t(label)}</div>
           </div>
