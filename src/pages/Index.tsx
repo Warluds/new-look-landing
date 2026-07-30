@@ -70,6 +70,15 @@ const partners = [
   { name: "Город мастеров", logo: logoGorodMasterov },
   { name: "Nomad", logo: logoNomad },
   { name: "BI Group", logo: logoBiGroup },
+  { name: "Burger King", logo: logoBurgerKing },
+  { name: "Wendy's", logo: logoWendys },
+  { name: "Coffee BOOM", logo: logoCoffeeBoom },
+  { name: "La Tartine", logo: logoLaTartine },
+  { name: "Shafran", logo: logoShafran },
+  { name: "Lorena Antoniazzi", logo: logoLorena },
+  { name: "Invictus GO", logo: logoInvictus },
+  { name: "Compass", logo: logoCompass },
+  { name: "Kusto Home", logo: logoKustoHome },
 ];
 
 const reviews: Array<{ name: string; text: Tr; source: string; href: string }> = [
