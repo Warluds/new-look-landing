@@ -197,7 +197,7 @@ const bigStats: Array<[Tr, Tr]> = [
   [["125 000+", "125 000+", "125,000+"], ["моделей в каталоге", "каталогтағы модельдер", "models in catalog"]],
   [["20 000+", "20 000+", "20,000+"], ["позиций в наличии", "қордағы позициялар", "items in stock"]],
   [["145 000+", "145 000+", "145,000+"], ["оттенков колеровки", "колеровка реңктері", "tint shades"]],
-  [["50+", "50+", "50+"], ["партнёров и дилеров", "серіктестер мен дилерлер", "partners and dealers"]],
+  [["\n", "\n", "\n"], ["\n", "\n", "\n"]],
 ];
 
 const Cooperation = () => {
@@ -264,8 +264,8 @@ const Cooperation = () => {
       </section>
 
       <section className="mt-20 grid gap-6 rounded-3xl bg-brand-deep p-10 text-hero-foreground md:grid-cols-4 md:p-14">
-        {bigStats.map(([n, label]) => (
-          <div key={t(label)}>
+        {bigStats.map(([n, label], idx) => (
+          <div key={idx} className={t(n) === "\n" ? "hidden md:block" : ""}>
             <div className="font-display text-4xl font-extrabold text-brand-gold md:text-5xl">{t(n)}</div>
             <div className="mt-2 text-sm uppercase tracking-wider text-hero-foreground/70">{t(label)}</div>
           </div>
