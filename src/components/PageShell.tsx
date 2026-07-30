@@ -40,7 +40,7 @@ export const PageShell = ({ eyebrow, title, lead, children }: PageShellProps) =>
     <div className="min-h-screen bg-background text-foreground">
       <header className="border-b border-border/60 bg-card/60 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-5">
-          <a href="/" className="flex items-center">
+          <a href="/" className="flex items-center rounded-xl bg-brand-deep px-3 py-1.5">
             <img src={logoWhite} alt="ABIS Group" className="h-10 w-auto md:h-12" />
           </a>
 
@@ -68,7 +68,7 @@ export const PageShell = ({ eyebrow, title, lead, children }: PageShellProps) =>
       {menuOpen && (
         <div className="fixed inset-0 z-50 bg-background md:hidden">
           <div className="flex h-16 items-center justify-between px-6">
-            <a href="/" className="flex items-center">
+            <a href="/" className="flex items-center rounded-xl bg-brand-deep px-3 py-1.5">
               <img src={logoWhite} alt="ABIS Group" className="h-10 w-auto" />
             </a>
             <button
