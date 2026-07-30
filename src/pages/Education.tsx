@@ -183,8 +183,6 @@ const Education = () => {
           ))}
         </div>
       </section>
-
-      </section>
     </PageShell>
   );
 };
