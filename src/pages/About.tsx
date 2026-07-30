@@ -203,7 +203,7 @@ const About = () => {
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <div>
             <p className="text-sm font-extrabold uppercase tracking-[0.24em] text-primary">о компании</p>
-            <h2 className="mt-4 text-balance font-display text-4xl font-extrabold md:text-6xl">От 35 м² в ARMADA до сети салонов и партнерской экосистемы.</h2>
+            <h2 className="mt-4 text-balance font-display text-4xl font-extrabold md:text-6xl">От 35 м² в ТД ARMADA до сети салонов и партнерской экосистемы.</h2>
             <p className="mt-6 leading-8 text-muted-foreground">
               ABIS Group — группа компаний с 16-летним опытом работы на рынке Казахстана и Центральной Азии. Мы развиваем направления освещения, красок, декоративных покрытий, дистрибуции и розничной торговли, создавая устойчивые партнерские отношения и долгосрочную ценность для клиентов.
             </p>
