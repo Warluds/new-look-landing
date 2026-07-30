@@ -183,7 +183,7 @@ const About = () => {
           </p>
           <h1 className="max-w-5xl text-balance font-display text-5xl font-extrabold leading-[0.95] md:text-7xl lg:text-8xl">О нас</h1>
           <p className="mt-7 max-w-3xl text-lg font-medium leading-8 text-hero-foreground/86 md:text-xl">
-            ABIS Group — группа компаний в сфере света, красок, декоративных покрытий, импорта, розницы, обучения и маркетинга. Ниже — подробная история роста по каждому году.
+            ABIS Group — группа компаний в сфере света, красок, декоративных покрытий, импорта, розницы, обучения и консалтинг. Ниже — подробная история роста по каждому году.
           </p>
         </div>
       </section>
