@@ -149,6 +149,14 @@ const Education = () => {
               ] as Tr)}
             </p>
           </div>
+          <a
+            href="https://wa.me/77018807710"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-gold-gradient px-7 py-4 font-extrabold text-accent-foreground shadow-luxe transition-transform hover:-translate-y-1"
+          >
+            {t(["Узнать об аренде", "Жалдау туралы білу", "Ask about renting"] as Tr)}
+          </a>
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
