@@ -184,20 +184,6 @@ const Education = () => {
         </div>
       </section>
 
-      <section className="mt-20 flex flex-col items-start gap-6 rounded-3xl bg-brand-deep p-10 text-hero-foreground md:flex-row md:items-center md:justify-between md:p-14">
-        <div className="flex items-center gap-5">
-          <GraduationCap className="h-12 w-12 text-brand-gold" />
-          <div>
-            <h3 className="font-display text-2xl font-extrabold md:text-3xl">{t(T.ctaTitle)}</h3>
-            <p className="mt-1 text-hero-foreground/75">{t(T.ctaLead)}</p>
-          </div>
-        </div>
-        <a
-          href="/contacts"
-          className="inline-flex items-center gap-2 rounded-full bg-gold-gradient px-7 py-4 font-extrabold text-accent-foreground shadow-luxe transition-transform hover:-translate-y-1"
-        >
-          {t(T.ctaBtn)}
-        </a>
       </section>
     </PageShell>
   );
