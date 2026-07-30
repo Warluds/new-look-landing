@@ -19,6 +19,15 @@ import logoRams from "@/assets/partners/rams.png";
 import logoGorodMasterov from "@/assets/partners/gorod-masterov.png";
 import logoNomad from "@/assets/partners/nomad.png";
 import logoBiGroup from "@/assets/partners/bi-group.png";
+import logoBurgerKing from "@/assets/partners/burger-king.jpg";
+import logoWendys from "@/assets/partners/wendys.jpg";
+import logoCoffeeBoom from "@/assets/partners/coffee-boom.jpg";
+import logoLaTartine from "@/assets/partners/la-tartine.jpg";
+import logoShafran from "@/assets/partners/shafran.jpg";
+import logoLorena from "@/assets/partners/lorena-antoniazzi.jpg";
+import logoInvictus from "@/assets/partners/invictus-go.jpg";
+import logoCompass from "@/assets/partners/compass.jpg";
+import logoKustoHome from "@/assets/partners/kusto-home.jpg";
 import brandSvetKz from "@/assets/brands/svet-kz.png";
 import brandCentrKrasok from "@/assets/brands/centr-krasok.png";
 import brandCentrKrasokPro from "@/assets/brands/centr-krasok-pro.png";
@@ -61,6 +70,15 @@ const partners = [
   { name: "Город мастеров", logo: logoGorodMasterov },
   { name: "Nomad", logo: logoNomad },
   { name: "BI Group", logo: logoBiGroup },
+  { name: "Burger King", logo: logoBurgerKing },
+  { name: "Wendy's", logo: logoWendys },
+  { name: "Coffee BOOM", logo: logoCoffeeBoom },
+  { name: "La Tartine", logo: logoLaTartine },
+  { name: "Shafran", logo: logoShafran },
+  { name: "Lorena Antoniazzi", logo: logoLorena },
+  { name: "Invictus GO", logo: logoInvictus },
+  { name: "Compass", logo: logoCompass },
+  { name: "Kusto Home", logo: logoKustoHome },
 ];
 
 const reviews: Array<{ name: string; text: Tr; source: string; href: string }> = [
