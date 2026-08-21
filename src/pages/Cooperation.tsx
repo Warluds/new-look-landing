@@ -202,30 +202,8 @@ const bigStats: Array<[Tr, Tr]> = [
 
 const Cooperation = () => {
   const { t } = useLang();
-  const [form, setForm] = useState({ company: "", contact: "", phone: "", message: "" });
-  const [submitting, setSubmitting] = useState(false);
 
-  const schema = z.object({
-    company: z.string().trim().min(2, t(T.errCompany)).max(120),
-    contact: z.string().trim().min(2, t(T.errContact)).max(100),
-    phone: z.string().trim().min(6, t(T.errPhone)).max(40),
-    message: z.string().trim().min(10, t(T.errMessage)).max(2000),
-  });
 
-  const submit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const result = schema.safeParse(form);
-    if (!result.success) {
-      toast.error(result.error.issues[0]?.message ?? "");
-      return;
-    }
-    setSubmitting(true);
-    setTimeout(() => {
-      toast.success(t(T.success));
-      setForm({ company: "", contact: "", phone: "", message: "" });
-      setSubmitting(false);
-    }, 600);
-  };
 
   return (
     <PageShell eyebrow={T.eyebrow} title={T.title} lead={T.lead}>
