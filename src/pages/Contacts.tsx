@@ -77,7 +77,7 @@ const Contacts = () => {
   return (
     <PageShell eyebrow={T.eyebrow} title={T.title} lead={T.lead}>
 
-      <div className="grid gap-10 lg:grid-cols-[1fr,1.1fr]">
+      <div className="grid gap-10">
         <div className="space-y-6">
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="rounded-2xl border border-border/60 bg-card p-6 shadow-soft">
@@ -119,41 +119,6 @@ const Contacts = () => {
           </div>
         </div>
 
-        <form
-          onSubmit={submit}
-          className="rounded-3xl border border-border/60 bg-card p-8 shadow-soft md:p-10"
-        >
-          <h2 className="font-display text-3xl font-extrabold text-primary md:text-4xl">{t(T.formTitle)}</h2>
-          <p className="mt-3 text-muted-foreground">{t(T.formLead)}</p>
-          <div className="mt-8 space-y-4">
-            <input
-              value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-              placeholder={t(T.name)}
-              className="w-full rounded-xl border border-border bg-background px-4 py-3 text-base focus:border-brand-gold focus:outline-none"
-            />
-            <input
-              value={form.phone}
-              onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              placeholder={t(T.phonePh)}
-              className="w-full rounded-xl border border-border bg-background px-4 py-3 text-base focus:border-brand-gold focus:outline-none"
-            />
-            <textarea
-              value={form.message}
-              onChange={(e) => setForm({ ...form, message: e.target.value })}
-              placeholder={t(T.message)}
-              rows={6}
-              className="w-full rounded-xl border border-border bg-background px-4 py-3 text-base focus:border-brand-gold focus:outline-none"
-            />
-            <button
-              type="submit"
-              disabled={submitting}
-              className="inline-flex w-full items-center justify-center rounded-full bg-gold-gradient px-7 py-4 font-extrabold text-accent-foreground shadow-luxe transition-transform hover:-translate-y-1 disabled:opacity-60"
-            >
-              {submitting ? t(T.sending) : t(T.submit)}
-            </button>
-          </div>
-        </form>
       </div>
     </PageShell>
   );
