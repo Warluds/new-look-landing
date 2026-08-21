@@ -221,7 +221,7 @@ const directions: Array<{ icon: typeof Lightbulb; title: Tr; text: Tr }> = [
 
 const stats: Array<{ value: Tr; label: Tr }> = [
   { value: ["16 лет", "16 жыл", "16 years"], label: ["присутствия на рынке", "нарықтағы жұмыс", "on the market"] },
-  { value: ["2 365 м²", "2 365 м²", "2,365 m²"], label: ["торговая площадь", "сауда алаңы", "retail space"] },
+  { value: ["2 300 м²", "2 300 м²", "2,300 m²"], label: ["торговая площадь", "сауда алаңы", "retail space"] },
 ];
 
 const partnerScenarios: Tr[] = [
