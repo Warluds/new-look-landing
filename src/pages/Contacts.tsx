@@ -1,7 +1,4 @@
-import { useState } from "react";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
-import { toast } from "sonner";
-import { z } from "zod";
 import { PageShell } from "@/components/PageShell";
 import { Tr, useLang } from "@/i18n/LanguageContext";
 
@@ -50,29 +47,7 @@ const T = {
 
 const Contacts = () => {
   const { t } = useLang();
-  const [form, setForm] = useState({ name: "", phone: "", message: "" });
-  const [submitting, setSubmitting] = useState(false);
 
-  const schema = z.object({
-    name: z.string().trim().min(2, t(T.errName)).max(100),
-    phone: z.string().trim().min(6, t(T.errPhone)).max(40),
-    message: z.string().trim().min(5, t(T.errMessage)).max(1000),
-  });
-
-  const submit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const result = schema.safeParse(form);
-    if (!result.success) {
-      toast.error(result.error.issues[0]?.message ?? "");
-      return;
-    }
-    setSubmitting(true);
-    setTimeout(() => {
-      toast.success(t(T.success));
-      setForm({ name: "", phone: "", message: "" });
-      setSubmitting(false);
-    }, 600);
-  };
 
   return (
     <PageShell eyebrow={T.eyebrow} title={T.title} lead={T.lead}>
