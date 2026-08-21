@@ -289,56 +289,18 @@ const Cooperation = () => {
         </div>
       </section>
 
-      <section className="mt-20 grid gap-10 rounded-3xl border border-border/60 bg-card p-8 shadow-soft md:grid-cols-[1fr,1.2fr] md:p-12">
-        <div>
-          <h2 className="font-display text-3xl font-extrabold text-primary md:text-4xl">{t(T.applyTitle)}</h2>
-          <p className="mt-4 text-muted-foreground">{t(T.applyLead)}</p>
-          <div className="mt-8 space-y-3 text-sm">
-            <div>
-              <span className="font-bold text-primary">{t(T.salesPhone)}</span>{" "}
-              <a href="tel:+77272275018" className="hover:text-brand-gold">+7 727 227 50 18</a>
-            </div>
-            <div>
-              <span className="font-bold text-primary">{t(T.email)}</span>{" "}
-              <a href="mailto:info@abis.kz" className="hover:text-brand-gold">info@abis.kz</a>
-            </div>
+      <section className="mt-20 rounded-3xl border border-border/60 bg-card p-8 shadow-soft md:p-12">
+        <h2 className="font-display text-3xl font-extrabold text-primary md:text-4xl">{t(T.applyLead)}</h2>
+        <div className="mt-8 space-y-3 text-sm">
+          <div>
+            <span className="font-bold text-primary">{t(T.salesPhone)}</span>{" "}
+            <a href="tel:+77272275018" className="hover:text-brand-gold">+7 727 227 50 18</a>
+          </div>
+          <div>
+            <span className="font-bold text-primary">{t(T.email)}</span>{" "}
+            <a href="mailto:info@abis.kz" className="hover:text-brand-gold">info@abis.kz</a>
           </div>
         </div>
-
-        <form onSubmit={submit} className="space-y-4">
-          <input
-            value={form.company}
-            onChange={(e) => setForm({ ...form, company: e.target.value })}
-            placeholder={t(T.phCompany)}
-            className="w-full rounded-xl border border-border bg-background px-4 py-3 text-base focus:border-brand-gold focus:outline-none"
-          />
-          <input
-            value={form.contact}
-            onChange={(e) => setForm({ ...form, contact: e.target.value })}
-            placeholder={t(T.phContact)}
-            className="w-full rounded-xl border border-border bg-background px-4 py-3 text-base focus:border-brand-gold focus:outline-none"
-          />
-          <input
-            value={form.phone}
-            onChange={(e) => setForm({ ...form, phone: e.target.value })}
-            placeholder={t(T.phPhone)}
-            className="w-full rounded-xl border border-border bg-background px-4 py-3 text-base focus:border-brand-gold focus:outline-none"
-          />
-          <textarea
-            value={form.message}
-            onChange={(e) => setForm({ ...form, message: e.target.value })}
-            placeholder={t(T.phMessage)}
-            rows={5}
-            className="w-full rounded-xl border border-border bg-background px-4 py-3 text-base focus:border-brand-gold focus:outline-none"
-          />
-          <button
-            type="submit"
-            disabled={submitting}
-            className="inline-flex w-full items-center justify-center rounded-full bg-gold-gradient px-7 py-4 font-extrabold text-accent-foreground shadow-luxe transition-transform hover:-translate-y-1 disabled:opacity-60"
-          >
-            {submitting ? t(T.sending) : t(T.submit)}
-          </button>
-        </form>
       </section>
     </PageShell>
   );
