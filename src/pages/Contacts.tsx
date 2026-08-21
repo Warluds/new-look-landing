@@ -1,7 +1,4 @@
-import { useState } from "react";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
-import { toast } from "sonner";
-import { z } from "zod";
 import { PageShell } from "@/components/PageShell";
 import { Tr, useLang } from "@/i18n/LanguageContext";
 
@@ -50,34 +47,12 @@ const T = {
 
 const Contacts = () => {
   const { t } = useLang();
-  const [form, setForm] = useState({ name: "", phone: "", message: "" });
-  const [submitting, setSubmitting] = useState(false);
 
-  const schema = z.object({
-    name: z.string().trim().min(2, t(T.errName)).max(100),
-    phone: z.string().trim().min(6, t(T.errPhone)).max(40),
-    message: z.string().trim().min(5, t(T.errMessage)).max(1000),
-  });
-
-  const submit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const result = schema.safeParse(form);
-    if (!result.success) {
-      toast.error(result.error.issues[0]?.message ?? "");
-      return;
-    }
-    setSubmitting(true);
-    setTimeout(() => {
-      toast.success(t(T.success));
-      setForm({ name: "", phone: "", message: "" });
-      setSubmitting(false);
-    }, 600);
-  };
 
   return (
     <PageShell eyebrow={T.eyebrow} title={T.title} lead={T.lead}>
 
-      <div className="grid gap-10 lg:grid-cols-[1fr,1.1fr]">
+      <div className="grid gap-10">
         <div className="space-y-6">
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="rounded-2xl border border-border/60 bg-card p-6 shadow-soft">
@@ -119,41 +94,6 @@ const Contacts = () => {
           </div>
         </div>
 
-        <form
-          onSubmit={submit}
-          className="rounded-3xl border border-border/60 bg-card p-8 shadow-soft md:p-10"
-        >
-          <h2 className="font-display text-3xl font-extrabold text-primary md:text-4xl">{t(T.formTitle)}</h2>
-          <p className="mt-3 text-muted-foreground">{t(T.formLead)}</p>
-          <div className="mt-8 space-y-4">
-            <input
-              value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-              placeholder={t(T.name)}
-              className="w-full rounded-xl border border-border bg-background px-4 py-3 text-base focus:border-brand-gold focus:outline-none"
-            />
-            <input
-              value={form.phone}
-              onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              placeholder={t(T.phonePh)}
-              className="w-full rounded-xl border border-border bg-background px-4 py-3 text-base focus:border-brand-gold focus:outline-none"
-            />
-            <textarea
-              value={form.message}
-              onChange={(e) => setForm({ ...form, message: e.target.value })}
-              placeholder={t(T.message)}
-              rows={6}
-              className="w-full rounded-xl border border-border bg-background px-4 py-3 text-base focus:border-brand-gold focus:outline-none"
-            />
-            <button
-              type="submit"
-              disabled={submitting}
-              className="inline-flex w-full items-center justify-center rounded-full bg-gold-gradient px-7 py-4 font-extrabold text-accent-foreground shadow-luxe transition-transform hover:-translate-y-1 disabled:opacity-60"
-            >
-              {submitting ? t(T.sending) : t(T.submit)}
-            </button>
-          </div>
-        </form>
       </div>
     </PageShell>
   );
