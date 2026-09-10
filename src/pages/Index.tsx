@@ -550,7 +550,9 @@ const Index = () => {
                 </button>
               </DialogTrigger>
               <DialogContent className="max-w-3xl overflow-hidden p-0">
-                <AutoRotatingImage images={loc.images} alt={`${loc.name} — ${t(loc.city)}`} className="aspect-[4/3] w-full object-cover" interval={2600} />
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <AutoRotatingImage images={loc.images} alt={`${loc.name} — ${t(loc.city)}`} className="h-full w-full object-cover" interval={2600} />
+                </div>
                 <div className="p-6">
                   <div className="flex items-center gap-2 text-sm font-extrabold uppercase tracking-[0.2em] text-primary">
                     <MapPin className="h-4 w-4" /> {t(loc.city)} · {t(loc.tag)}
