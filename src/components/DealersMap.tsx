@@ -63,9 +63,8 @@ export const DealersMap = () => {
           style={{ height: 560, width: "100%" }}
         >
           <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
-            url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
-            subdomains={["a", "b", "c", "d"]}
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           {DEALERS_BY_CITY.map((c) => (
             <Marker key={c.city} position={c.coords} icon={makeIcon(c.dealers.length)}>
