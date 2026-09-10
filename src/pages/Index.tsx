@@ -46,6 +46,28 @@ import logoWhite from "@/assets/logo-white.svg";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { ProjectsGallery } from "@/components/ProjectsGallery";
 
+function AutoRotatingImage({ images, alt, className, interval = 3000 }: { images: string[]; alt: string; className?: string; interval?: number }) {
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    if (images.length < 2) return;
+    const id = window.setInterval(() => setIdx((i) => (i + 1) % images.length), interval);
+    return () => window.clearInterval(id);
+  }, [images.length, interval]);
+  return (
+    <>
+      {images.map((src, i) => (
+        <img
+          key={src}
+          src={src}
+          alt={alt}
+          loading="lazy"
+          className={`${className ?? ""} ${images.length > 1 ? "absolute inset-0 transition-opacity duration-700" : ""} ${i === idx ? "opacity-100" : "opacity-0"}`}
+        />
+      ))}
+    </>
+  );
+}
+
 const childBrands: Array<{ name: string; desc: Tr; href: string; logo?: string }> = [
   { name: "SVET.KZ", desc: ["Салоны освещения Svet.kz", "Svet.kz жарық салондары", "Svet.kz lighting showrooms"], href: "https://svet.kz", logo: brandSvetKz },
   { name: "Центр Красок №1", desc: ["Розничная сеть ЛКМ", "Бояулар бөлшек желісі", "Paints retail network"], href: "https://centr-krasok.kz", logo: brandCentrKrasok },
