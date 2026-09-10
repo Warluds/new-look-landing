@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowRight, Award, Building2, CheckCircle2, Facebook, Instagram, Lightbulb, Mail, MapPin, Menu, Paintbrush, Phone, Star, Trophy, X, Youtube } from "lucide-react";
 import heroImage from "@/assets/abis-showroom-hero.jpg";
 import karagandaStore from "@/assets/retail/karaganda-storefront.jpg";
-import almatyPaintSalon from "@/assets/almaty-paint-salon.jpg";
-import astanaProject from "@/assets/astana-project.jpg";
+import almatyCk1_1 from "@/assets/retail/almaty-ck1-1.webp";
+import almatyCk1_2 from "@/assets/retail/almaty-ck1-2.webp";
+import almatyCk1_3 from "@/assets/retail/almaty-ck1-3.webp";
+import astanaCk_1 from "@/assets/retail/astana-ck-1.webp";
+import astanaCk_2 from "@/assets/retail/astana-ck-2.webp";
+import astanaCk_3 from "@/assets/retail/astana-ck-3.webp";
 import svetAlmaty from "@/assets/svet-almaty.jpg";
 import logoApplecity from "@/assets/partners/applecity.png";
 import logoMeloman from "@/assets/partners/meloman.png";
@@ -142,7 +146,7 @@ const awards: Array<{ year: string; title: Tr; desc: Tr }> = [
   },
 ];
 
-const retailLocations: Array<{ city: Tr; name: string; address: Tr; image: string; tag: Tr }> = [
+const retailLocations: Array<{ city: Tr; name: string; address: Tr; images: string[]; tag: Tr }> = [
   {
     city: ["Караганда", "Қарағанды", "Karaganda"],
     name: "Центр Красок №1",
@@ -151,7 +155,7 @@ const retailLocations: Array<{ city: Tr; name: string; address: Tr; image: strin
       "Желінің фирмалық салоны — әуесқойларға да, кәсіби мамандарға да",
       "Flagship store of the chain — for both enthusiasts and professionals",
     ],
-    image: karagandaStore,
+    images: [karagandaStore],
     tag: ["EST. 2015", "EST. 2015", "EST. 2015"],
   },
   {
@@ -162,7 +166,7 @@ const retailLocations: Array<{ city: Tr; name: string; address: Tr; image: strin
       "ARMADA СО, Қабдолов к-сі 1/8, 1 блок, 1G желісі",
       "ARMADA Mall, 1/8 Kabdolova str., block 1, line 1G",
     ],
-    image: almatyPaintSalon,
+    images: [almatyCk1_1, almatyCk1_2, almatyCk1_3],
     tag: ["EST. 2015", "EST. 2015", "EST. 2015"],
   },
   {
@@ -173,7 +177,7 @@ const retailLocations: Array<{ city: Tr; name: string; address: Tr; image: strin
       "Премиум сегменттегі жарық пен бояулардың бөлшек желісі",
       "Premium retail network for lighting and paints",
     ],
-    image: astanaProject,
+    images: [astanaCk_1, astanaCk_2, astanaCk_3],
     tag: ["Сеть", "Желі", "Network"],
   },
   {
@@ -184,7 +188,7 @@ const retailLocations: Array<{ city: Tr; name: string; address: Tr; image: strin
       "ARMADA СО, 3-қатар, 1 блок, G желісі — дұрыс жарық орталығы",
       "ARMADA Mall, row 3, block 1, line G — the right light centre",
     ],
-    image: svetAlmaty,
+    images: [svetAlmaty],
     tag: ["Lighting", "Жарық", "Lighting"],
   },
 ];
