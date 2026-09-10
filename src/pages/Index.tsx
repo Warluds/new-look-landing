@@ -53,6 +53,9 @@ function AutoRotatingImage({ images, alt, className, interval = 3000 }: { images
     const id = window.setInterval(() => setIdx((i) => (i + 1) % images.length), interval);
     return () => window.clearInterval(id);
   }, [images.length, interval]);
+  if (images.length < 2) {
+    return <img src={images[0]} alt={alt} loading="lazy" className={className} />;
+  }
   return (
     <>
       {images.map((src, i) => (
@@ -60,13 +63,25 @@ function AutoRotatingImage({ images, alt, className, interval = 3000 }: { images
           key={src}
           src={src}
           alt={alt}
-          loading="lazy"
-          className={`${className ?? ""} ${images.length > 1 ? "absolute inset-0 transition-opacity duration-700" : ""} ${i === idx ? "opacity-100" : "opacity-0"}`}
+          className={className}
+          style={{
+            position: "absolute",
+            inset: 0,
+            opacity: i === idx ? 1 : 0,
+            transition: "opacity 700ms ease",
+            zIndex: i === idx ? 1 : 0,
+          }}
         />
       ))}
+      <span className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-1.5">
+        {images.map((src, i) => (
+          <span key={src} className={`h-1.5 rounded-full transition-all ${i === idx ? "w-5 bg-hero-foreground" : "w-1.5 bg-hero-foreground/50"}`} />
+        ))}
+      </span>
     </>
   );
 }
+
 
 const childBrands: Array<{ name: string; desc: Tr; href: string; logo?: string }> = [
   { name: "SVET.KZ", desc: ["Салоны освещения Svet.kz", "Svet.kz жарық салондары", "Svet.kz lighting showrooms"], href: "https://svet.kz", logo: brandSvetKz },
