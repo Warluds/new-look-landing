@@ -516,7 +516,7 @@ const Index = () => {
               <DialogTrigger asChild>
                 <button type="button" className="group overflow-hidden rounded-2xl border border-border bg-card text-left shadow-soft transition-all hover:-translate-y-1 hover:shadow-luxe">
                   <div className="relative aspect-[4/3] overflow-hidden">
-                    <img src={loc.image} alt={`${loc.name} — ${t(loc.city)}`} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                    <AutoRotatingImage images={loc.images} alt={`${loc.name} — ${t(loc.city)}`} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     <span className="absolute left-3 top-3 rounded-full bg-brand-deep/80 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-[0.18em] text-hero-foreground backdrop-blur-md">{t(loc.tag)}</span>
                   </div>
                   <div className="p-4">
@@ -528,7 +528,7 @@ const Index = () => {
                 </button>
               </DialogTrigger>
               <DialogContent className="max-w-3xl overflow-hidden p-0">
-                <img src={loc.image} alt={`${loc.name} — ${t(loc.city)}`} className="h-auto max-h-[60vh] w-full object-cover" />
+                <AutoRotatingImage images={loc.images} alt={`${loc.name} — ${t(loc.city)}`} className="aspect-[4/3] w-full object-cover" interval={2600} />
                 <div className="p-6">
                   <div className="flex items-center gap-2 text-sm font-extrabold uppercase tracking-[0.2em] text-primary">
                     <MapPin className="h-4 w-4" /> {t(loc.city)} · {t(loc.tag)}
