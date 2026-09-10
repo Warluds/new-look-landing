@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowRight, Award, Building2, CheckCircle2, Facebook, Instagram, Lightbulb, Mail, MapPin, Menu, Paintbrush, Phone, Star, Trophy, X, Youtube } from "lucide-react";
 import heroImage from "@/assets/abis-showroom-hero.jpg";
 import karagandaStore from "@/assets/retail/karaganda-storefront.jpg";
-import almatyPaintSalon from "@/assets/almaty-paint-salon.jpg";
-import astanaProject from "@/assets/astana-project.jpg";
+import almatyCk1_1 from "@/assets/retail/almaty-ck1-1.webp";
+import almatyCk1_2 from "@/assets/retail/almaty-ck1-2.webp";
+import almatyCk1_3 from "@/assets/retail/almaty-ck1-3.webp";
+import astanaCk_1 from "@/assets/retail/astana-ck-1.webp";
+import astanaCk_2 from "@/assets/retail/astana-ck-2.webp";
+import astanaCk_3 from "@/assets/retail/astana-ck-3.webp";
 import svetAlmaty from "@/assets/svet-almaty.jpg";
 import logoApplecity from "@/assets/partners/applecity.png";
 import logoMeloman from "@/assets/partners/meloman.png";
@@ -41,6 +45,28 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } 
 import logoWhite from "@/assets/logo-white.svg";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { ProjectsGallery } from "@/components/ProjectsGallery";
+
+function AutoRotatingImage({ images, alt, className, interval = 3000 }: { images: string[]; alt: string; className?: string; interval?: number }) {
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    if (images.length < 2) return;
+    const id = window.setInterval(() => setIdx((i) => (i + 1) % images.length), interval);
+    return () => window.clearInterval(id);
+  }, [images.length, interval]);
+  return (
+    <>
+      {images.map((src, i) => (
+        <img
+          key={src}
+          src={src}
+          alt={alt}
+          loading="lazy"
+          className={`${className ?? ""} ${images.length > 1 ? "absolute inset-0 transition-opacity duration-700" : ""} ${i === idx ? "opacity-100" : "opacity-0"}`}
+        />
+      ))}
+    </>
+  );
+}
 
 const childBrands: Array<{ name: string; desc: Tr; href: string; logo?: string }> = [
   { name: "SVET.KZ", desc: ["Салоны освещения Svet.kz", "Svet.kz жарық салондары", "Svet.kz lighting showrooms"], href: "https://svet.kz", logo: brandSvetKz },
@@ -142,7 +168,7 @@ const awards: Array<{ year: string; title: Tr; desc: Tr }> = [
   },
 ];
 
-const retailLocations: Array<{ city: Tr; name: string; address: Tr; image: string; tag: Tr }> = [
+const retailLocations: Array<{ city: Tr; name: string; address: Tr; images: string[]; tag: Tr }> = [
   {
     city: ["Караганда", "Қарағанды", "Karaganda"],
     name: "Центр Красок №1",
@@ -151,7 +177,7 @@ const retailLocations: Array<{ city: Tr; name: string; address: Tr; image: strin
       "Желінің фирмалық салоны — әуесқойларға да, кәсіби мамандарға да",
       "Flagship store of the chain — for both enthusiasts and professionals",
     ],
-    image: karagandaStore,
+    images: [karagandaStore],
     tag: ["EST. 2015", "EST. 2015", "EST. 2015"],
   },
   {
@@ -162,7 +188,7 @@ const retailLocations: Array<{ city: Tr; name: string; address: Tr; image: strin
       "ARMADA СО, Қабдолов к-сі 1/8, 1 блок, 1G желісі",
       "ARMADA Mall, 1/8 Kabdolova str., block 1, line 1G",
     ],
-    image: almatyPaintSalon,
+    images: [almatyCk1_1, almatyCk1_2, almatyCk1_3],
     tag: ["EST. 2015", "EST. 2015", "EST. 2015"],
   },
   {
@@ -173,7 +199,7 @@ const retailLocations: Array<{ city: Tr; name: string; address: Tr; image: strin
       "Премиум сегменттегі жарық пен бояулардың бөлшек желісі",
       "Premium retail network for lighting and paints",
     ],
-    image: astanaProject,
+    images: [astanaCk_1, astanaCk_2, astanaCk_3],
     tag: ["Сеть", "Желі", "Network"],
   },
   {
@@ -184,7 +210,7 @@ const retailLocations: Array<{ city: Tr; name: string; address: Tr; image: strin
       "ARMADA СО, 3-қатар, 1 блок, G желісі — дұрыс жарық орталығы",
       "ARMADA Mall, row 3, block 1, line G — the right light centre",
     ],
-    image: svetAlmaty,
+    images: [svetAlmaty],
     tag: ["Lighting", "Жарық", "Lighting"],
   },
 ];
@@ -512,7 +538,7 @@ const Index = () => {
               <DialogTrigger asChild>
                 <button type="button" className="group overflow-hidden rounded-2xl border border-border bg-card text-left shadow-soft transition-all hover:-translate-y-1 hover:shadow-luxe">
                   <div className="relative aspect-[4/3] overflow-hidden">
-                    <img src={loc.image} alt={`${loc.name} — ${t(loc.city)}`} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                    <AutoRotatingImage images={loc.images} alt={`${loc.name} — ${t(loc.city)}`} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     <span className="absolute left-3 top-3 rounded-full bg-brand-deep/80 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-[0.18em] text-hero-foreground backdrop-blur-md">{t(loc.tag)}</span>
                   </div>
                   <div className="p-4">
@@ -524,7 +550,9 @@ const Index = () => {
                 </button>
               </DialogTrigger>
               <DialogContent className="max-w-3xl overflow-hidden p-0">
-                <img src={loc.image} alt={`${loc.name} — ${t(loc.city)}`} className="h-auto max-h-[60vh] w-full object-cover" />
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <AutoRotatingImage images={loc.images} alt={`${loc.name} — ${t(loc.city)}`} className="h-full w-full object-cover" interval={2600} />
+                </div>
                 <div className="p-6">
                   <div className="flex items-center gap-2 text-sm font-extrabold uppercase tracking-[0.2em] text-primary">
                     <MapPin className="h-4 w-4" /> {t(loc.city)} · {t(loc.tag)}
