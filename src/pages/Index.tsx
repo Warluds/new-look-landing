@@ -149,6 +149,68 @@ const reviews: Array<{ name: string; text: Tr; source: string; href: string }> =
   },
 ];
 
+const REVIEWS_VISIBLE = 4;
+const REVIEWS_INTERVAL = 5000;
+
+function ReviewsRotator({ t }: { t: (tr: Tr) => string }) {
+  const [offset, setOffset] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused || reviews.length <= REVIEWS_VISIBLE) return;
+    const id = window.setInterval(() => {
+      setOffset((o) => (o + 1) % reviews.length);
+    }, REVIEWS_INTERVAL);
+    return () => window.clearInterval(id);
+  }, [paused]);
+
+  const visible = Array.from({ length: Math.min(REVIEWS_VISIBLE, reviews.length) }, (_, i) => reviews[(offset + i) % reviews.length]);
+
+  return (
+    <div
+      className="mt-10"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        {visible.map((r, i) => (
+          <a
+            key={`${r.name}-${i}`}
+            href={r.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex animate-in fade-in duration-700 flex-col rounded-2xl border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-luxe"
+          >
+            <div className="flex gap-0.5 text-brand-gold">
+              {Array.from({ length: 5 }).map((_, j) => (
+                <Star key={j} className="h-4 w-4 fill-current" />
+              ))}
+            </div>
+            <p className="mt-4 flex-1 leading-7 text-foreground">«{t(r.text)}»</p>
+            <div className="mt-5 border-t border-border pt-4">
+              <p className="font-extrabold">{r.name}</p>
+              <p className="text-sm text-muted-foreground">{r.source} · 2GIS</p>
+            </div>
+          </a>
+        ))}
+      </div>
+      {reviews.length > REVIEWS_VISIBLE && (
+        <div className="mt-6 flex justify-center gap-2">
+          {reviews.map((r, i) => (
+            <button
+              key={r.name}
+              type="button"
+              aria-label={`Отзыв ${i + 1}`}
+              onClick={() => setOffset(i)}
+              className={`h-2 rounded-full transition-all ${i === offset ? "w-6 bg-primary" : "w-2 bg-border hover:bg-primary/50"}`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 const awards: Array<{ year: string; title: Tr; desc: Tr }> = [
   {
     year: "2014",
