@@ -269,7 +269,7 @@ const Cooperation = () => {
         <div className="mt-8 space-y-3 text-sm">
           <div>
             <span className="font-bold text-primary">{t(T.salesPhone)}</span>{" "}
-            <a href="tel:+77272275018" className="hover:text-brand-gold">+7 727 227 50 18</a>
+            <a href="tel:+77072458888" className="hover:text-brand-gold">+7 707 245 8888</a>
           </div>
           <div>
             <span className="font-bold text-primary">{t(T.email)}</span>{" "}
