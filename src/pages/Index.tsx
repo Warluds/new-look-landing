@@ -2,13 +2,9 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Award, Building2, CheckCircle2, Facebook, Instagram, Lightbulb, Mail, MapPin, Menu, Paintbrush, Phone, Star, Trophy, X, Youtube } from "lucide-react";
 import heroImage from "@/assets/abis-showroom-hero.jpg";
 import karagandaStore from "@/assets/retail/karaganda-storefront.jpg";
-import almatyCk1_1 from "@/assets/retail/almaty-ck1-1.webp";
-import almatyCk1_2 from "@/assets/retail/almaty-ck1-2.webp";
-import almatyCk1_3 from "@/assets/retail/almaty-ck1-3.webp";
 import astanaCk_1 from "@/assets/retail/astana-ck-1.webp";
 import astanaCk_2 from "@/assets/retail/astana-ck-2.webp";
 import astanaCk_3 from "@/assets/retail/astana-ck-3.webp";
-import svetAlmaty from "@/assets/svet-almaty.jpg";
 import logoApplecity from "@/assets/partners/applecity.png";
 import logoMeloman from "@/assets/partners/meloman.png";
 import logoHalyk from "@/assets/partners/halyk.png";
@@ -45,6 +41,14 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } 
 import logoWhite from "@/assets/logo-white.svg";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { ProjectsGallery } from "@/components/ProjectsGallery";
+
+const retailPhotoAssets = import.meta.glob<{ default: { url: string } }>(
+  "/src/assets/retail/updated/*.asset.json",
+  { eager: true },
+);
+
+const retailPhoto = (name: string) =>
+  retailPhotoAssets[`/src/assets/retail/updated/${name}.webp.asset.json`]?.default.url ?? "";
 
 function AutoRotatingImage({ images, alt, className, interval = 3000 }: { images: string[]; alt: string; className?: string; interval?: number }) {
   const [idx, setIdx] = useState(0);
@@ -272,8 +276,19 @@ const retailLocations: Array<{ city: Tr; name: string; address: Tr; images: stri
       "ARMADA СО, Қабдолов к-сі 1/8, 1 блок, 1G желісі",
       "ARMADA Mall, 1/8 Kabdolova str., block 1, line 1G",
     ],
-    images: [almatyCk1_1, almatyCk1_2, almatyCk1_3],
+    images: Array.from({ length: 9 }, (_, i) => retailPhoto(`ck1-almaty-${i + 1}`)),
     tag: ["EST. 2015", "EST. 2015", "EST. 2015"],
+  },
+  {
+    city: ["Алматы", "Алматы", "Almaty"],
+    name: "Центр Красок №1 Ultra Premium",
+    address: [
+      "ТК ARMADA, ул. Кабдолова 1/8, 1 блок",
+      "ARMADA СО, Қабдолов к-сі 1/8, 1 блок",
+      "ARMADA Mall, 1/8 Kabdolova str., block 1",
+    ],
+    images: Array.from({ length: 3 }, (_, i) => retailPhoto(`ck1-ultra-premium-${i + 1}`)),
+    tag: ["Ultra Premium", "Ultra Premium", "Ultra Premium"],
   },
   {
     city: ["Астана", "Астана", "Astana"],
@@ -294,7 +309,7 @@ const retailLocations: Array<{ city: Tr; name: string; address: Tr; images: stri
       "ARMADA СО, 3-қатар, 1 блок, G желісі — дұрыс жарық орталығы",
       "ARMADA Mall, row 3, block 1, line G — the right light centre",
     ],
-    images: [svetAlmaty],
+    images: Array.from({ length: 10 }, (_, i) => retailPhoto(`svet-almaty-${i + 1}`)),
     tag: ["Lighting", "Жарық", "Lighting"],
   },
 ];
