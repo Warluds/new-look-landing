@@ -580,22 +580,7 @@ const Index = () => {
             <a href={KRASKI_2GIS} target="_blank" rel="noopener noreferrer" className="rounded-full border border-border bg-card px-5 py-2.5 text-sm font-extrabold text-primary transition-colors hover:bg-secondary">Центр Красок №1 {t(tr.on2gis)}</a>
           </div>
         </div>
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {reviews.map((r) => (
-            <a key={r.name} href={r.href} target="_blank" rel="noopener noreferrer" className="group flex flex-col rounded-2xl border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-luxe">
-              <div className="flex gap-0.5 text-brand-gold">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-current" />
-                ))}
-              </div>
-              <p className="mt-4 flex-1 leading-7 text-foreground">«{t(r.text)}»</p>
-              <div className="mt-5 border-t border-border pt-4">
-                <p className="font-extrabold">{r.name}</p>
-                <p className="text-sm text-muted-foreground">{r.source} · 2GIS</p>
-              </div>
-            </a>
-          ))}
-        </div>
+        <ReviewsRotator t={t} />
       </section>
 
       <section className="bg-brand-surface py-24">
