@@ -93,7 +93,7 @@ const childBrands: Array<{ name: string; desc: Tr; href: string; logo?: string }
   { name: "Decor +", desc: ["Дистрибьютор декоративных решений и освещения", "Декоративтік шешімдер мен жарықтандыру дистрибьюторы", "Distributor of decorative solutions and lighting"], href: "https://decor-plus.kz", logo: brandDecorPlus },
 ];
 
-const SVET_2GIS = "https://2gis.kz/almaty/firm/70000001043802177";
+const SVET_2GIS = "https://2gis.kz/almaty/firm/70000001043802177/tab/reviews";
 const KRASKI_2GIS = "https://2gis.kz/almaty/firm/70000001028399796/tab/reviews";
 
 const partners = [
@@ -124,42 +124,26 @@ const partners = [
 
 const reviews: Array<{ name: string; text: Tr; source: string; href: string }> = [
   {
-    name: "Тимур Остемиров",
-    text: [
-      "Отличный сервис, консультанты молодцы, знают как помочь и прекрасно справляются с этим. Респект!",
-      "Тамаша сервис, кеңесшілер керемет, көмектесуді біледі және өз ісінің шеберлері. Респект!",
-      "Excellent service — the consultants know how to help and do it brilliantly. Respect!",
-    ],
+    name: "Karslieva Yasmin",
+    text: ["Очень хороший салон освещения с большим выбором товаров. Обслуживание на высшем уровне, сотрудники всегда готовы помочь. Отдельная благодарность Камиле за внимание к деталям и помощь в выборе!", "Жарықтандыру салоны өте жақсы, тауар таңдауы кең. Қызмет көрсету жоғары деңгейде, қызметкерлер әрдайым көмектесуге дайын. Камилаға ерекше рахмет!", "A great lighting showroom with a wide selection. Top-level service, staff always ready to help. Special thanks to Kamila for her attention to detail!"],
     source: "SVET.KZ",
     href: SVET_2GIS,
   },
   {
-    name: "Дуйсен Оразалиев",
-    text: [
-      "Разнообразный выбор, высокий уровень сервиса. Профессионалы своего дела, всё делают качественно и в срок. 5 звёзд.",
-      "Кең таңдау, жоғары деңгейдегі сервис. Өз ісінің кәсіби мамандары, бәрін сапалы әрі мерзімінде орындайды. 5 жұлдыз.",
-      "Wide selection, high level of service. True professionals — everything is done well and on time. 5 stars.",
-    ],
+    name: "Имангали Кушербай",
+    text: ["За покупкой обратился сюда впервые, остался доволен. Нурбол хорошо проконсультировал. Сервис отличный, кофе вкусный.", "Алғаш рет сатып алуға келдім, риза болдым. Нұрбол жақсы кеңес берді. Сервис тамаша, кофе дәмді.", "First time buying here and very satisfied. Nurbol gave great advice. Excellent service, tasty coffee."],
     source: "Центр Красок №1",
     href: KRASKI_2GIS,
   },
   {
-    name: "Айдана Махмутова",
-    text: [
-      "Отличное обслуживание. Позвонили, всё объяснили и быстро доставили. Спасибо!",
-      "Тамаша қызмет көрсету. Қоңырау шалып, бәрін түсіндіріп, жылдам жеткізді. Рахмет!",
-      "Great service. They called, explained everything and delivered quickly. Thank you!",
-    ],
+    name: "Epilux beauty",
+    text: ["Очень понравился магазин! Долго выбирали люстру, и здесь нашли именно то, что искали. Хороший ассортимент, приятные цены и внимательное отношение к покупателям.", "Дүкен қатты ұнады! Люстраны ұзақ таңдадық, осы жерден іздегенімізді таптық. Жақсы ассортимент, қолайлы бағалар және сатып алушыларға ілтипат.", "Loved the store! We searched for a chandelier for a long time and found exactly what we wanted here. Good range, fair prices and attentive staff."],
     source: "SVET.KZ",
     href: SVET_2GIS,
   },
   {
-    name: "Анна Казанцева",
-    text: [
-      "Услугами магазина осталась очень довольна. Хороший выбор, нормальные цены, доброжелательные менеджеры.",
-      "Дүкеннің қызметіне өте риза болдым. Жақсы таңдау, қалыпты бағалар, ілтипатты менеджерлер.",
-      "Very happy with the store. Good selection, fair prices, friendly managers.",
-    ],
+    name: "Treiderbala",
+    text: ["Спасибо Нурболу за внимательное отношение. Помог подобрать краску и всё подробно объяснил. Вкусный кофе тоже порадовал.", "Нұрболға ілтипаты үшін рахмет. Бояуды таңдауға көмектесіп, бәрін егжей-тегжейлі түсіндірді. Дәмді кофе де қуантты.", "Thanks to Nurbol for his attention. He helped choose the paint and explained everything in detail. The coffee was great too."],
     source: "Центр Красок №1",
     href: KRASKI_2GIS,
   },
