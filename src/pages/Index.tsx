@@ -42,13 +42,13 @@ import logoWhite from "@/assets/logo-white.svg";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { ProjectsGallery } from "@/components/ProjectsGallery";
 
-const retailPhotoAssets = import.meta.glob<{ default: { url: string } }>(
-  "/src/assets/retail/updated/*.asset.json",
-  { eager: true },
+const retailPhotoAssets = import.meta.glob<string>(
+  "/src/assets/retail/updated/*.webp",
+  { eager: true, import: "default" },
 );
 
 const retailPhoto = (name: string) =>
-  retailPhotoAssets[`/src/assets/retail/updated/${name}.webp.asset.json`]?.default.url ?? "";
+  retailPhotoAssets[`/src/assets/retail/updated/${name}.webp`] ?? "";
 
 function AutoRotatingImage({ images, alt, className, interval = 3000 }: { images: string[]; alt: string; className?: string; interval?: number }) {
   const [idx, setIdx] = useState(0);
